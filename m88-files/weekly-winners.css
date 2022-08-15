@@ -1,0 +1,145 @@
+@charset "utf-8";
+
+
+#weeklywinner ul{
+	padding: 0;
+    list-style-type: none;
+}
+
+#weeklywinner .swiper-slide{
+     width: unset;
+}
+#weeklywinner ul .row-flex {
+    display: flex;
+    align-items: center;
+    list-style: none;
+  }
+
+#area-weekly-winners .overflow-swipe {
+	position: relative;
+	overflow: auto;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+	cursor: pointer;
+}
+
+#weeklywinner .weekly-card{
+    color: var(--primary-9);
+	width: 350px;
+	border-radius: 10px;
+	background-color: var(--primary-1);
+	box-sizing: border-box;
+	font-weight: 900;
+    height: 160px;
+    margin-top: 13px;
+}
+
+#weeklywinner .weekly-card .winners{
+    background-color: var(--primary-2);
+}
+#weeklywinner .weekly-card .winners{
+    height: 50px;
+    position: absolute;
+    width: 300px;
+    padding: 10px var(--spacing-24) var(--spacing-24) var(--spacing-24);
+    border-radius: 10px;
+}
+
+#weeklywinner .weekly-card .name{
+    font-weight: normal;
+}
+
+#weeklywinner .weekly-card .coins{
+        position: absolute;
+        right: 30px;
+        top: -20px;
+}
+#weeklywinner .weekly-card .coins img{
+    width: 105px;
+}
+
+
+#weeklywinner .weekly-card .amount{
+    font-size: 20px;
+    color: var(--secondary-3);
+    font-weight: bold;
+}
+.weekly-card .info {
+    position: absolute;
+display: flex;
+bottom: 0;
+width: 300px;
+align-items: center;
+    padding: 0 var(--spacing-24) var(--spacing-24) var(--spacing-24);
+  }
+
+.weekly-card .info .content-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+.weekly-card .info .align-content-start {
+    justify-content: flex-start;
+    margin-right: auto;
+  }
+.weekly-card .info .align-content-end {
+    justify-content: flex-end;
+    margin-left: auto;
+  }
+
+  .weekly-card .info .button  {
+    height: 40px;
+    font-size: 12px;
+    padding: 11px 20px;
+  }
+
+
+
+
+  .latest-winners-tiles .swiper-wrapper .swiper-slide .tile .title-image{
+    position: absolute;
+    width: 76px;
+    height: 68px;
+    right: 25px;
+    top: -16px;
+  }
+
+  .dynamic-content .area .swiper-tiles.latest-winners-tiles .swiper-slide .tile {
+    width: 255px !important;
+  }
+
+  .latest-winners-tiles .swiper-wrapper .swiper-slide .tile .winner-info-box {
+    margin-left:-16px;
+    margin-right:-16px;
+    padding:8px 16px;
+    border-bottom-right-radius:var(--spacing-12);
+    border-bottom-left-radius:var(--spacing-12);
+    height:33px
+   }
+   .latest-winners-tiles .content-wrapper {
+    display: flex;
+    align-items: center;
+  }
+   .latest-winners-tiles .align-content-start {
+    justify-content: flex-start;
+    margin-right: auto;
+  }
+  .latest-winners-tiles .align-content-end {
+    justify-content: flex-end;
+    margin-left: auto;
+  }
+.winner-card{
+    border-radius: var(--spacing-12);
+}
+
+.latest-winners-tiles .swiper-wrapper {
+  margin-top: var(--spacing-16);
+}
+
+.dynamic-content .area .swiper-tiles.latest-winners-tiles .swiper-slide .tile {
+  height:142px !important;
+ }

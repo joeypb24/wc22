@@ -1,0 +1,19 @@
+.main-menu .main-menu-content {
+   padding: 0;
+}
+.main-menu .main-menu-content .icon-laligaroom {
+   width:82px !important;
+   height:52px !important
+}
+.side-menu .dynamic-content .area .side-menu-tile-nav-element .tile-nav-element a .side-menu-tile .icon-laligaroom-mobile {
+   width: 73px;
+   height: 90px;
+}
+@media(min-width: 1023.5px) {
+   .main-menu .main-menu-content .icon-laligaroom {
+      width:94px;
+      height:24px;
+      display:block
+   }
+}
+   

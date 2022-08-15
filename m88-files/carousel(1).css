@@ -1,0 +1,71 @@
+.carousel-item > a > picture > img {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.carousel-item > div > picture > img {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.carousel-item .carousel-item-content {
+    padding-right: 12px;
+    justify-content: flex-end;
+    padding-bottom: 24px;
+    left: 50%;
+    width: 50%;
+}
+
+.carousel-item .carousel-item-content span {
+    padding-right: 12px;
+    text-transform: uppercase;
+}
+
+.carousel-item .carousel-item-content .track-events {
+    width: unset;
+}
+
+.carousel-icon {
+    height: 40px;
+    padding-bottom: 8px;
+}
+
+@media (min-width: 767.5px) {
+    .carousel-item .carousel-item-content {
+        padding-right: 32px;
+        padding-bottom: 48px;
+        left: 55%;
+    }
+}
+
+@media (min-width: 1023.5px) {
+    .carousel-item .carousel-item-content {
+        padding-right: 64px;
+        padding-bottom: 64px;
+    }
+    .carousel-icon {
+        height: 80px;
+        padding-bottom: 12px;
+    }
+    .carousel-item .carousel-item-content span {
+        padding-right: 0;
+    }
+}
+
+
+@media (min-width: 1365.5px) {
+    .carousel-item .carousel-item-content {
+        padding-right: 64px;
+        padding-bottom: 64px;
+        left: unset;
+        right: 0;
+        width: 555px;
+    }
+}
+
+.carousel-item .middle-text{
+    height: 50%;
+    margin: auto;
+}

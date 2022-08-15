@@ -1,0 +1,9 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 16" width="17" height="16">
+	<title>icon-launch-svg</title>
+	<defs>
+		<image  width="15" height="14" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAOCAMAAADHVLbdAAAAAXNSR0IB2cksfwAAAE5QTFRFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAxKKmWQAAABp0Uk5TABCfv68gw+eHwPCwxPP/qIDPYOBwkEDvUKAgqd8QAAAAWUlEQVR4nI3OSRaAIAxEwcY4RRQF5/tf1KCAuPOvUpt+AVRBRKVCRVQ3LcAdM2sx94MZATPhSVnj72ihy+yJeUlm4V3wGvjuSVv1db7/13qnmDWHPHJyyuECAgMEoJnNIZYAAAAASUVORK5CYII="/>
+	</defs>
+	<style>
+	</style>
+	<use id="Layer" href="#img1" x="1" y="1"/>
+</svg>

@@ -1,0 +1,102 @@
+
+
+<!DOCTYPE html>
+<html lang="en-US" version="2.51.1.14705">
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+
+  <title>M88 - Best Online Casino and Gambling in Asia</title>
+  <link rel="stylesheet" type="text/css" href="/~/static/css/layout/color-definitions_m995.css?build=2.51.1.14705-" />
+
+  
+  <!-- BEGIN LivePerson Monitor. ignore-eslint -->
+  <script type="text/javascript" nonce="dcfed35481fb4de5a59080480c15edb0">window.lpTag = window.lpTag || {}, 'undefined' == typeof window.lpTag._tagCount ? (window.lpTag = { wl: lpTag.wl || null, scp: lpTag.scp || null, site: '45859899' || '', section: lpTag.section || '', tagletSection: lpTag.tagletSection || null, autoStart: lpTag.autoStart !== !1, ovr: lpTag.ovr || {}, _v: '1.10.0', _tagCount: 1, protocol: 'https:', events: { bind: function (t, e, i) { lpTag.defer(function () { lpTag.events.bind(t, e, i) }, 0) }, trigger: function (t, e, i) { lpTag.defer(function () { lpTag.events.trigger(t, e, i) }, 1) } }, defer: function (t, e) { 0 === e ? (this._defB = this._defB || [], this._defB.push(t)) : 1 === e ? (this._defT = this._defT || [], this._defT.push(t)) : (this._defL = this._defL || [], this._defL.push(t)) }, load: function (t, e, i) { var n = this; setTimeout(function () { n._load(t, e, i) }, 0) }, _load: function (t, e, i) { var n = t; t || (n = this.protocol + '//' + (this.ovr && this.ovr.domain ? this.ovr.domain : 'lptag.liveperson.net') + '/tag/tag.js?site=' + this.site); var o = document.createElement('script'); o.setAttribute('charset', e ? e : 'UTF-8'), i && o.setAttribute('id', i), o.setAttribute('src', n), document.getElementsByTagName('head').item(0).appendChild(o) }, init: function () { this._timing = this._timing || {}, this._timing.start = (new Date).getTime(); var t = this; window.attachEvent ? window.attachEvent('onload', function () { t._domReady('domReady') }) : (window.addEventListener('DOMContentLoaded', function () { t._domReady('contReady') }, !1), window.addEventListener('load', function () { t._domReady('domReady') }, !1)), 'undefined' === typeof window._lptStop && this.load() }, start: function () { this.autoStart = !0 }, _domReady: function (t) { this.isDom || (this.isDom = !0, this.events.trigger('LPT', 'DOM_READY', { t: t })), this._timing[t] = (new Date).getTime() }, vars: lpTag.vars || [], dbs: lpTag.dbs || [], ctn: lpTag.ctn || [], sdes: lpTag.sdes || [], hooks: lpTag.hooks || [], identities: lpTag.identities || [], ev: lpTag.ev || [] }, lpTag.init()) : window.lpTag._tagCount += 1;</script>
+  <!-- END LivePerson Monitor. -->
+
+
+</head>
+  <body>
+    <link href="/~/static/css/error/errorpages404.css?build=2.51.1.14705-" rel="stylesheet">
+<header class="header__logo">
+    <img src="/~/static/images/error/ico/m88-logo-mbl.svg?build=2.51.1.14705-" class="dsktp-img">
+    <img src="/~/static/images/error/ico/m88-logo.svg?build=2.51.1.14705-" class="mbl-img">
+</header>
+<main class="content">
+    <div class="banner-content">
+         <div class="content-txt">
+             <p class="md-txt">OOPS!</p>
+             <p class="lg-txt">Page not found</p>
+             <p class="sm-txt">This page doesn’t exist or was removed. <span class="txt-block">We suggest you back to the home.</span></p>
+             <div class="btn-section">
+                 <a href="/">Back to homepage</a>
+             </div>
+         </div>
+    </div>
+</main>
+    <script src="/_js/lib/jquery.min.js?build=2.51.1.14705-"></script>
+    <script nonce="dcfed35481fb4de5a59080480c15edb0">
+      $('#copy-to-clipboard').click(function () {
+        $('#correlation-id').select();
+        document.execCommand('copy');
+      });
+    </script>
+  </body>
+
+
+
+<link href="/_css/livechat.css?build=2.51.1.14705-" rel="stylesheet" />
+
+
+  <script type="text/javascript" nonce="dcfed35481fb4de5a59080480c15edb0">
+    /* global lpTag */
+    /* exported sendLEAttributes */
+    function sendLEAttributes() {
+      lpTag.sdes = lpTag.sdes || [];
+      lpTag.sdes.send(
+        {
+          'type': 'personal',
+          'personal': {
+            'firstname': 'M88 Visitor',
+            'lastname': '(N/A)',
+            'language': 'en-US',
+            'company': 'M88 (desktop)'
+          }
+        }
+      );
+    }
+  </script>
+
+
+  <div class="live-engage-floating ">
+	  <div id="chat-en-us-nonvip-2" data-lp-event="click" onclick="sendLEAttributes()"></div>
+  </div> 
+
+<link href="/_css/proactiveliveengage.css?build=2.51.1.14705-" rel="stylesheet" />
+
+
+
+<div id="prochat-en-us-nonvip-2" class="prochat-live-engage-floating">
+
+    
+<img src="/~/static/images/chat/prochat-banner.jpg" loading="lazy" class="background"></img>
+
+    
+<img src="/~/static/images/chat/icon-prochat-close.svg" loading="lazy" class="icon close"></img>
+
+    
+<span class="text top">
+  Hello!
+</span>
+
+    
+<span class="text bottom">
+  Need help?
+</span>
+
+</div>
+
+
+<script type="text/javascript" src="/_js/common/proactiveliveengage.js?build=2.51.1.14705-"></script>
+
+</html>

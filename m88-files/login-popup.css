@@ -1,0 +1,8 @@
+.modal-overlay.modal-login .modal-content .modal-body .modal-body-content .details-sent-success-image,
+.modal-overlay.modal-forgot-details .modal-content .modal-body .modal-body-content .details-sent-success-image,
+.modal-overlay.modal-forgot-details-success .modal-content .modal-body .modal-body-content .details-sent-success-image,
+.modal-overlay.modal-reset-password .modal-content .modal-body .modal-body-content .details-sent-success-image,
+.modal-overlay.modal-reset-password-success .modal-content .modal-body .modal-body-content .details-sent-success-image {
+ background: url(../m88-files/icon-modal-success.png) no-repeat center;
+ background-size: contain;
+}

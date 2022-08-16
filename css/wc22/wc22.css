@@ -362,14 +362,16 @@ iframe {
 .swiper-odds-next {
 	right: 0;
 }
-.swiper-odds-next:after {
+.swiper-odds-next:after,
+.swiper-button-next:before {
 	content: '';
 	display: block;
 	width: 12px;
 	height: 8px;
 	background: url("../../images/wc22/east.svg") no-repeat center center;   
 }
-.swiper-odds-prev:after {
+.swiper-odds-prev:after,
+.swiper-button-prev:before {
 	content: '';
 	display: block;
 	width: 12px;

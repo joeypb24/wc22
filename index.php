@@ -43,6 +43,7 @@
 
   <!-- World Cup Qatar 2022 end-->
 
-  </div>
-
 </div>
+
+<?php include 'footer.php'; ?>
+

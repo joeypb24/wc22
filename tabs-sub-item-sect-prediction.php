@@ -19,3 +19,21 @@
 	<!-- ~ inner -->
 
 </section>
+<section class="wc22-prediction">
+	<div class="inner">
+		<div class="scroll-holder scroll-x bracket-scroller-x">
+			<div class="scroll-mover">
+				<div class="scroller-inner">
+					<div class="bracket-wrap"></div>
+				</div>
+			</div>
+		</div>
+		<div class="cta-area">
+			<button class="btn btn-submit-prediction inactive">Submit</button>
+		</div>
+	</div>
+</section>
+
+
+<script type="text/javascript" src="./js/wc22/prediction/team-list.js"></script>
+<script type="text/javascript" src="./js/wc22/prediction/langcontent.js"></script>

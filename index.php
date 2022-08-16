@@ -2419,6 +2419,7 @@
         <?php include 'area-vids.php'; ?>
 
       </div>
+      <script type="text/javascript" src="./js/jquery.scrollbar.js"></script>
       <script type="text/javascript" src="./js/wc22/wc22.js"></script>
       <script type="text/javascript" src="./js/wc22/wc22-jemson.js"></script>
       <script type="text/javascript" src="./js/wc22/wc22-paul.js"></script>

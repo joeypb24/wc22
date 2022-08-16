@@ -1,54 +1,103 @@
-<?php include 'header.php'; ?>
+<!DOCTYPE html>
+<!-- saved from url=(0030)https://www.m88.com/livecasino -->
+<html
+  lang="en-US"
+  data-currency="MYR"
+  data-theme="default"
+  version="2.51.1.14705-"
+>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<div class="content">
-  
-  <?php include 'carousel.php'; ?>
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
-  <div class="dynamic-content wc22">
-    
-    <link rel="stylesheet" type="text/css" href="./m88-files/carousel.css">
-    <link rel="stylesheet" type="text/css" href="./m88-files/laligaroom.css">
-    <link rel="stylesheet" type="text/css" href="./m88-files/swiper.css">
-    <link rel="stylesheet" type="text/css" href="./m88-files/bottom-drawer.css">
-    <!-- <link rel="stylesheet" type="text/css" href="./m88-files/style.css"> -->
-    <!-- <link rel="stylesheet" type="text/css" href="./m88-files/laliga.css"> -->
+    <link rel="preload" href="./_fonts/Lato-Black.woff2" as="font" type="font/woff2" crossorigin="" />
+    <link rel="preload" href="./_fonts/Lato-Regular.woff2" as="font" type="font/woff2" crossorigin="" />
+    <link rel="preload" href="./_fonts/Roboto-Black.woff2" as="font" type="font/woff2" crossorigin="" />
+    <link rel="preload" href="./_fonts/Roboto-Bold.woff2" as="font" type="font/woff2" crossorigin="" />
+    <link rel="preload" href="./_fonts/Roboto-Regular.woff2" as="font" type="font/woff2" crossorigin="" />
 
-    <!-- World Cup Qatar 2022 start -->
-    <link rel="stylesheet" type="text/css" href="./css/wc22/wc22.css" />
-    <link rel="stylesheet" type="text/css" href="./css/wc22/wc22-jemson.css" />
-    <link rel="stylesheet" type="text/css" href="./css/wc22/wc22-paul.css" />
-    <link rel="stylesheet" type="text/css" href="./css/wc22/wc22-dana.css" />
+    <!-- <script async="" type="text/javascript" src="https://cdn.graphyte.ai/graphyte-apac.min.js"></script> -->
+    <script type="text/javascript" async="" defer="" src="./m88-files/matomo.js"></script>
+    <script async="" src="./m88-files/analytics.js"></script>
+    <script src="./m88-files/state-management.js"></script>
 
-    <?php include 'tabs-main.php'; ?>
+    <script type="text/javascript" nonce="70daa105e2604a3393ee8a5232ec547a">
+      /* global state */
+      const state = new State({
+        forceDesktop: "False",
+        locale: "en-US",
+        authenticated: "False",
+        device: "Desktop",
+        userAgent: navigator.userAgent.toLowerCase(),
+        currency: "",
+        buttonClass: "btn",
+        primaryButtonClass: "btn-primary",
+        disabledButtonClass: "btn-disabled",
+        brand: "m88",
+        page: window.location.pathname,
+        defaultPageMode: "False",
+        mode: "default",
+        /**
+         * Is used to disable the HTTP cache for getBalance calls. This will happen
+         * only on the first call, then the value is reset to `false`.
+         * It is used by balance-helper.
+         */
+        oneTimeDisableWalletCache: false,
+      });
+    </script>
 
-    <section class="wc22-tab-items area area--main">
+    <script src="./m88-files/ua-sdk.min.js" async="" id="_uasdk"></script>
 
-      <?php include 'tabs-main-item-1.php'; ?>
-      <?php include 'tabs-main-item-2.php'; ?>
-      <?php include 'tabs-main-item-3.php'; ?>
-      <?php include 'tabs-main-item-4.php'; ?>
+    <link rel="stylesheet" type="text/css" href="./m88-files/layout-definitions.css" />
+    <link rel="stylesheet" type="text/css" href="./m88-files/layout.css" />
+    <link rel="stylesheet" type="text/css" href="./m88-files/dynamic-content.css" />
+    <link rel="stylesheet" type="text/css" href="./m88-files/swiper-bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="./m88-files/modal.css" />
 
-    </section>
+    <!-- <link rel="preload" as="script" href="./m88-files/jquery.min.js" /> -->
+    <!-- <link rel="preload" as="script" href="./m88-files/jquery-overrides.js"> -->
 
-    <?php include 'area-sportsbook.php'; ?>
-    <?php include 'area-rng.php'; ?>
-    <?php include 'area-vids.php'; ?>
+    <script src="./m88-files/jquery.min.js" importance="high"></script>
+    <!-- <script src="./m88-files/require.js"></script> -->
+    <!-- <script src="./m88-files/require-config.js"></script> -->
+    <!-- <script src="./m88-files/ajax-handler.js"></script> -->
 
-  </div>
-  <script type="text/javascript" src="./js/wc22/wc22.js"></script>
-  <script type="text/javascript" src="./js/wc22/wc22-jemson.js"></script>
-  <script type="text/javascript" src="./js/wc22/wc22-paul.js"></script>
-  <script type="text/javascript" src="./js/wc22/wc22-dana.js"></script>
+    <meta name="application-name" content="Player Portal" />
 
-  <!-- World Cup Qatar 2022 end-->
+    <title>M88 - World Cup Qatar 2022</title>
+    <meta
+      name="keywords"
+      content="casino games online, online casino game, casino game online, online games gambling, online sports games, online poker game, online casino games, roulette game, online games poker, slot machines, free slots, slots, slot game, slot machines games, game slot, gambling slot machines, slot machine gambling, online gambling Malaysia, online gambling Asia, online gambling Australia"
+    />
+    <meta
+      name="description"
+      content="M88 is Asia&#39;s best online live casino. It offers games such as Baccarat, Dragon Tiger, Sic Bo and Blackjack with live dealers. Start playing now!"
+    />
 
-  </div>
+    <!-- <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery-overrides" src="./m88-files/jquery-overrides.js"></script> -->
+    <!-- <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery" src="./m88-files/jquery.min.js"></script><script src="./m88-files/configs.php" async="" defer=""></script> -->
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="swiper" src="./m88-files/swiper-bundle.min.js"></script>
+    <!-- <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="form-hooks" src="./m88-files/form-hooks.js"></script><script charset="UTF-8" src="./m88-files/tag.js"></script> -->
+    <!-- <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="mustache-wax" src="./m88-files/mustache-wax.min.js"></script> -->
+    <!-- <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="mustache" src="./m88-files/mustache.min.js"></script> -->
+    <!-- <script charset="UTF-8" id="_lpTagScriptId_0" src="./m88-files/jsonp"></script> -->
+    <!-- <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="localization" src="./m88-files/localization.js"></script> -->
+    <script async="" id="lp-ui-framework" src="./m88-files/ui-framework.js" charset="UTF-8"></script>
+    <script async="" id="lp-api-messaging" src="./m88-files/UMSClientAPI.min.js" charset="UTF-8"></script>
+    <script async="" id="lp-api-chat" src="./m88-files/lpChatV3.min.js" charset="UTF-8"></script>
+    <script async="" id="lp-survey-logic" src="./m88-files/surveylogicinstance.min.js" charset="UTF-8"></script>
+    <!-- <script async="" id="lp-uw-embedded" src="./m88-files/desktopEmbedded.js" charset="UTF-8"></script> -->
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery.validate" src="./m88-files/jquery.validate.min.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="./m88-files/overlay.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="./m88-files/UISuite.js"></script>
+  </head>
 
-</div>
+  <body class="device-desktop" cz-shortcut-listen="true">
+    <link rel="stylesheet" type="text/css" href="./m88-files/header.css" />
+    <link rel="stylesheet" type="text/css" href="./m88-files/dropdown-menu.css" />
 
-<<<<<<< HEAD
-<?php include 'footer.php'; ?>
-=======
     <div class="header">
       <div class="header-content">
         <link rel="stylesheet" type="text/css" href="./m88-files/login-popup.css" />
@@ -1940,456 +1989,3 @@
         </div>
       </div>
     </div>
-
-    <div class="content">
-      <link rel="stylesheet" type="text/css" href="./m88-files/carousel.css" />
-      <div class="carousel-placeholder">
-        <div
-          class="carousel-wrapper"
-          data-tracking-name="Carousel"
-        >
-          <div
-            class="swiper-wrapper"
-            id=""
-            aria-live="off"
-            style="
-              transition-duration: 0ms;
-              transform: translate3d(-2720px, 0px, 0px);
-            "
-          >
-            <div
-              class="swiper-slide"
-              data-swiper-slide-index="4"
-              role="group"
-              aria-label="5 / 5"
-              style="width: 1360px"
-            >
-              <div class="carousel-item">
-                <div
-                  class="block pointer"
-                  data-component-name=""
-                  data-url="/register"
-                >
-                  <picture>
-                    <source
-                      media="(max-width: 767.5px)"
-                      sizes="100vw"
-                      srcset="
-                        ./m88-files/mobile_mglivechallenge_neonmania_livecasino_EN.jpg 375w
-                      "
-                    />
-                    <img
-                      src="./m88-files/mglivechallenge_neonmania_livecasino_EN.webp"
-                      loading="lazy"
-                      srcset="
-                        ./m88-files/mglivechallenge_neonmania_livecasino_EN.jpg 1360w
-                      "
-                      sizes="(max-width: 1360px) 100vw, 1360px"
-                    />
-                  </picture>
-
-                  <div class="carousel-item-content">
-                    <img
-                      src="./m88-files/baccarat_treasurehunt_EN.svg"
-                      loading="lazy"
-                      class="carousel-icon"
-                    />
-
-                    <span class="big bold from-tablet-up">
-                      THE MORE YOU PLAY
-                    </span>
-
-                    <span class="from-tablet-up">
-                      THE MORE CHANCE TO WIN!
-                    </span>
-
-                    <span class="big bold up-to-tablet"> MORE YOU PLAY </span>
-
-                    <span class="up-to-tablet"> THE MORE CHANCE TO WIN! </span>
-
-                    <button
-                      class="button button-primary track-events"
-                      data-url="/register"
-                      data-tracking-name="Click - Join Now - STUDIO M88 INTER - NEO MANIA - EN"
-                    >
-                      JOIN NOW
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <link
-              rel="stylesheet"
-              type="text/css"
-              href="./m88-files/carousel(1).css"
-            />
-
-            <div
-              class="swiper-slide swiper-slide-prev"
-              data-swiper-slide-index="0"
-              role="group"
-              aria-label="1 / 5"
-              style="width: 1360px"
-            >
-              <div class="carousel-item">
-                <div
-                  class="block pointer"
-                  data-component-name=""
-                  data-url="/register"
-                >
-                  <picture>
-                    <source
-                      media="(max-width: 767.5px)"
-                      sizes="100vw"
-                      srcset="
-                        ./m88-files/mobile_lcfastwelcomebonus_livecasino_EN.jpg 375w
-                      "
-                    />
-
-                    <img
-                      src="./m88-files/lcfastwelcomebonus_livecasino_EN.webp"
-                      loading="lazy"
-                      srcset="
-                        ./m88-files/lcfastwelcomebonus_livecasino_EN.jpg 1360w
-                      "
-                      sizes="(max-width: 1360px) 100vw, 1360px"
-                    />
-                  </picture>
-
-                  <div class="carousel-item-content">
-                    <img
-                      src="./m88-files/ftd-livecasino_EN.svg"
-                      loading="lazy"
-                      class="carousel-icon"
-                    />
-
-                    <span class="big bold"> 175% BONUS OR 20x RO </span>
-
-                    <span class="from-tablet-up">
-                      18 FREE SPINS AND MYR 32 FREEBET
-                    </span>
-
-                    <button
-                      class="button button-primary track-events"
-                      data-url="/register"
-                      data-tracking-name="Click - Join Now - Live Casino Welcome Bonus Bundle - EN"
-                    >
-                      JOIN NOW
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="swiper-slide" style="width: 1360px">
-              <div class="carousel-item">
-                <div
-                  class="block pointer"
-                  data-component-name=""
-                  data-url="/register"
-                >
-                  
-                <picture>
-                    <source
-                      media="(max-width: 767.5px)"
-                      sizes="100vw"
-                      srcset="
-                        ./m88-files/mobile_sexygamingdailyrebate_livecasino_EN.jpg 375w
-                      "
-                    />
-                    <img
-                      src="./m88-files/sexygamingdailyrebate_livecasino_EN.jpg"
-                      loading="lazy"
-                      srcset="
-                        ./m88-files/sexygamingdailyrebate_livecasino_EN.jpg 1360w
-                      "
-                      sizes="(max-width: 1360px) 100vw, 1360px"
-                    />
-                  </picture>
-
-                  <div class="carousel-item-content">
-                    <img
-                      src="./m88-files/extrarebate-guaranted1.50_EN.svg"
-                      loading="lazy"
-                      class="carousel-icon"
-                    />
-                    <span class="big bold from-tablet-up">
-                      HOTTEST DAILY DEALS
-                    </span>
-                    <span class="from-tablet-up"> DOUBLE THE FUN </span>
-                    <span class="big bold up-to-tablet"> HOTTEST DEALS </span>
-                    <span class="up-to-tablet"> DOUBLE THE FUN </span>
-                    <button
-                      class="button button-primary track-events"
-                      data-url="/register"
-                      data-tracking-name=""
-                    >
-                      JOIN NOW
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="swiper-slide" style="width: 1360px">
-              <div class="carousel-item">
-                <div
-                  class="block pointer"
-                  data-component-name=""
-                  data-url="/register"
-                >
-                  <picture>
-                    <source
-                      media="(max-width: 767.5px)"
-                      sizes="100vw"
-                      srcset="
-                        ./m88-files/mobile_dw_eye_of_cleopatra_livecasino_EN.jpg 375w
-                      "
-                    />
-                    <img
-                      src="./m88-files/dw_eye_of_cleopatra_livecasino_EN.webp"
-                      loading="lazy"
-                      srcset="
-                        ./m88-files/dw_eye_of_cleopatra_livecasino_EN.jpg 1360w
-                      "
-                      sizes="(max-width: 1360px) 100vw, 1360px"
-                    />
-                  </picture>
-
-                  <div class="carousel-item-content">
-                    <img
-                      src="./m88-files/play_dailywins_tournament_EN.svg"
-                      loading="lazy"
-                      class="carousel-icon"
-                    />
-                    <span class="big bold"> PRIZE POOL </span>
-                    <span class=""> UP TO MYR 2,500,000 </span>
-                    <button
-                      class="button button-primary track-events"
-                      data-url="/register"
-                      data-tracking-name=""
-                    >
-                      JOIN NOW
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="swiper-slide" style="width: 1360px">
-              <div class="carousel-item">
-                <div
-                  class="block pointer"
-                  data-component-name=""
-                  data-url="/register"
-                >
-                  <picture>
-                    <source
-                      media="(max-width: 767.5px)"
-                      sizes="100vw"
-                      srcset="
-                        ./m88-files/mobile_vipbacarrat_tournament_EN.jpg 375w
-                      "
-                    />
-                    <img
-                      src="./m88-files/vipbacarrat_tournament_EN"
-                      loading="lazy"
-                      srcset="./m88-files/vipbacarrat_tournament_EN.jpg 1360w"
-                      sizes="(max-width: 1360px) 100vw, 1360px"
-                    />
-                  </picture>
-
-                  <div class="carousel-item-content">
-                    <img
-                      src="./m88-files/badge_vipbacarrat_tournament_EN.svg"
-                      loading="lazy"
-                      class="carousel-icon"
-                    />
-                    <span class="big bold from-tablet-up"> JOIN THE VIP </span>
-                    <span class="big bold from-tablet-up">
-                      BACCARAT TOURNAMENT
-                    </span>
-                    <span class="big bold up-to-tablet"> VIP BACCARAT </span>
-                    <span class="big bold up-to-tablet"> TOURNAMENT </span>
-                    <span class=""> PRIZE UP TO MYR 8,000 </span>
-
-                    <button
-                      class="button button-primary track-events"
-                      data-url="/register"
-                      data-tracking-name=""
-                    >
-                      JOIN NOW
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="swiper-slide" style="width: 1360px">
-              <div class="carousel-item">
-                <div
-                  class="block pointer"
-                  data-component-name=""
-                  data-url="/register"
-                >
-                  <picture>
-                    <source
-                      media="(max-width: 767.5px)"
-                      sizes="100vw"
-                      srcset="
-                        ./m88-files/mobile_mglivechallenge_neonmania_livecasino_EN.jpg 375w
-                      "
-                    />
-                    <img
-                      src="./m88-files/mglivechallenge_neonmania_livecasino_EN.webp"
-                      loading="lazy"
-                      srcset="
-                        ./m88-files/mglivechallenge_neonmania_livecasino_EN.jpg 1360w
-                      "
-                      sizes="(max-width: 1360px) 100vw, 1360px"
-                    />
-                  </picture>
-
-                  <div class="carousel-item-content">
-                    <img
-                      src="./m88-files/baccarat_treasurehunt_EN.svg"
-                      loading="lazy"
-                      class="carousel-icon"
-                    />
-                    <span class="big bold from-tablet-up">
-                      THE MORE YOU PLAY
-                    </span>
-                    <span class="from-tablet-up">
-                      THE MORE CHANCE TO WIN!
-                    </span>
-                    <span class="big bold up-to-tablet"> MORE YOU PLAY </span>
-                    <span class="up-to-tablet"> THE MORE CHANCE TO WIN! </span>
-                    <button
-                      class="button button-primary track-events"
-                      data-url="/register"
-                      data-tracking-name="Click - Join Now - STUDIO M88 INTER - NEO MANIA - EN"
-                    >
-                      JOIN NOW
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="swiper-slide" style="width: 1360px">
-              <div class="carousel-item">
-                <div
-                  class="block pointer"
-                  data-component-name=""
-                  data-url="/register"
-                >
-                  <picture>
-                    <source
-                      media="(max-width: 767.5px)"
-                      sizes="100vw"
-                      srcset="
-                        ./m88-files/mobile_lcfastwelcomebonus_livecasino_EN.jpg 375w
-                      "
-                    />
-                    <img
-                      src="./m88-files/lcfastwelcomebonus_livecasino_EN.webp"
-                      loading="lazy"
-                      srcset="
-                        ./m88-files/lcfastwelcomebonus_livecasino_EN.jpg 1360w
-                      "
-                      sizes="(max-width: 1360px) 100vw, 1360px"
-                    />
-                  </picture>
-
-                  <div class="carousel-item-content">
-                    <img
-                      src="./m88-files/ftd-livecasino_EN.svg"
-                      loading="lazy"
-                      class="carousel-icon"
-                    />
-
-                    <span class="big bold"> 175% BONUS OR 20x RO </span>
-
-                    <span class="from-tablet-up">
-                      18 FREE SPINS AND MYR 32 FREEBET
-                    </span>
-
-                    <button
-                      class="button button-primary track-events"
-                      data-url="/register"
-                      data-tracking-name=""
-                    >
-                      JOIN NOW
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal">
-          </div>
-          <div class="swiper-button-prev nav-arrows xl dark left"></div>
-          <div class="swiper-button-next nav-arrows xl dark right"></div>
-        </div>
-      </div>
-      <!-- <script type="text/javascript" src="./m88-files/carousel.js" async=""></script> -->
-
-      <!-- <link rel="stylesheet" type="text/css" href="./m88-files/live-casino.css" /> -->
-      <!-- <link rel="stylesheet" type="text/css" href="./css/live-casino-inr.css" /> -->
-
-      <div class="dynamic-content wc22">
-        
-        <link rel="stylesheet" type="text/css" href="./m88-files/carousel.css">
-        <link rel="stylesheet" type="text/css" href="./m88-files/laligaroom.css">
-        <link rel="stylesheet" type="text/css" href="./m88-files/swiper.css">
-        <link rel="stylesheet" type="text/css" href="./m88-files/bottom-drawer.css">
-        <!-- <link rel="stylesheet" type="text/css" href="./m88-files/style.css"> -->
-        <!-- <link rel="stylesheet" type="text/css" href="./m88-files/laliga.css"> -->
-
-        <!-- World Cup Qatar 2022 start -->
-        <link rel="stylesheet" type="text/css" href="./css/wc22/wc22.css" />
-        <link rel="stylesheet" type="text/css" href="./css/wc22/wc22-jemson.css" />
-        <link rel="stylesheet" type="text/css" href="./css/wc22/wc22-paul.css" />
-        <link rel="stylesheet" type="text/css" href="./css/wc22/wc22-dana.css" />
-
-        <?php include 'tabs-main.php'; ?>
-
-        <section class="wc22-tab-items area area--main">
-
-          <?php include 'tabs-main-item-1.php'; ?>
-          <?php include 'tabs-main-item-2.php'; ?>
-          <?php include 'tabs-main-item-3.php'; ?>
-          <?php include 'tabs-main-item-4.php'; ?>
-
-        </section>
-
-        <?php include 'area-sportsbook.php'; ?>
-        <?php include 'area-rng.php'; ?>
-        <?php include 'area-vids.php'; ?>
-
-      </div>
-      <script type="text/javascript" src="./js/jquery.scrollbar.js"></script>
-      <script type="text/javascript" src="./js/wc22/wc22.js"></script>
-      <script type="text/javascript" src="./js/wc22/wc22-jemson.js"></script>
-      <script type="text/javascript" src="./js/wc22/wc22-paul.js"></script>
-      <script type="text/javascript" src="./js/wc22/wc22-dana.js"></script>
-
-      <!-- World Cup Qatar 2022 end-->
-
-      </div>
-
-    </div>
-
-    <div class="footer-wrapper">
-      <div
-        id="placeholder-footer-content"
-        data-url="/footer-content/en-us?device=Desktop&amp;forceDesktop=False"
-      ></div>
-      <div class="loading-icon"></div>
-    </div>
-
-  </body>
-</html>
->>>>>>> prediction

@@ -48,6 +48,9 @@ body {
 	width: -moz-max-content;
 	width: max-content;
 }
+.broadage-widgets-body.broadage-fixture.broadage-soccer.broadage-theme-white .broadage-footer-logo {
+	display: none;
+}
 .swiper-odds--live .swiper-slide {
 	-ms-flex-negative: 0;
 	    flex-shrink: 0;

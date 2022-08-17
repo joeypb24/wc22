@@ -1,7 +1,7 @@
 <div class="wc22-tab-items__item wc22-tab-items__item--3">
 	<div class="inner">
 
-		<div class="groups" id="groups"></div>
+		<div class="sched" id="sched"></div>
 
 	</div>
 </div>
@@ -22,7 +22,7 @@
 			"accountId": "5740fffe-8264-410c-a776-d584587e5de7",
 			"widgets": {
 				"soccerFixture": [{
-					"element": "groups",
+					"element": "sched",
 					"tournamentId": 6
 				}]
 			}

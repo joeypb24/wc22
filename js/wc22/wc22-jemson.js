@@ -4,30 +4,44 @@ jQuery(function($) {
 
 	var urlParamLang = state.user.locale;
 	// var urlParamLang = "th-TH";
+
+	if(urlParamLang == null) {
+		urlParamLang = 'en-US';
+		fetchLangJson(urlParamLang);
+	} else {
+		fetchLangJson(urlParamLang);
+	}
+
+
 	let langList;
 
 	var predictionJson;
 	let teamListResult;
 	let teamGroupArr = [];
 
-	function fetchLangJson(trans){
-		Object.entries(trans).map(obj => {
-			const key   = obj[0];
-			const val = obj[1];
-			const langArgList = val[urlParamLang];
-
-			if(langArgList){
-				langArgList.forEach((argV, argI) => {
-					$('[data-txt="btn1"]').html(argV['btn1']);
-					$('[data-txt="txt21"]').html(argV['txt21']);
-					$('[data-placeholder="placeholder2"]').attr("placeholder", argV['placeholder2']);
+	function fetchLangJson(country){
+		$.ajax({
+			url: "./js/wc22/prediction/langcontent/"+country+".json",
+			type: 'GET',
+			cache: false,
+			dataType: 'json',
+			success: function(result) {
+				Object.entries(result).map(obj => {
+					const key   = obj[0];
+					const value = obj[1];
+					$('[data-txt="'+key+'"]').html(value);
+					$('[data-placeholder="'+key+'"]').attr("placeholder", value);
+					$('[data-placeholder-d="'+key+'"]').attr("data-placeholder-d", value);
+					$('[data-placeholder-m="'+key+'"]').attr("data-placeholder-m", value);
+					$('[data-cta="'+key+'"]').attr("href", value);
 				});
+			},
+			error: function() {
+				alert("No");
 			}
-
 		});
 	}
 
-	fetchLangJson(langcontent);
 
 
 	jQuery.fn.extend({
@@ -80,35 +94,30 @@ jQuery(function($) {
 
 	
 	/**Team List START */
-	function fetchTeams(result){
-        teamListResult = result;
-		Object.entries(result).map(obj => {
-            const key = obj[0];
-            const val = obj[1];
-			langList = urlParamLang + "-list";
-			const teamArgList = val[langList];
-
+	$.ajax({
+		url: "./js/wc22/prediction/team-list-"+urlParamLang+".json",
+		type: 'GET',
+		cache: false,
+		dataType: 'json',
+		success: function(result) {
+			teamListResult = result;
 			
-			if(teamArgList ){
-				// console.log(teamArgList)
-			
-				teamArgList.forEach(elem => {
-					if(teamGroupArr.indexOf(elem.group) === -1) {
-						teamGroupArr.push(elem.group);
-						teamGroupArr[elem.group] = [];
-					}
-					// teamGroupArr[elem.group].push('<div class="test">dsf</div>')
-					(teamGroupArr[elem.group]).push('<div class="dd-option icon " data-val="'+elem.id+'">'+elem.name+'</div>')
-				});
-				// console.log(teamGroupArr[val.group])
-				
-			}
-		});
+			Object.entries(result.teams).map(obj => {
+				const key   = obj[0];
+				const value = obj[1];
 
-		bracketResponsive();
-	}
-
-	fetchTeams(teams);
+				if(teamGroupArr.indexOf(value.group) === -1) {
+					teamGroupArr.push(value.group);
+					teamGroupArr[value.group] = [];
+				}
+				(teamGroupArr[value.group]).push('<div class="dd-option icon icon-'+value.id+'" data-val="'+value.id+'"><span class="txt">'+value.name+'</span></div>');
+			});
+			bracketResponsive();
+		},
+		error: function() {
+			alert("No");
+		}
+	});
 	/**Team List END */
 	
 	/**Break HTML START */

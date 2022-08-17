@@ -63,7 +63,7 @@
 }
 .dd-wrap .dd-selected:after {
 	content: "";
-	background-image: url(../images/icons/caret-down-dark.svg);
+	background-image: url(../../images/prediction/icons/caret-down-dark.svg);
 	background-repeat: no-repeat;
 	background-size: contain;
 	width: 24px;
@@ -264,76 +264,76 @@
 	background-size: contain;
 }
 .bracket .dd-wrap .icon-at:before {
-	background-image: url(../images/flags/team-flags/at.svg);
+	background-image: url(../../images/prediction/flags/team-flags/at.svg);
 }
 .bracket .dd-wrap .icon-be:before {
-	background-image: url(../images/flags/team-flags/be.svg);
+	background-image: url(../../images/prediction/flags/team-flags/be.svg);
 }
 .bracket .dd-wrap .icon-hr:before {
-	background-image: url(../images/flags/team-flags/hr.svg);
+	background-image: url(../../images/prediction/flags/team-flags/hr.svg);
 }
 .bracket .dd-wrap .icon-cz:before {
-	background-image: url(../images/flags/team-flags/cz.svg);
+	background-image: url(../../images/prediction/flags/team-flags/cz.svg);
 }
 .bracket .dd-wrap .icon-dk:before {
-	background-image: url(../images/flags/team-flags/dk.svg);
+	background-image: url(../../images/prediction/flags/team-flags/dk.svg);
 }
 .bracket .dd-wrap .icon-en:before {
-	background-image: url(../images/flags/team-flags/en.svg);
+	background-image: url(../../images/prediction/flags/team-flags/en.svg);
 }
 .bracket .dd-wrap .icon-fi:before {
-	background-image: url(../images/flags/team-flags/fi.svg);
+	background-image: url(../../images/prediction/flags/team-flags/fi.svg);
 }
 .bracket .dd-wrap .icon-fr:before {
-	background-image: url(../images/flags/team-flags/fr.svg);
+	background-image: url(../../images/prediction/flags/team-flags/fr.svg);
 }
 .bracket .dd-wrap .icon-de:before {
-	background-image: url(../images/flags/team-flags/de.svg);
+	background-image: url(../../images/prediction/flags/team-flags/de.svg);
 }
 .bracket .dd-wrap .icon-hu:before {
-	background-image: url(../images/flags/team-flags/hu.svg);
+	background-image: url(../../images/prediction/flags/team-flags/hu.svg);
 }
 .bracket .dd-wrap .icon-it:before {
-	background-image: url(../images/flags/team-flags/it.svg);
+	background-image: url(../../images/prediction/flags/team-flags/it.svg);
 }
 .bracket .dd-wrap .icon-nl:before {
-	background-image: url(../images/flags/team-flags/nl.svg);
+	background-image: url(../../images/prediction/flags/team-flags/nl.svg);
 }
 .bracket .dd-wrap .icon-mk:before {
-	background-image: url(../images/flags/team-flags/mk.svg);
+	background-image: url(../../images/prediction/flags/team-flags/mk.svg);
 }
 .bracket .dd-wrap .icon-pl:before {
-	background-image: url(../images/flags/team-flags/pl.svg);
+	background-image: url(../../images/prediction/flags/team-flags/pl.svg);
 }
 .bracket .dd-wrap .icon-pt:before {
-	background-image: url(../images/flags/team-flags/pt.svg);
+	background-image: url(../../images/prediction/flags/team-flags/pt.svg);
 }
 .bracket .dd-wrap .icon-ru:before {
-	background-image: url(../images/flags/team-flags/ru.svg);
+	background-image: url(../../images/prediction/flags/team-flags/ru.svg);
 }
 .bracket .dd-wrap .icon-sc:before {
-	background-image: url(../images/flags/team-flags/sc.svg);
+	background-image: url(../../images/prediction/flags/team-flags/sc.svg);
 }
 .bracket .dd-wrap .icon-sk:before {
-	background-image: url(../images/flags/team-flags/sk.svg);
+	background-image: url(../../images/prediction/flags/team-flags/sk.svg);
 }
 .bracket .dd-wrap .icon-es:before {
-	background-image: url(../images/flags/team-flags/es.svg);
+	background-image: url(../../images/prediction/flags/team-flags/es.svg);
 }
 .bracket .dd-wrap .icon-se:before {
-	background-image: url(../images/flags/team-flags/se.svg);
+	background-image: url(../../images/prediction/flags/team-flags/se.svg);
 }
 .bracket .dd-wrap .icon-ch:before {
-	background-image: url(../images/flags/team-flags/ch.svg);
+	background-image: url(../../images/prediction/flags/team-flags/ch.svg);
 }
 .bracket .dd-wrap .icon-tr:before {
-	background-image: url(../images/flags/team-flags/tr.svg);
+	background-image: url(../../images/prediction/flags/team-flags/tr.svg);
 }
 .bracket .dd-wrap .icon-ua:before {
-	background-image: url(../images/flags/team-flags/ua.svg);
+	background-image: url(../../images/prediction/flags/team-flags/ua.svg);
 }
 .bracket .dd-wrap .icon-ws:before {
-	background-image: url(../images/flags/team-flags/ws.svg);
+	background-image: url(../../images/prediction/flags/team-flags/ws.svg);
 }
 .bracket.quarter-finals .dd-wrap:not(:last-child) {
 	margin-bottom: 88px;
@@ -375,7 +375,7 @@
 	left: 50%;
 	top: -3px;
 	transform: translate(-50%, -50%);
-	background-image: url(../images/icons/stars.svg);
+	background-image: url(../../images/prediction/icons/stars.svg);
 	background-repeat: no-repeat;
 	background-size: contain;
 	width: 61px;

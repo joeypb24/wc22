@@ -1,0 +1,28 @@
+{
+	"teams": [
+		{ "id": "at", "name": "Áo", "group": "c" },
+		{ "id": "be", "name": "Bỉ", "group": "b" },
+		{ "id": "hr", "name": "Croatia", "group": "d" },
+		{ "id": "cz", "name": "CH Séc", "group": "d" },
+		{ "id": "dk", "name": "Đan Mạch", "group": "b" },
+		{ "id": "en", "name": "Anh", "group": "d" },
+		{ "id": "fi", "name": "Phần Lan", "group": "b" },
+		{ "id": "fr", "name": "Pháp", "group": "f" },
+		{ "id": "de", "name": "Đức", "group": "f" },
+		{ "id": "hu", "name": "Hungary", "group": "f" },
+		{ "id": "it", "name": "Ý", "group": "a" },
+		{ "id": "nl", "name": "Hà Lan", "group": "c" },
+		{ "id": "mk", "name": "Bắc Macedonia", "group": "c" },
+		{ "id": "pl", "name": "Ba Lan", "group": "e" },
+		{ "id": "pt", "name": "Bồ Đào Nha", "group": "f" },
+		{ "id": "ru", "name": "Nga", "group": "b" },
+		{ "id": "sc", "name": "Scotland", "group": "d" },
+		{ "id": "sk", "name": "Slovakia", "group": "e" },
+		{ "id": "es", "name": "Tây Ban Nha", "group": "e" },
+		{ "id": "se", "name": "Thụy Điển", "group": "e" },
+		{ "id": "ch", "name": "Thụy Sĩ", "group": "a" },
+		{ "id": "tr", "name": "Thổ Nhĩ Kỳ", "group": "a" },
+		{ "id": "ua", "name": "Ukraine", "group": "c" },
+		{ "id": "ws", "name": "Xứ Wales", "group": "a" }
+	]
+}

@@ -1,32 +1,54 @@
-const langcontent = [
-    {
-        "en-US": [
-            {
-                "btn1": "PLAY NOW!",
-                "btn2": "SUBMIT PREDICTIONS",
-                "btn3": "CONFIRM PREDICTIONS",
-                "placeholder2": "Input or select team",
-                "placeholder3": "Select team",
-                "txt20": "Prizes",
-                "txt21": "Quarter Finals",
-                "txt22": "Semi Finals",
-                "txt23": "Finals",
-                "txt24": "CHAMPION"
-            }
-        ],
-        "th-TH": [
-            {
-                "btn1": "PLAY NOW!",
-                "btn2": "sdf",
-                "btn3": "CONFIRM PREDICTIONS",
-                "placeholder2": "Input or select team",
-                "placeholder3": "Select team",
-                "txt20": "sdf",
-                "txt21": "Quarter Finals",
-                "txt22": "Semi Finals",
-                "txt23": "sdfsdf",
-                "txt24": "sdf"
-            }
-        ]
+const langcontent = {
+    "en-US": {
+        "img-europred": "<img src=\"assets/images/europrediction.svg\" class=\"img-europred\" />",
+        "ftxt1": "OFFICIAL REGIONAL PARTNER",
+        "ftxt2": "AFC BOURNEMOUTH",
+        "ftxt3": "CRYSTAL PALACE",
+        "ftxt4": "MANCHESTER CITY",
+        "ftxt5": "TOTTENHAM HOTSPURS",
+        "btn1": "PLAY NOW!",
+        "btn2": "SUBMIT PREDICTIONS",
+        "btn3": "CONFIRM PREDICTIONS",
+        "txt1": "Predict the winners. Guess it Right!",
+        "txt2": "WIN $50,000.00! M-Guaranteed!",
+        "txt3": "Consolation prizes include, Mountain Bike, Apple Watches, Samsung Watches, Adidas Footballs, Adidas Gift Certificates and Nike Gift Certificates!",
+        "txt4": "How it works",
+        "txt5": "Terms & Conditions",
+        "txt6": "Prizes",
+        "txt7": "Try out our other games",
+        "txt8": "How it works",
+        "txt9": "<li>Pre-register by entering your correct EMAIL.</li><li>Join the predictions by selecting teams that will reach the Quarterfinals, Semifinals, Finals and the team who’ll be the Champion.</li><li>A copy of your predictions will be sent to your email registered in the promo.</li><li>Predictions are open from June 01 to June 11, 2021.</li><li>Selection of winners is based on the time and date stamp of prediction submissions. Only the latest prediction will be honored for multiple entries.</li>",
+        "txt10": "Terms & Conditions",
+        "txt12": "Share with your friends!",
+        "txt13": "Register & Win!",
+        "txt14": "",
+        "txt15": "",
+        "txt16": "Name",
+        "txt17": "E-Mail",
+        "txt18": "Mobile Number",
+        "txt19": "By registering, I confirm I'm 18+ and agree to M88’s <a href=\"https://help.m88ura.com/termOfUse_tc_en.asp\" target=\"_blank\"><strong>terms of use</strong></a> and <a href=\"https://help.m88ura.com/termOfUse_privacyPolicy_en.asp\" target=\"_blank\"><strong>privacy policy</strong></a>.",
+        "placeholder1": "How do we address you?",
+        "placeholder2": "Input or select team",
+        "placeholder3": "Select team",
+        "txt20": "Prizes",
+        "txt21": "Quarter Finals",
+        "txt22": "Semi Finals",
+        "txt23": "Finals",
+        "txt24": "CHAMPION",
+        "txt25": "Thank you for joining",
+        "txt26": "You will be redirected to M88 website to confirm your predictions.",
+        "txt27": "M88 is committed to supporting <a href=\"javascript:openInNewWindow('https://help.m88.com/responsibleGaming_en.asp',915,1000)\" class=\"link\"><strong>Responsible Gaming</strong></a>",
+    },
+    "th-TH": {
+        "btn1": "PLAY NOW!",
+        "btn2": "sdf",
+        "btn3": "CONFIRM PREDICTIONS",
+        "placeholder2": "Input or select team",
+        "placeholder3": "Select team",
+        "txt20": "sdf",
+        "txt21": "Quarter Finals",
+        "txt22": "Semi Finals",
+        "txt23": "sdfsdf",
+        "txt24": "sdf"
     }
-];
+};

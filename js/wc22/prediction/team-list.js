@@ -1,5 +1,4 @@
-const teams = [
-    {
+const teams = {
         "en-US-list": [
             { "id": "ar", "name": "argentina", "short":"arg","group": "c" },
             { "id": "at", "name": "austria", "short":"aus","group": "d" },
@@ -33,9 +32,7 @@ const teams = [
             { "id": "us", "name": "united states", "short":"usa","group": "b" },
             { "id": "uy", "name": "uruguay", "short":"uru","group": "h" },
             { "id": "ws", "name": "wales", "short":"wal","group": "b" }
-        ]
-    },
-    {
+        ],
         "th-TH-list": [
             { "id": "tn", "name": "tunisia", "short":"tun","group": "d" },
             { "id": "us", "name": "united states", "short":"usa","group": "b" },
@@ -43,4 +40,3 @@ const teams = [
             { "id": "ws", "name": "wales", "short":"wal","group": "b" },
         ]
     }
-]

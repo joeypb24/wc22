@@ -1,0 +1,28 @@
+{
+	"teams": [
+		{ "id": "at", "name": "austria", "group": "c" },
+		{ "id": "be", "name": "belgium", "group": "b" },
+		{ "id": "hr", "name": "croatia", "group": "d" },
+		{ "id": "cz", "name": "czech republic", "group": "d" },
+		{ "id": "dk", "name": "denmark", "group": "b" },
+		{ "id": "en", "name": "england", "group": "d" },
+		{ "id": "fi", "name": "finland", "group": "b" },
+		{ "id": "fr", "name": "france", "group": "f" },
+		{ "id": "de", "name": "germany", "group": "f" },
+		{ "id": "hu", "name": "hungary", "group": "f" },
+		{ "id": "it", "name": "italy", "group": "a" },
+		{ "id": "nl", "name": "netherlands", "group": "c" },
+		{ "id": "mk", "name": "north macedonia", "group": "c" },
+		{ "id": "pl", "name": "poland", "group": "e" },
+		{ "id": "pt", "name": "portugal", "group": "f" },
+		{ "id": "ru", "name": "russia", "group": "b" },
+		{ "id": "sc", "name": "scotland", "group": "d" },
+		{ "id": "sk", "name": "slovakia", "group": "e" },
+		{ "id": "es", "name": "spain", "group": "e" },
+		{ "id": "se", "name": "sweden", "group": "e" },
+		{ "id": "ch", "name": "switzerland", "group": "a" },
+		{ "id": "tr", "name": "turkey", "group": "a" },
+		{ "id": "ua", "name": "ukraine", "group": "c" },
+		{ "id": "ws", "name": "wales", "group": "a" }
+	]
+}

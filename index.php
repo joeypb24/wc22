@@ -10,6 +10,8 @@
     <link rel="stylesheet" type="text/css" href="./m88-files/laligaroom.css">
     <link rel="stylesheet" type="text/css" href="./m88-files/swiper.css">
     <link rel="stylesheet" type="text/css" href="./m88-files/bottom-drawer.css">
+
+    <link rel="stylesheet" type="text/css" href="css/timer/timer.css">
     <!-- <link rel="stylesheet" type="text/css" href="./m88-files/style.css"> -->
     <!-- <link rel="stylesheet" type="text/css" href="./m88-files/laliga.css"> -->
 
@@ -20,6 +22,7 @@
     <link rel="stylesheet" type="text/css" href="./css/wc22/wc22-dana.css" />
 
     <?php include 'tabs-main.php'; ?>
+    <?php include 'tabs-timer.php'; ?>
 
     <section class="wc22-tab-items area area--main">
 

@@ -16,13 +16,20 @@ body {
 	min-width: 360px;
 	background-color: var(--other-1);
 }
-a {
+.wc22 a {
 	display: inline;
 }
-p, h1, h2, h3, h4, h5, h6, button {
+.wc22 p, 
+.wc22 h1, 
+.wc22 h2, 
+.wc22 h3, 
+.wc22 h4,
+.wc22 h5, 
+.wc22 h6, 
+.wc22 button {
 	display: block;
 }
-h1, h2, h3, h4, h5, h6 {
+.wc22 h1, .wc22 h2, .wc22 h3, .wc22 h4, .wc22 h5, .wc22 h6 {
 	line-height: 1;
 }
 .content {

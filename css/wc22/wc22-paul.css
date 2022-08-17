@@ -7,28 +7,6 @@
 * Autoprefixer: v10.4.7
 * Browsers: last 4 version
 */
-
-*, *:after, *:before {
-    padding: 0;
-}
-
-html, body {
-    width: 100%;
-}
-
-a {
-    text-decoration: none;
-}
-
-img {
-    -ms-interpolation-mode: nearest-neighbor;
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: -o-pixelated;
-        image-rendering: pixelated;
-    image-rendering: -moz-crisp-edges;
-    image-rendering: crisp-edges;
-}
-
 /* START of Section */
 
 .fifa--section {

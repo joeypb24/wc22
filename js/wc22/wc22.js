@@ -1,42 +1,119 @@
 jQuery(function() {
 	'use strict';
 
-	// Carousel start
-	const carouselWrapper = document.querySelector(".carousel-wrapper");
-	let isLoop;
-	if ( carouselWrapper.querySelectorAll(".carousel-item").length > 1 ) {
-		isLoop = true;
-	} else {
-		isLoop = false;
-	}
+	$(window).on("load", function(){
+		// Carousel start
+		const carouselWrapper = document.querySelector(".carousel-wrapper");
+		let isLoop;
+		if ( carouselWrapper.querySelectorAll(".carousel-item").length > 1 ) {
+			isLoop = true;
+		} else {
+			isLoop = false;
+		}
 
-	var carouselLiveCasino = new Swiper(".carousel-wrapper", {
-		navigation: {
-			nextEl: ".swiper-button-next",
-			prevEl: ".swiper-button-prev",
-		},
-		slidesPerView: 1,
-		watchSlidesProgress: true,
-		slideVisibleClass: "swiper-slide-visible",
-		pagination: {
-			el: ".swiper-pagination",
-			clickable: !0,
-			type: "bullets"
-		},
-		autoplay: {
-			delay: 8e3,
-			disableOnInteraction: !1,
-			pauseOnMouseEnter: !0
-		},
-		allowTouchMove: !0,
-		loop: isLoop
-	});
+		var carouselLiveCasino = new Swiper(".carousel-wrapper", {
+			navigation: {
+				nextEl: ".swiper-button-next",
+				prevEl: ".swiper-button-prev",
+			},
+			slidesPerView: 1,
+			watchSlidesProgress: true,
+			slideVisibleClass: "swiper-slide-visible",
+			pagination: {
+				el: ".swiper-pagination",
+				clickable: !0,
+				type: "bullets"
+			},
+			autoplay: {
+				delay: 8e3,
+				disableOnInteraction: !1,
+				pauseOnMouseEnter: !0
+			},
+			allowTouchMove: !0,
+			loop: isLoop
+		});
 
-	$(document).ready(function() {
-		// hide carousel image then show on ready
-		$(".carousel-item > div > picture > img").show();
+		$(document).ready(function() {
+			// hide carousel image then show on ready
+			$(".carousel-item > div > picture > img").show();
+		});
+		// Carousel end
+
+		// Odds
+		var swiperOddsLive = new Swiper(".swiper-odds--live", {
+			slidesPerView: 1,
+			pagination: {
+				el: ".swiper-pagination--odds-live",
+				clickable: true
+			},
+			freeMode: {
+				enabled: true,
+				sticky: true,
+			},
+			simulateTouch: true,
+			breakpoints: {
+				
+			}
+		});
+
+		var swiperOddsUpcoming = new Swiper(".swiper-odds--upcoming", {
+			slidesPerView: "auto",
+				pagination: false,
+				navigation: {
+					nextEl: ".swiper-odds-next",
+					prevEl: ".swiper-odds-prev",
+				},
+				breakpoints: {
+					320: {
+						slidesPerGroup: 1,
+						spaceBetween: 8
+					},
+					590: {
+						slidesPerGroup: 2,
+						spaceBetween: 8,
+					},
+					870: {
+						slidesPerGroup: 3,
+						spaceBetween: 8,
+					},
+					1024: {
+						slidesPerGroup: 3,
+						spaceBetween: 16
+					},
+					1360: {
+						slidesPerGroup: 4,
+						spaceBetween: 16
+					}
+				}
+		});
+
+		var sliderRouletteGames = new Swiper(".swiper--laliga-slots", {
+			slidesPerView: "auto",
+			navigation: {
+				nextEl: ".swiper-button-next",
+				prevEl: ".swiper-button-prev",
+			},
+			slidesPerGroupAuto: true,
+			freeMode: {
+				enabled: true,
+				sticky: true,
+			},
+			simulateTouch: true,
+			breakpoints: {
+				0: {
+					spaceBetween: 8,
+				},
+				1024: {
+					spaceBetween: 16,
+				}
+			}
+		});
+		setTimeout(function(){
+			swiperOddsLive.init();
+			swiperOddsUpcoming.init();
+			sliderRouletteGames.init();
+		}, 1000)
 	});
-	// Carousel end
 
 	//tabs
 	const wc22Content = document.querySelector(".wc22");
@@ -93,84 +170,6 @@ jQuery(function() {
 			}
 		}
 	});
-
-	// $(window).on("load", function(){
-	// Odds
-	var swiperOddsLive = new Swiper(".swiper-odds--live", {
-		slidesPerView: 1,
-		pagination: {
-			el: ".swiper-pagination--odds-live",
-			clickable: true
-		},
-		freeMode: {
-			enabled: true,
-			sticky: true,
-		},
-		simulateTouch: true,
-		breakpoints: {
-			
-		}
-	});
-
-	var swiperOddsUpcoming = new Swiper(".swiper-odds--upcoming", {
-		slidesPerView: "auto",
-			pagination: false,
-			navigation: {
-				nextEl: ".swiper-odds-next",
-				prevEl: ".swiper-odds-prev",
-			},
-			breakpoints: {
-				320: {
-					slidesPerGroup: 1,
-					spaceBetween: 8
-				},
-				590: {
-					slidesPerGroup: 2,
-					spaceBetween: 8,
-				},
-				870: {
-					slidesPerGroup: 3,
-					spaceBetween: 8,
-				},
-				1024: {
-					slidesPerGroup: 3,
-					spaceBetween: 16
-				},
-				1360: {
-					slidesPerGroup: 4,
-					spaceBetween: 16
-				}
-			}
-	});
-
-	var sliderRouletteGames = new Swiper(".swiper--laliga-slots", {
-		slidesPerView: "auto",
-		navigation: {
-			nextEl: ".swiper-button-next",
-			prevEl: ".swiper-button-prev",
-		},
-		slidesPerGroupAuto: true,
-		freeMode: {
-			enabled: true,
-			sticky: true,
-		},
-		simulateTouch: true,
-		breakpoints: {
-			0: {
-				spaceBetween: 8,
-			},
-			1024: {
-				spaceBetween: 16,
-			}
-		}
-	});
-	setTimeout(function(){
-		swiperOddsLive.init();
-		swiperOddsUpcoming.init();
-		sliderRouletteGames.init();
-	}, 1000)
-
-	// });
 
 	
 

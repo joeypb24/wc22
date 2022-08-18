@@ -18,7 +18,7 @@
 				</div>
 			</div>
 			<div class="ff-world-cup-stadiums swiper--config">
-				
+				<div class="inner"></div>
 			</div>
 		</div>
 

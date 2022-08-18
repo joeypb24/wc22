@@ -115,6 +115,10 @@
     z-index: 99;
 }
 
+.fifa--mask-ban img {
+    max-width: 144px;
+}
+
 
 @media (max-width: 1366px) {
     .fifa--cd ul li {

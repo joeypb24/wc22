@@ -29,11 +29,7 @@
 			</div>
 		</div>
 		<div class="cta-area">
-			<button class="btn btn-submit-prediction inactive">Submit</button>
+			<button class="btn btn--red btn-submit-prediction inactive">Submit</button>
 		</div>
 	</div>
 </section>
-
-
-<script type="text/javascript" src="./js/wc22/prediction/team-list.js"></script>
-<script type="text/javascript" src="./js/wc22/prediction/langcontent.js"></script>

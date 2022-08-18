@@ -37,7 +37,7 @@ jQuery(function($) {
 				});
 			},
 			error: function() {
-				alert("No");
+				console.log("No");
 			}
 		});
 	}
@@ -110,12 +110,12 @@ jQuery(function($) {
 					teamGroupArr.push(value.group);
 					teamGroupArr[value.group] = [];
 				}
-				(teamGroupArr[value.group]).push('<div class="dd-option icon icon-'+value.id+'" data-val="'+value.id+'"><span class="txt">'+value.name+'</span></div>');
+				(teamGroupArr[value.group]).push('<div class="dd-option icon icon-'+value.id+'" data-val="'+value.id+'"><span class="txt">'+value.short+'</span></div>');
 			});
 			bracketResponsive();
 		},
 		error: function() {
-			alert("No");
+			console.log("No");
 		}
 	});
 	/**Team List END */
@@ -137,7 +137,7 @@ jQuery(function($) {
 						ddListElem.append(teamGroupArr[ddGroups[i]]);
 					}
 				});
-				$('.dd-option-wrap .scrollbar-inner').scrollbar();
+				// $('.dd-option-wrap .scrollbar-inner').scrollbar();
 				if(urlParamLang) {
 					if(urlParamLang != 'id-ID' && urlParamLang != 'vn-VI' && urlParamLang != 'th-TH') {
 						urlParamLang = 'en-US';

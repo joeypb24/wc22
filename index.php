@@ -34,9 +34,9 @@
 
     </section>
 
-    <?php include 'area-sportsbook.php'; ?>
-    <?php include 'area-rng.php'; ?>
-    <?php include 'area-vids.php'; ?>
+    <?php // include 'area-sportsbook.php'; ?>
+    <?php // include 'area-rng.php'; ?>
+    <?php // include 'area-vids.php'; ?>
 
   </div>
   <script type="text/javascript" src="./js/jquery.scrollbar.js"></script>

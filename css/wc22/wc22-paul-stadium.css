@@ -1,0 +1,97 @@
+@charset "UTF-8";
+
+* {
+    font-family: 'Lato', sans-serif;
+}
+
+.wc22-tab-items__item--2 .pd-0 {
+    padding: 0 24px;
+}
+
+.wc22-tab-items__item--2 .inner .stadiums .stadiums--header > h4 {
+    text-transform: uppercase;
+    color: #334155;
+}
+
+.wc22-tab-items__item--2 .inner .stadiums .stadiums--header {
+    margin-bottom: 30px;
+}
+
+.stadiums--flex-content {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    width:  100%;
+}
+
+.stadiums--flex-content .description {
+    max-width: 671px;
+}
+
+.stadiums--flex-content .description > p {
+    color: #64748B;
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 30px;
+}
+
+/* FIFA WORLD CUP STADIUMS SECTION */
+
+
+/* MEDIA QUERIES */
+
+@media (max-width: 1366px) {
+    .stadiums--flex-content .description > p {
+        font-size: 1.171vw;
+    }
+
+    .cover--right img {
+        max-width: 44.729vw;
+    }
+}
+
+@media (max-width: 1023px) {
+    .wc22-tab-items__item--2 .pd-0 {
+        padding: 0 16px;
+    }
+
+    .wc22-tab-items__item--2 .inner .stadiums .stadiums--header > h4 {
+        font-size: 1em;
+    }
+
+    .stadiums--flex-content {
+        flex-direction: column;
+    }
+
+    .stadiums--flex-content .description > p {
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 767px) {
+    .wc22-tab-items__item--2 .pd-0 {
+        padding: 0 16px;
+    }
+
+    .stadiums--flex-content .description > p {
+        font-size: 14px;
+        line-height: 18px;
+        margin-bottom: 15px;
+    }
+
+    .cover--right img {
+        width: 100%;
+        max-width: 1024px;
+    }
+}
+
+@media (max-width: 375px) {
+    .stadiums--flex-content .description {
+        max-width: 343px;
+    }
+
+    .stadiums--flex-content .description > p {
+        font-size: 12px;
+    }
+}

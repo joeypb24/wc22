@@ -19,6 +19,7 @@
     <link rel="stylesheet" type="text/css" href="./css/wc22/wc22.css" />
     <link rel="stylesheet" type="text/css" href="./css/wc22/wc22-jemson.css" />
     <link rel="stylesheet" type="text/css" href="./css/wc22/wc22-paul.css" />
+    <link rel="stylesheet" type="text/css" href="./css/wc22/wc22-paul-stadium.css" />
     <link rel="stylesheet" type="text/css" href="./css/wc22/wc22-dana.css" />
 
     <?php include 'tabs-main.php'; ?>

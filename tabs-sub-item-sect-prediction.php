@@ -1,4 +1,4 @@
-<section class="wc22-tab-items__item--1__subs__item__sect wc22-tab-items__item--1__subs__item__sect--odds">
+<section class="wc22-tab-items__item--1__subs__item__sect wc22-tab-items__item--1__subs__item__sect--prediction">
 
 	<div class="inner">
 

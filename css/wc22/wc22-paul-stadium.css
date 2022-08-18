@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+* {
+    font-family: 'Lato', sans-serif;
+}
+
+.wc22-tab-items__item--2 .pd-0 {
+    padding: 0;
+}
+
+.wc22-tab-items__item--2 .inner .stadiums .stadiums--header > h4 {
+    text-transform: uppercase;
+    color: #334155;
+}
+
+.wc22-tab-items__item--2 .inner .stadiums .stadiums--header {
+    margin-bottom: 30px;
+}
+
+.stadiums--flex-content {
+    display: flex;
+    gap: 30px;
+}
+
+.stadiums--flex-content .description {
+    max-width: 671px;
+}
+
+.stadiums--flex-content .description > p {
+    color: #64748B;
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 30px;
+}
+
+/* FIFA WORLD CUP STADIUMS SECTION */

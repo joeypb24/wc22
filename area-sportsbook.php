@@ -38,7 +38,7 @@
 			</div>
 		</div>
 
-		<div class="m88-app">
+		<div class="m88-app" data-url="/mobile">
 			<img src="./images/wc22/m88-app-chars.png">
 			<div>
 				<h3>M88 APP! PLAY ANYTIME, ANYWHERE</h3>

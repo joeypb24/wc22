@@ -76,12 +76,6 @@ body {
 .swiper-button-next:after {
 	content: none;
 }
-.swiper-button-prev:before {
-	background: url(../images/icon-west.svg) no-repeat center;
-}
-.swiper-button-next:before {
-	background: url(../images/icon-east.svg) no-repeat center;
-}
 .nav-arrows.left:before,
 .nav-arrows.right:before {
 	-webkit-mask: none;

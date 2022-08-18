@@ -37,6 +37,23 @@
 }
 
 /* FIFA WORLD CUP STADIUMS SECTION */
+.swiper--config {
+    padding: 50px 24px;
+}
+.ff-world-cup-stadiums {
+    background-color: #AA0A3E;
+}
+
+.ff-world-cup-stadiums-title {
+    margin-bottom: 24px;
+}
+
+.ff-world-cup-stadiums-title h4 {
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
 
 
 /* MEDIA QUERIES */

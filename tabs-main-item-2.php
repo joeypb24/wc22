@@ -17,11 +17,16 @@
 					<img src="images/stadiums/stdm-cover-right.jpg" alt="">
 				</div>
 			</div>
-			<div class="ff-world-cup-stadiums swiper--config">
-				<div class="inner"></div>
-			</div>
 		</div>
 
+	</div>
+
+	<div class="ff-world-cup-stadiums swiper--config">
+		<div class="inner">
+			<div class="ff-world-cup-stadiums-title">
+				<h4>FIFA World Cup Stadiums</h4>
+			</div>
+		</div>
 	</div>
 
 </div>

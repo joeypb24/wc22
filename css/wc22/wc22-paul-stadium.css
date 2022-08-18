@@ -5,7 +5,7 @@
 }
 
 .wc22-tab-items__item--2 .pd-0 {
-    padding: 0;
+    padding: 0 24px;
 }
 
 .wc22-tab-items__item--2 .inner .stadiums .stadiums--header > h4 {
@@ -19,7 +19,9 @@
 
 .stadiums--flex-content {
     display: flex;
+    justify-content: center;
     gap: 30px;
+    width:  100%;
 }
 
 .stadiums--flex-content .description {
@@ -35,3 +37,16 @@
 }
 
 /* FIFA WORLD CUP STADIUMS SECTION */
+
+
+/* MEDIA QUERIES */
+
+@media (max-width: 1366px) {
+    .stadiums--flex-content .description > p {
+        font-size: 1.171vw;
+    }
+
+    .cover--right img {
+        max-width: 44.729vw;
+    }
+}

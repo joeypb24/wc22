@@ -687,7 +687,11 @@ iframe {
 			top: 75%;
 	}
 }
-
+@media (max-width: 767px){
+	.inner {
+		padding: 0 16px;
+	}
+}
 @media (hover: hover){
 	.swiper-odds-prev:hover,
 	.swiper-odds-next:hover {

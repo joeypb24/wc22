@@ -33,3 +33,5 @@
 		</div>
 	</div>
 </section>
+<script type="text/javascript" src="./js/wc22/prediction/langcontent.js"></script>
+<script type="text/javascript" src="./js/wc22/prediction/team-list.js"></script>

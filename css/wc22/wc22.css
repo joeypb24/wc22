@@ -38,6 +38,9 @@ body {
 .dynamic-content {
 	max-width: 100%;
 }
+.button {
+	text-align: center;
+}
 /* ~overwrite layout.css */
 /* overwrite swiper */
 .swiper-odds--live .swiper-slide,

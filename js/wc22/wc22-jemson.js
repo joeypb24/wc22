@@ -19,30 +19,27 @@ jQuery(function($) {
 	let teamListResult;
 	let teamGroupArr = [];
 
-	function fetchLangJson(country){
-		$.ajax({
-			url: "./js/wc22/prediction/langcontent/"+country+".json",
-			type: 'GET',
-			cache: false,
-			dataType: 'json',
-			success: function(result) {
-				Object.entries(result).map(obj => {
-					const key   = obj[0];
-					const value = obj[1];
-					$('[data-txt="'+key+'"]').html(value);
-					$('[data-placeholder="'+key+'"]').attr("placeholder", value);
-					$('[data-placeholder-d="'+key+'"]').attr("data-placeholder-d", value);
-					$('[data-placeholder-m="'+key+'"]').attr("data-placeholder-m", value);
-					$('[data-cta="'+key+'"]').attr("href", value);
-				});
-			},
-			error: function() {
-				console.log("No");
+	function fetchLangJson(param1){
+		Object.entries(param1).map(obj => {
+			const key   = obj[0];
+			const value = obj[1];
+
+			if(urlParamLang == key){
+				Object.entries(value).map(obj2 => {
+					const key1   = obj2[0];
+					const value1 = obj2[1];
+
+					$('[data-txt="'+key1+'"]').html(value1);
+					$('[data-placeholder="'+key1+'"]').attr("placeholder", value1);
+					$('[data-placeholder-d="'+key1+'"]').attr("data-placeholder-d", value1);
+					$('[data-placeholder-m="'+key1+'"]').attr("data-placeholder-m", value1);
+					$('[data-cta="'+key1+'"]').attr("href", value1);
+				})
 			}
 		});
 	}
 
-
+	fetchLangJson(langcontent);
 
 	jQuery.fn.extend({
 		initDropdown: function () {
@@ -94,30 +91,28 @@ jQuery(function($) {
 
 	
 	/**Team List START */
-	$.ajax({
-		url: "./js/wc22/prediction/team-list-"+urlParamLang+".json",
-		type: 'GET',
-		cache: false,
-		dataType: 'json',
-		success: function(result) {
-			teamListResult = result;
-			
-			Object.entries(result.teams).map(obj => {
-				const key   = obj[0];
-				const value = obj[1];
 
-				if(teamGroupArr.indexOf(value.group) === -1) {
-					teamGroupArr.push(value.group);
-					teamGroupArr[value.group] = [];
-				}
-				(teamGroupArr[value.group]).push('<div class="dd-option icon icon-'+value.id+'" data-val="'+value.id+'"><span class="txt">'+value.short+'</span></div>');
-			});
-			bracketResponsive();
-		},
-		error: function() {
-			console.log("No");
-		}
-	});
+	function fetchTeamJson(param1){
+		Object.entries(param1).map(obj => {
+			const key   = obj[0];
+			const value = obj[1];
+
+			if(urlParamLang == key){
+				Object.entries(value).map(obj2 => {
+					const key1   = obj2[0];
+					const value1 = obj2[1];
+					if(teamGroupArr.indexOf(value1.group) === -1) {
+						teamGroupArr.push(value1.group);
+						teamGroupArr[value1.group] = [];
+					}
+					(teamGroupArr[value1.group]).push('<div class="dd-option icon icon-'+value1.id+'" data-val="'+value1.id+'"><span class="txt">'+value1.short+'</span></div>');
+				});
+			}
+		});
+		bracketResponsive();
+	}
+	fetchTeamJson(teams)
+
 	/**Team List END */
 	
 	/**Break HTML START */

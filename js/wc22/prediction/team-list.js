@@ -1,5 +1,5 @@
 const teams = {
-        "en-US-list": [
+        "en-US": [
             { "id": "ar", "name": "argentina", "short":"arg","group": "c" },
             { "id": "at", "name": "austria", "short":"aus","group": "d" },
             { "id": "be", "name": "belgium", "short":"bel","group": "f" },
@@ -33,7 +33,7 @@ const teams = {
             { "id": "uy", "name": "uruguay", "short":"uru","group": "h" },
             { "id": "ws", "name": "wales", "short":"wal","group": "b" }
         ],
-        "th-TH-list": [
+        "th-TH": [
             { "id": "tn", "name": "tunisia", "short":"tun","group": "d" },
             { "id": "us", "name": "united states", "short":"usa","group": "b" },
             { "id": "uy", "name": "uruguay", "short":"uru","group": "h" },

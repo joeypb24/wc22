@@ -35,3 +35,48 @@
         }, 0)
     }()
 );
+
+
+// SWIPER
+var thumbSwiper = new Swiper('.swiper--stdm', {
+  // Optional parameters
+  slidesPerView: "auto",
+  direction: 'horizontal',
+  draggable: true,
+  loop: false,
+
+  // If we need pagination
+  pagination: {
+      clickable: true,
+      el: '.swiper-pagination',
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.wc-thumb--next',
+    prevEl: '.wc-thumb--prev',
+  },
+  breakpoints: {
+    0: {
+      spaceBetween: 16,
+    },
+    1023: {
+      slidesPerView: "auto",
+      spaceBetween: 16,
+    }
+  }
+});
+
+const swipeMblDisable = (remSwiper) => {
+  if (remSwiper.matches) { // If media query matches
+    thumbSwiper.destroy();
+    console.log("Thumb Swiper Removal is enable")
+  }
+}
+setTimeout(function(){
+  thumbSwiper.init();
+}, 1000)
+
+let remSwiper = window.matchMedia("(max-width: 767px)")
+swipeMblDisable(remSwiper) // Call listener function at run time
+remSwiper.addListener(swipeMblDisable) // Attach listener function on state changes

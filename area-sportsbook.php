@@ -3,7 +3,7 @@
 	<div class="inner">
 		<h2>SPORTSBOOK</h2>
 
-		<div class="tiles persistent-tiles sportsbook-tiles">
+		<div class="tiles persistent-tiles swiper-tiles">
 			<div id="tile-msports" class="tile track-events small loaded" data-tracking-name="mSports - EN" data-type="Sportsbook" data-url="/msports">
 				<img src="./images/wc22/tiles/sports-tile-1.png" loading="lazy" class="tile-image">
 				<!-- <div class="info-box">

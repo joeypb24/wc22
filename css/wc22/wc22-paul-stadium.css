@@ -38,7 +38,7 @@
 
 /* FIFA WORLD CUP STADIUMS SECTION */
 .swiper--config {
-    padding: 50px 24px;
+    padding: 50px 0;
 }
 .ff-world-cup-stadiums {
     background-color: #AA0A3E;
@@ -54,7 +54,121 @@
     text-transform: uppercase;
 }
 
+/* SWIPER Stadiums */
+.maxw {
+    background-color: #AA0A3E;
+    width: 100%;
+}
 
+.maxw .inner {
+    width: 100%;
+    max-width: 1366px;
+    margin: 0 auto;
+    padding: 50px 0;
+
+}
+
+.maxw .inner h4 {
+    font-size: 24px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    color: #fff;
+    /* padding: auto 24px; */
+}
+
+.swiper--stdm {
+    width: 100%;
+    height: 100%;
+}
+
+.slide-stadium {
+    width: 100%;
+    max-width: 280px;
+    flex-shrink: 0;
+    display: block;
+    background: #fff;
+    border-radius: 16px;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    position: relative;
+}
+
+.slide-stadium img {
+    display: block;
+    width: max-content;
+    height: 100%;
+    border-radius: 16px;
+    transition: all .3s ease-in-out;
+}
+
+/* The scale of the image should not exceed */
+.item-abs {
+    overflow: hidden;
+}
+
+.flex-horizontal .scale-image:hover > img {
+    transform: scale(1.1);
+}
+
+/* Overlay */
+.item-abs div {
+    background: linear-gradient(180deg, rgba(26, 46, 77, 0) 18.89%, #1A2E4D 90.14%);
+    min-height: 360px;
+    width: 280px;
+    z-index: 9999;
+    position: absolute;
+    border-radius: 16px ;
+}
+
+.item-abs > p {
+    position: absolute;
+    bottom: 30px;
+    left: 25px;
+    color: #fff;
+    font-weight: 700;
+    z-index: 9999;
+    font-size: 12px;
+}
+
+/* CHANGES of THUMB BUTTON */
+.wc-thumb--prev:after {
+    content: url('../../images/stadiums/page-ico/left.svg');
+    transform: translate(3%, -23%);
+}
+.wc-thumb--next:after {
+    content: url('../../images/stadiums/page-ico/right.svg');
+    transform: translate(-3%, -23%);
+}
+
+.wc-thumb--next:hover,
+.wc-thumb--prev:hover {
+    background-color: #FF004C; 
+}
+
+.wc-thumb--next,
+.wc-thumb--prev {
+    background-color: rgb(255, 0, 76, .7);
+    max-width: 12px;
+    border-radius: 50px;
+    padding: calc(48px - 24px);
+    transition: all .25s ease-in-out;
+}
+
+.btn-wc-disabled.swiper-button-disabled {
+    display: none!important;
+}
 
 /* MEDIA QUERIES */
 
@@ -100,6 +214,39 @@
     .cover--right img {
         width: 100%;
         max-width: 1024px;
+    }
+
+    .mgn-32 {
+        margin-bottom: 32px;
+    }
+
+    /* FOR STADIUMS */
+    .ff-world-cup-stadiums-title h4 {
+        font-size: 16px;
+    }
+    .maxw .inner {
+        padding: 32px 0;
+        height: auto;
+    }
+    .flex-horizontal {
+        flex-wrap: wrap;
+        gap: 16px;
+        justify-content: center;
+    }
+
+    .slide-stadium,
+    .slide-stadium > div,
+    .slide-stadium > img {
+        max-width: 167.5px!important;
+    }
+    .slide-stadium > div {
+        min-height: 216px!important;
+        top: 0;
+    }
+
+    .wc-thumb--next,
+    .wc-thumb--prev {
+        display: none;
     }
 }
 

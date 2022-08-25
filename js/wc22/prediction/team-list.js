@@ -12,7 +12,7 @@ const teams = {
             { "id": "en", "name": "england", "short":"eng","group": "b" },
             { "id": "ec", "name": "ecuador", "short":"ecu","group": "a" },
             { "id": "fr", "name": "france", "short":"fra","group": "d" },
-            { "id": "de", "name": "germany", "short":"","group": "e" },
+            { "id": "de", "name": "germany", "short":"deu","group": "e" },
             { "id": "gh", "name": "ghana", "short":"gha","group": "h" },
             { "id": "ir", "name": "iran", "short":"irn","group": "b" },
             { "id": "jp", "name": "japan", "short":"jpn","group": "e" },

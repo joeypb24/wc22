@@ -30,6 +30,24 @@
 .dd-wrap * {
 	cursor: pointer;
 }
+.match-lbl-wrap{
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.match-lbl-wrap .match-lbl-item{
+	width: calc(100%/7);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+.match-lbl-wrap .lbl-txt{
+	font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: #A7A9B0;
+	text-transform: uppercase;
+}
 .dd-wrap .txt, .dd-option-wrap .txt {
     font-size: 14px;
     line-height: 20px;
@@ -44,6 +62,9 @@
 }
 .dd-option-wrap .dd-option{
 	padding: 16px;
+}
+.dd-wrap .dd-selected .txt{
+    text-transform: uppercase;
 }
 .dd-option-wrap .dd-option .txt {
 	text-transform: uppercase;
@@ -135,6 +156,7 @@
 .dd-wrap .dd-option-wrap .scrollbar-inner > .scroll-element.scroll-y {
 	width: 2px;
 }
+.dd-wrap .dd-option-wrap .scrollbar-inner.list{height: 100% !important;}
 .dd-wrap .dd-option-wrap .scrollbar-inner > .scroll-element .scroll-element_track {
 	background-color: transparent;
 }
@@ -169,11 +191,38 @@
 	/* background-color: #ebebeb; */
 }
 .dd-wrap .dd-option:hover {
-	background: #F4F4F5;
+	background-color: #F4F4F5;
     border-radius: 16px;
 }
 .dd-wrap .dd-option:hover .txt {
 	color: #64748B;
+}
+/* .dd-wrap .dd-option.icon:hover{
+	background-image: url('../../images/prediction/icons/check-selected-black.svg');
+    background-repeat: no-repeat;
+    background-position: 90% center;
+} */
+.dd-wrap .dd-option.icon.selected{
+	background-color: #F4F4F5;
+    border-radius: 16px;
+	position: relative;
+}
+.dd-wrap .dd-option.icon.selected::after{
+	background-image: url('../../images/prediction/icons/check-selected-black.svg');
+    background-repeat: no-repeat;
+    display: block;
+    position: absolute;
+	content: '';
+    Width: 14px;
+    Height: 14px;
+    top: 9px;
+    left: 90%;
+}
+
+.dd-wrap .dd-option.icon.selected:hover:after{
+	content: '';
+	transform: translateX(-50%);
+	/* background-image: url('../../images/prediction/icons/check-selected-black.svg'); */
 }
 .bracket-scroller-x {
 	position: static;

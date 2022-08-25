@@ -205,6 +205,7 @@ jQuery(function($) {
 				const value = obj[1];
 				var dataVal = value.name;
 				var checkRes = result.toLowerCase();
+				console.log('para sa input');
 				
 				if((dataVal.toLowerCase()).includes(checkRes)) {
 					$(ddWrap).find('.dd-option[data-val="'+value.id+'"]').removeClass('input-hidden');
@@ -223,6 +224,8 @@ jQuery(function($) {
 		let ddWrapPrvTarget = $(this).closest('.dd-wrap').attr('data-prvtarget');
 		let selTeamsArr = [];
 		let selTeamsPrvArr = [];
+
+		addSelected($(this));
 		
 		$('.dd-wrap[data-self="'+ddWrapTarget+'"] .dd-option').addClass('hidden');
 		$('.dd-wrap[data-target="'+ddWrapTarget+'"]').each(function(){
@@ -253,7 +256,7 @@ jQuery(function($) {
 				$.each(ddWrapPrvTargetArr, function(key, value){
 					$('.dd-wrap[data-self="'+value.trim()+'"]').find('.dd-selected').removeAttr('data-val').addClass('placeholder').find('.txt').text('');
 					$('.dd-wrap[data-self="'+value.trim()+'"]').find('.dd-selected').removeClass(function (index, className) {
-						$(this).removeClass('icon');
+						$(this).removeClass('icon');						
 						return (className.match (/(^|\s)icon\S+/g) || []).join(' ');
 					});
 				});
@@ -304,6 +307,18 @@ jQuery(function($) {
 			}
 		});
 	});
+
+	/*Add Selected Class Start*/
+	function addSelected(param){
+		let dditem = param.closest('.dd-wrap').attr('data-item');
+
+		$(document).on('click', '.dd-wrap[data-item="'+dditem+'"] .dd-option.icon', function(e){
+			e.preventDefault();
+			$('.dd-wrap[data-item="'+dditem+'"] .dd-option.icon.selected').removeClass('selected');
+			$(this).addClass('selected');
+		});
+	}
+	/*Add Selected Class Remove*/
 
 	function autoHeightDDOption(ddWrap) {
 		let ddOptionLength = $('.dd-wrap[data-self="'+ddWrap+'"]').find('.dd-option:not(.hidden)').length;

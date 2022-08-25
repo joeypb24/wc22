@@ -229,7 +229,7 @@
     }
 }
 
-@media(max-width: 350px) {
+@media(max-width: 374px) {
     body {
         min-width: 375px;
     }

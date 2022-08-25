@@ -6,6 +6,7 @@
 	--nelvy: #1A2E4D;
 	--red-wine: #AA0A3E;
 	--qatar-maroon: #8A1538;
+	--pattens-blue: #e6e9eb;
 }
 .wc22 * {
 	-webkit-box-sizing: border-box;
@@ -41,6 +42,9 @@ body {
 .button {
 	text-align: center;
 }
+.dynamic-content .area .swiper-tiles.casino-tiles:not(.big) .swiper-slide .tile .hover-content button {
+	width: auto;
+}
 /* ~overwrite layout.css */
 /* overwrite swiper */
 .swiper-odds--live .swiper-slide,
@@ -51,6 +55,15 @@ body {
 	width: -moz-max-content;
 	width: max-content;
 }
+.dynamic-content .area .swiper-tiles {
+	overflow: visible;
+	width: 100%;
+}
+.dynamic-content .area .swiper-tiles .swiper-slide {
+	-ms-flex-negative: 1;
+	    flex-shrink: 1;
+	width: max-content;
+}
 .broadage-widgets-body.broadage-fixture.broadage-soccer.broadage-theme-white .broadage-footer-logo {
 	display: none;
 }
@@ -58,6 +71,12 @@ body {
 	-ms-flex-negative: 0;
 	    flex-shrink: 0;
 	width: 100%;
+}
+.dynamic-content .area .swiper-tiles .swiper-slide:last-child {
+	margin-right: 0 !important;
+}
+.dynamic-content .area .swiper-tiles .swiper-slide:first-child {
+	margin-left: 0;
 }
 .swiper-button-next.swiper-button-disabled,
 .swiper-button-prev.swiper-button-disabled {
@@ -161,21 +180,6 @@ iframe {
 	position: relative;
 	overflow: hidden;
 }
-/* .wc22-tab-items__item--1 {
-	background: -o-linear-gradient(338.85deg, #121C79 0%, #AF0A3B 100%);
-	background: linear-gradient(111.15deg, #121C79 0%, #AF0A3B 100%);
-}
-.wc22-tab-items__item--1:before {
-	content: "";
-	background-image: url("../../images/wc22/bg-shape1.png");
-	background-repeat: no-repeat;
-	background-position: center top;
-	width: 100%;
-	height: 855px;
-	position: absolute;
-	display: block;
-	mix-blend-mode: hard-light;
-} */
 .wc22-tab-items__item--1__items {
 	background: -o-linear-gradient(338.85deg, #121C79 0%, #AF0A3B 100%);
 	background: linear-gradient(111.15deg, #121C79 0%, #AF0A3B 100%);
@@ -185,7 +189,7 @@ iframe {
 }
 .wc22-tab-items__item--1__items:before {
 	content: "";
-	background-image: url("../../images/wc22/bg-shape1.png");
+	background-image: url("../images/wc22/bg-shape1.png");
 	background-repeat: no-repeat;
 	background-position: center top;
 	background-size: 1360px 100%;
@@ -290,7 +294,7 @@ iframe {
 }
 .odds-live-card__teams:before {
 	content: "";
-	background-image: url("../../images/wc22/ball-rail-right.svg");
+	background-image: url("../images/wc22/ball-rail-right.svg");
 	display: block;
 	position: absolute;
 	width: 93px;
@@ -300,7 +304,7 @@ iframe {
 }
 .odds-live-card__teams:after {
 	content: "";
-	background-image: url("../../images/wc22/ball-rail-left.svg");
+	background-image: url("../images/wc22/ball-rail-left.svg");
 	display: block;
 	position: absolute;
 	width: 93px;
@@ -381,9 +385,15 @@ iframe {
 	-webkit-transition: all 0.5s ease-in-out;
 	-o-transition: all 0.5s ease-in-out;
 	transition: all 0.5s ease-in-out;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	align-items: center;
-	justify-content: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
 }
 .swiper-odds-prev:active,
 .swiper-odds-next:active {
@@ -401,7 +411,7 @@ iframe {
 	display: block;
 	width: 12px;
 	height: 8px;
-	background: url("../../images/wc22/east.svg") no-repeat center center;   
+	background: url("../images/east.svg") no-repeat center center;   
 }
 .swiper-odds-prev:after,
 .swiper-button-prev:before {
@@ -409,7 +419,7 @@ iframe {
 	display: block;
 	width: 12px;
 	height: 8px;
-	background: url("../../images/wc22/west.svg") no-repeat center center; 
+	background: url("../images/west.svg") no-repeat center center; 
 }
 .swiper-odds-next.swiper-button-disabled,
 .swiper-odds-prev.swiper-button-disabled {
@@ -423,6 +433,7 @@ iframe {
 	font-size: 14px;
 	line-height: 24px;
 	font-weight: 700;
+	text-align: center;
 }
 .btn--red {
 	background-color: var(--torch-red);
@@ -446,6 +457,10 @@ iframe {
 	padding: 16px;
 	border-radius: 16px	;
 	cursor: pointer;
+	-webkit-transition: all .4s ease-in-out;
+	-o-transition: all .4s ease-in-out;
+	transition: all .4s ease-in-out;
+	
 }
 .odds-upcoming-card__head {
 	display: -webkit-box;
@@ -487,12 +502,14 @@ iframe {
 .odds-upcoming-card__team--home > img {
 	position: relative;
 	left: -24px;
-	right: -24px;
 	-webkit-filter: drop-shadow(4px 2px 4px rgba(0, 0, 0, 0.25));
 	        filter: drop-shadow(4px 2px 4px rgba(0, 0, 0, 0.25));
 }
 .odds-upcoming-card__team--away {
 	margin-top: -24px;
+}
+.odds-upcoming-card__team--away > img {
+	position: relative;
 }
 .odds-upcoming-card__capsules {
 	display: -webkit-box;
@@ -523,6 +540,10 @@ iframe {
 	-webkit-box-pack: justify;
 	    -ms-flex-pack: justify;
 	        justify-content: space-between;
+	display: none;
+	-webkit-transition: all .4s ease-in-out;
+	-o-transition: all .4s ease-in-out;
+	transition: all .4s ease-in-out;
 }
 .odds-upcoming-card__capsules__cap > span:first-child {
 	color: var(--light-grayish-blue);
@@ -530,12 +551,28 @@ iframe {
 .odds-upcoming-card__capsules__cap > span:last-child {
 	color: var(--charcoal);
 }
-
+.odds-upcoming-card__capsules.FT1X2 .wc-odds-1,
+.odds-upcoming-card__capsules.FT1X2 .wc-odds-2,
+.odds-upcoming-card__capsules.FT1X2 .wc-odds-3 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-preferred-size: 32%;
+        flex-basis: 32%;
+}
+.odds-upcoming-card__capsules.FTHDP .wc-odds-4,
+.odds-upcoming-card__capsules.FTHDP .wc-odds-5 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-preferred-size: 48%;
+        flex-basis: 48%;
+}
 /* sportsbook */
 .wc22-tab-items__item--1__subs__item__sect--sportsbook {
 	background-color: var(--other-1);
 }
-.sportsbook-tiles {
+.area--sportsbook .swiper-tiles {
 	margin-bottom: 40px;
 }
 .m88-app {
@@ -545,10 +582,16 @@ iframe {
 	background-color: var(--nelvy);
 	border-radius: 8px;
 	margin: 0 auto 40px;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	align-items: center;
-	justify-content: space-around;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-ms-flex-pack: distribute;
+	    justify-content: space-around;
 	cursor: pointer;
+	overflow: hidden;
 }
 .m88-app h3 {
 	font-size: 24px;
@@ -580,9 +623,15 @@ iframe {
 /* ~rng */
 /* vids */
 .vids {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	align-items: flex-start;
-	justify-content: space-between;
+	-webkit-box-align: start;
+	    -ms-flex-align: start;
+	        align-items: flex-start;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
 	margin-bottom: 50px;
 }
 .vids__main {
@@ -612,9 +661,15 @@ iframe {
 /* ~vids */
 /* tnc */
 .tnc-box {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	align-items: flex-end;
-	justify-content: space-between;
+	-webkit-box-align: end;
+	    -ms-flex-align: end;
+	        align-items: flex-end;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
 	background-color: var(--other-1);
 	margin: 0 auto;
 	border-radius: 8px;
@@ -654,15 +709,19 @@ iframe {
 	background-color: var(--qatar-maroon);
 	position: relative;
 	padding: 7px 42px;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	align-items: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 	height: 91px;
 	border-radius: 0 8px 8px 0;
 	margin-right: -2px;
 }
 .tnc-box__logos:before {
 	content: "";
-	background-image: url("../../images/wc22/tnc/tnc-box-zigzag.svg");
+	background-image: url("../images/wc22/tnc/tnc-box-zigzag.svg");
 	display: block;
 	width: 32px;
 	height: 91px;
@@ -677,7 +736,22 @@ iframe {
 	padding: 10px;
 }
 /* ~broadage */
+/* prediction */
+.pred-desk {
+	display: block;
+}
+.pred-mobi {
+	display: none;
+}
+/* ~prediction */
 @media (max-width: 1023px){
+	.inner {
+		padding: 0 16px;
+	}
+	.swiper-holder {
+		padding: 16px;
+		margin: -16px;
+	}
 	.swiper-odds-prev,
 	.swiper-odds-next {
 			display: none;
@@ -689,16 +763,218 @@ iframe {
 	.swiper-odds-next, .swiper-odds-prev {
 			top: 75%;
 	}
+	.wc22 .area h2 {
+		font-size: 20px;
+		line-height: 24px;
+	}
+	.m88-app h3 {
+		font-size: 20px;
+		line-height: 24px;
+	}
+	.btn {
+		font-size: 12px;
+		line-height: 18px;
+		padding: 11px 20px;
+	}
+	.vids {
+		display: block;
+		margin-bottom: 0;
+	}
+	.vids__main {
+		margin-right: 0;
+		margin-bottom: 30px;
+	}
+	.vids__main__vid {
+		width: 100%;
+		height: 590px;
+	}
+	.vids__thumbs {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+	}
+	.vids__thumbs > div {
+		margin-right: 8px;
+	}
+	.vids__thumbs > div:last-child {
+		margin-right: 0;
+	}
+	.vids__thumbs > div > img {
+		width: 100%;
+		height: auto;
+	}
+	/* prediction */
+	.pred-desk {
+		display: none;
+	}
+	.pred-mobi {
+		display: block;
+	}
+/* ~prediction */
 }
 @media (max-width: 767px){
 	.inner {
 		padding: 0 16px;
 	}
+	.wc22-tabs {
+		overflow-x: hidden;
+	}
+	.wc22-tabs > .inner {
+		padding: 0;
+	}
+	.wc22-tabs nav {
+		display: flex;
+		overflow: auto;
+		padding: 0 16px;
+		touch-action: pan-x;
+	}
+	.wc22-tabs nav::-webkit-scrollbar {
+		display: none;
+	}
+	.wc22-tabs__tab {
+		margin: 0 16px 0 0;
+		white-space: nowrap;
+		font-size: 12px;
+		line-height: 18px;
+	}
+	.wc22-tabs__tab:last-child {
+		margin-right: 0;
+	}
+	.area--timer.fifa--section {
+		margin: 0 0 16px;
+	}
+	.wc22-tab-items__item--1__items {
+		padding-bottom: 28px;
+	}
+	.wc22-tab-items__item--1__items:before {
+		background-image: url("../images/wc22/bg-shape1-mobi.png");
+		background-size: 767px 100%;
+		height: 1023px;
+	}
+	.wc22-tab-items__item--1__subtabs {
+		padding: 18px 0;
+	}
+	.wc22-tab-items__item--1__subtabs__tab {
+		font-size: 12px;
+		line-height: 18px;
+		margin: 0 8px;
+	} 
+	.odds-live-card {
+		padding: 0 16px;
+	}
+	.odds-live-card h3 {
+		font-size: 16px;
+		line-height: 20px;
+	}
+	.odds-live-card p {
+		font-size: 14px;
+		line-height: 20px;
+	}
+	.odds-live-card__teams {
+		margin-bottom: 24px;
+	}
+	.odds-live-card__teams__team {
+		width: 120px;
+	}
+	.odds-live-card__teams__team > img {
+		width: 72px;
+		height: 72px;
+	}
+	.odds-live-card__teams__team > p {
+		font-size: 12px;
+		line-height: 18px;
+	}
+	.odds-live-card__teams__scores p span {
+		font-size: 12px;
+		line-height: 18px;
+	}
+	.odds-live-card__teams__scores p span.odds-live-card__teams__scores__fig {
+		font-size: 32px;
+		line-height: 38px;
+	}
+	.wc22-tab-items__item--1__subs__item__sect h4 {
+		font-size: 12px;
+		line-height: 18px;
+	}
+	.odds-upcoming-card {
+		width: 280px;
+		min-height: 137px;
+	}
+	.odds-upcoming-card__head > img {
+		width: 54px;
+		height: auto;
+	}
+	.odds-upcoming-card__team--away {
+		margin-top: -10px;
+	}
+	.odds-upcoming-card__team--home > img,
+	.odds-upcoming-card__team--away > img {
+		width: 32px;
+		height: 32px;
+	}
+	.odds-upcoming-card__team--home > img {
+		left: -24px;
+		top: -18px;
+		z-index: 2;
+	}
+	.odds-upcoming-card__team--away > img {
+		z-index: 1;
+		top: -20px;
+	}
+	.odds-upcoming-card__team > span {
+		font-size: 12px;
+		line-height: 18px;
+	}
+	.odds-upcoming-card__capsules {
+		margin-top: 12px;
+	}
+	.odds-live-card__teams:before {
+		display: none;
+	}
+	.odds-live-card__teams:after {
+		display: none;
+	}
+	.swiper-pagination--odds-live {
+		margin-top: 22px;
+	}
+	.swiper-pagination--odds-live .swiper-pagination-bullet {
+		width: 32px;
+	}
+	.btn {
+		font-size: 10px;
+		line-height: 14px;
+		padding: 8px 16px;
+	}
+	.m88-app {
+		padding: 8px;
+	}
+	.m88-app > img {
+		margin-left: -4%;
+	}
+	.m88-app h3 {
+		font-size: 12px;
+		line-height: 14px;
+	}
+	.m88-app h4 {
+		font-size: 10px;
+		line-height: 12px;
+	}
+	.vids__main__vid {
+		height: 236px;
+	}
 }
 @media (hover: hover){
+	.odds-upcoming-card:hover {
+		-webkit-transform: scale(1.05);
+				-ms-transform: scale(1.05);
+						transform: scale(1.05);
+	}
+	.odds-upcoming-card__capsules__cap:hover {
+		background-color: var(--pattens-blue);
+	}
 	.swiper-odds-prev:hover,
 	.swiper-odds-next:hover {
-			background: #7a7f88;
+			background: var(--primary-5);
 	}
 	.swiper-odds--upcoming:hover .swiper-odds-prev,
 	.swiper-odds--upcoming:hover .swiper-odds-next {

@@ -126,8 +126,16 @@ jQuery(function($) {
 	
 				$('.dd-wrap').each(function(i){
 					var ddGroups = $(this).attr('data-groups');
+					var ddColGroups = $(this).attr('data-colgroup');
 					ddGroups = ddGroups.split(",");
 					let ddListElem = $(this).find('.dd-option-wrap .list');
+
+					/*Add class start*/
+					if(ddColGroups == undefined || ddColGroups == "w-semi" || ddColGroups == "finals" || ddColGroups == "e-semi"){
+						$(this).addClass('dd-disabled');
+					}
+					/*Add class end*/
+
 					for(var i=0;i<ddGroups.length;i++) {
 						ddListElem.append(teamGroupArr[ddGroups[i]]);
 					}
@@ -205,7 +213,6 @@ jQuery(function($) {
 				const value = obj[1];
 				var dataVal = value.name;
 				var checkRes = result.toLowerCase();
-				console.log('para sa input');
 				
 				if((dataVal.toLowerCase()).includes(checkRes)) {
 					$(ddWrap).find('.dd-option[data-val="'+value.id+'"]').removeClass('input-hidden');
@@ -264,6 +271,7 @@ jQuery(function($) {
 		}
 		
 		//next
+		let removeDisabled = $('.dd-wrap.dd-disabled[data-self="'+ddWrapTarget+'"]');
 		if($('.dd-wrap[data-self="'+ddWrapSelf+'"]').length >= 2) {
 			$('.dd-wrap[data-self="'+ddWrapSelf+'"]').each(function(){
 				let ddVal = $(this).find('.dd-selected').attr('data-val');
@@ -271,6 +279,7 @@ jQuery(function($) {
 			});
 			
 			let ddSelected = $('.dd-wrap[data-self="'+ddWrapTarget+'"]').find('.dd-selected').attr('data-val');
+			removeDisabled.removeClass('dd-disabled');
 			if(($.inArray(ddSelected, selTeamsArr)) == -1 && $.inArray(undefined, selTeamsArr) == -1) {
 				$('.dd-wrap[data-self="'+ddWrapTarget+'"]').find('.dd-selected').removeAttr('data-val').addClass('placeholder').find('.txt').text('');
 				$('.dd-wrap[data-self="'+ddWrapTarget+'"]').find('.dd-selected').removeClass(function (index, className) {
@@ -283,8 +292,8 @@ jQuery(function($) {
 				let ddVal = $(this).find('.dd-selected').attr('data-val');
 				selTeamsArr.push(ddVal);
 			});
-			
 			let ddSelected = $('.dd-wrap[data-self="'+ddWrapTarget+'"]').find('.dd-selected').attr('data-val');
+			removeDisabled.removeClass('dd-disabled');
 			if(($.inArray(ddSelected, selTeamsArr)) == -1 && $.inArray(undefined, selTeamsArr) == -1) {
 				$('.dd-wrap[data-self="'+ddWrapTarget+'"]').find('.dd-selected').removeAttr('data-val').addClass('placeholder').find('.txt').text('');
 				$('.dd-wrap[data-self="'+ddWrapTarget+'"]').find('.dd-selected').removeClass(function (index, className) {
@@ -309,7 +318,7 @@ jQuery(function($) {
 	});
 
 	/*Add Selected Class Start*/
-	function addSelected(param){
+	function x(param){
 		let dditem = param.closest('.dd-wrap').attr('data-item');
 
 		$(document).on('click', '.dd-wrap[data-item="'+dditem+'"] .dd-option.icon', function(e){

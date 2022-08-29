@@ -30,6 +30,10 @@
 .dd-wrap * {
 	cursor: pointer;
 }
+.dd-wrap.dd-disabled{
+	pointer-events: none;
+	opacity: 0.8;
+}
 .match-lbl-wrap{
 	display: flex;
     align-items: center;

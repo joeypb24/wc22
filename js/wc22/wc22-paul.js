@@ -69,7 +69,7 @@ var thumbSwiper = new Swiper('.swiper--stdm', {
 
 const swipeMblDisable = (remSwiper) => {
   if (remSwiper.matches) { // If media query matches
-    thumbSwiper.destroy();
+    // thumbSwiper.destroy();
     console.log("Thumb Swiper Removal is enable")
   }
 }

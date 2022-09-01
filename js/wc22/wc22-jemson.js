@@ -187,6 +187,7 @@ jQuery(function($) {
 		$('.dd-wrap').each(function(){
 			counter += $(this).find('.dd-selected[data-val]').length;
 		});
+		console.log(counter)
 		if(counter >= 15) {
 			$('.cta-area .btn').removeClass('inactive');
 		}
@@ -318,7 +319,7 @@ jQuery(function($) {
 	});
 
 	/*Add Selected Class Start*/
-	function x(param){
+	function addSelected(param){
 		let dditem = param.closest('.dd-wrap').attr('data-item');
 
 		$(document).on('click', '.dd-wrap[data-item="'+dditem+'"] .dd-option.icon', function(e){
@@ -334,6 +335,61 @@ jQuery(function($) {
 		let accumulateHeight = ddOptionLength * $('.dd-option').height();
 		$('.dd-wrap[data-self="'+ddWrap+'"] .list').height(accumulateHeight);
 	}
+
+	$(document).on('click', '.btn-submit-prediction', function(){
+		let qf1Team1 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').text());
+		let qf1Team2 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').text());
+		let qf2Team1 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(1) .dd-wrap:eq(0) .dd-selected .txt').text());
+		let qf2Team2 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(1) .dd-wrap:eq(1) .dd-selected .txt').text());
+		let qf3Team1 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').text());
+		let qf3Team2 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').text());
+		let qf4Team1 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(1) .dd-wrap:eq(0) .dd-selected .txt').text());
+		let qf4Team2 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(1) .dd-wrap:eq(1) .dd-selected .txt').text());
+		let sf1Team1 = capitalizedUpperCase($('.bracket.semi-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').text());
+		let sf1Team2 = capitalizedUpperCase($('.bracket.semi-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').text());
+		let sf2Team1 = capitalizedUpperCase($('.bracket.semi-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').text());
+		let sf2Team2 = capitalizedUpperCase($('.bracket.semi-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').text());
+		let f2Team1 = capitalizedUpperCase($('.bracket.finals .match-bracket .dd-wrap:eq(0) .dd-selected .txt').text());
+		let f2Team2 = capitalizedUpperCase($('.bracket.finals .match-bracket .dd-wrap:eq(1) .dd-selected .txt').text());
+		let cTeam1 = capitalizedUpperCase($('.bracket.champion .dd-wrap .dd-selected .txt').text());
+
+		predictionJson = {
+			"qf1": {
+				"team1": qf1Team1,
+				"team2": qf1Team2
+			},
+			"qf2": {
+				"team1": qf2Team1,
+				"team2": qf2Team2
+			},
+			"qf3": {
+				"team1": qf3Team1,
+				"team2": qf3Team2
+			},
+			"qf4": {
+				"team1": qf4Team1,
+				"team2": qf4Team2
+			},
+			"sf1": {
+				"team1": sf1Team1,
+				"team2": sf1Team2
+			},
+			"sf2": {
+				"team1": sf2Team1,
+				"team2": sf2Team2
+			},
+			"f": {
+				"team1": f2Team1,
+				"team2": f2Team2
+			},
+			"c": {
+				"team1": cTeam1
+			}
+		};
+
+		$('.btn-submit-prediction').addClass('inactive');
+		console.log(predictionJson)
+	});
 	
 	function capitalizeFirstLetter(str) {
 
@@ -341,5 +397,9 @@ jQuery(function($) {
 	
 		return capitalized;
 	}
-	
+
+	function capitalizedUpperCase(str){
+		const capUppercase = str.toUpperCase();
+		return capUppercase;
+	}
 });

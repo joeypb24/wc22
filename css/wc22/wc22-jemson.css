@@ -526,6 +526,7 @@
 }
 .cta-area .btn.btn--red.inactive{
 	background: var(--torch-red);
+	pointer-events: none;
 }
 @media (min-width: 768px) {
 	.bracket.finals {

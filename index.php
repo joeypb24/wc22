@@ -39,15 +39,18 @@
     <?php // include 'area-vids.php'; ?>
 
   </div>
-  <script type="text/javascript" src="./js/jquery.scrollbar.js"></script>
-  <script type="text/javascript" src="./js/wc22/wc22.js"></script>
-  <script type="text/javascript" src="./js/wc22/wc22-jemson.js"></script>
-  <script type="text/javascript" src="./js/wc22/wc22-paul.js"></script>
-  <script type="text/javascript" src="./js/wc22/wc22-dana.js"></script>
-
-  <!-- World Cup Qatar 2022 end-->
 
 </div>
+
+<?php include 'modals.php'; ?>
+
+<script type="text/javascript" src="./js/jquery.scrollbar.js"></script>
+<script type="text/javascript" src="./js/wc22/wc22.js"></script>
+<script type="text/javascript" src="./js/wc22/wc22-jemson.js"></script>
+<script type="text/javascript" src="./js/wc22/wc22-paul.js"></script>
+<script type="text/javascript" src="./js/wc22/wc22-dana.js"></script>
+
+<!-- World Cup Qatar 2022 end-->
 
 <?php include 'footer.php'; ?>
 

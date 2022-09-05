@@ -51,49 +51,51 @@
 	var popupStadiumMainImg = document.querySelector(".popup-stadium-big-img");
 	var imgCont = document.querySelector(".popup-stadium-swiper-img-cont");
 
-	function openStadiumPopup(popup) {
-		stadiumPopup.style.display = "block";
-		var slideNum = popup[1].alt;
-		var stadName = "stad"+slideNum;
-		var popupTitle = document.querySelector(".popup-stadium-title-text");
-		var popupText = document.querySelector(".popup-stadium-text");
-
-		Object.entries(stadCont).map((obj) => {
-			const key = obj[0];
-			const val = obj[1];
-			
-
-			if(stadName === key){
-				popupTitle.innerHTML = val.title;
-				popupText.innerHTML = val.text;
-				popupStadiumMainImg.src = val.img;
-				var otherImages = val.others;
-				
-				for (var i=0; i < otherImages.length; i++) {
-					var stadiumSlide = document.createElement('div');
-					stadiumSlide.classList.add('swiper-slide', 'popup-stadium-slide');
-					stadiumSlide.setAttribute("onclick", "pictureChange(this.children[0].getAttribute('src'))");
-					var slideImg = document.createElement('img');
-					slideImg.src = otherImages[i];
-					
-					imgCont.appendChild(stadiumSlide);
-					stadiumSlide.appendChild(slideImg);
-				}
-			}
-		});
-		// var stadiumSlide = document.createElement('div');
-		// var imgCont = document.querySelector(".popup-stadium-swiper-img-cont");
-		// stadiumSlide.classList.add('swiper-slide', 'popup-stadium-slide');
-		// imgCont.appendChild(stadiumSlide);
-	}
-
-	function closeStadiumPopup() {
-		stadiumPopup.style.display = "none";
-		$(imgCont).empty();
-	}
 
 	function pictureChange(imageSrc) {
 		popupStadiumMainImg.src= imageSrc;
 	}
+
+	var slideStadium = document.querySelectorAll('.slide-stadium');
+
+	for (var i = 0; i < slideStadium.length; i++) {
+		$(slideStadium[i]).on("click", function() {
+			stadiumPopup.style.display = "block";
+			var slideNum = this.children[1].alt;
+			var stadName = "stad"+slideNum;
+			var popupTitle = document.querySelector(".popup-stadium-title-text");
+			var popupText = document.querySelector(".popup-stadium-text");
+	
+			Object.entries(stadCont).map((obj) => {
+				const key = obj[0];
+				const val = obj[1];
+				
+	
+				if(stadName === key){
+					popupTitle.innerHTML = val.title;
+					popupText.innerHTML = val.text;
+					popupStadiumMainImg.src = val.img;
+					var otherImages = val.others;
+					
+					for (var i=0; i < otherImages.length; i++) {
+						var stadiumSlide = document.createElement('div');
+						stadiumSlide.classList.add('swiper-slide', 'popup-stadium-slide');
+						stadiumSlide.setAttribute("onclick", "pictureChange(this.children[0].getAttribute('src'))");
+						var slideImg = document.createElement('img');
+						slideImg.src = otherImages[i];
+						
+						imgCont.appendChild(stadiumSlide);
+						stadiumSlide.appendChild(slideImg);
+					}
+				}
+			});
+		});
+	}
+
+	var closePopup = document.querySelector('.popup-stadium-close');
+
+	$(closePopup).click(function(){
+        stadiumPopup.style.display = "none";
+    });
 
 // });

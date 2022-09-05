@@ -676,6 +676,7 @@ iframe {
 	max-width: 1120px;
 	width: 100%;
 	height: 91px;
+	position: relative;
 }
 .tnc-box > a {
 	margin-top: auto;
@@ -684,6 +685,7 @@ iframe {
 	line-height: 18px;
 	text-decoration: underline;
 	color: var(--light-grayish-blue);
+	white-space: nowrap;
 }
 .tnc-box > img {
 	margin-left: 8px;
@@ -692,16 +694,17 @@ iframe {
 	max-width: 440px;
 	width: 100%;
 	padding: 14px 0;
+	align-self: center;
 }
 .tnc-box__texts h3 {
-	font-size: 16px;
+	font-size: 22px;
 	line-height: 20px;
 	color: var(--charcoal);
 	text-transform: uppercase;
 	margin-bottom: 8px;
 }
 .tnc-box__texts p {
-	font-size: 12px;
+	font-size: 18px;
 	line-height: 18px;
 	color: var(--light-grayish-blue);
 }
@@ -718,17 +721,17 @@ iframe {
 	height: 91px;
 	border-radius: 0 8px 8px 0;
 	margin-right: -2px;
+	margin-left: 32px;
 }
 .tnc-box__logos:before {
 	content: "";
-	background-image: url("../images/wc22/tnc/tnc-box-zigzag.svg");
+	background-image: url("../../images/wc22/tnc/tnc-box-zigzag.svg");
 	display: block;
 	width: 32px;
 	height: 91px;
 	position: absolute;
 	left: -32px;
 	top: 0;
-
 }
 /* ~tnc */
 /* broadage */
@@ -823,6 +826,16 @@ iframe {
 	height: 100%;
 }
 /* ~knockouts */
+@media (max-width: 1199px) {
+	/* tnc */
+	.tnc-box > img {
+		margin-left: -2%;
+	}
+	.tnc-box__logos {
+		padding: 7px 24px;
+	}
+	/* ~tnc */
+}
 @media (max-width: 1023px){
 	.inner {
 		padding: 0 16px;
@@ -889,7 +902,38 @@ iframe {
 	.pred-mobi {
 		display: block;
 	}
-/* ~prediction */
+	/* ~prediction */
+	/* tnc */
+	.tnc-box > img {
+		margin-left: -3%;
+	}
+	.tnc-box__texts h3 {
+		font-size: 15px;
+	}
+	.tnc-box__texts p {
+		font-size: 14px;
+	}
+	.tnc-box > a {
+		margin-right: 1%;
+	}
+	.tnc-box__logos {
+		padding: 7px 16px;
+		margin-left: 21px;
+	}
+	.tnc-box__logos > img:first-child {
+		width: 95px;
+		height: 76px;
+	}
+	.tnc-box__logos > img:last-child {
+		width: 64px;
+		height: 64px;
+	}
+	.tnc-box__logos:before {
+		background-image: url("../../images/wc22/tnc/tnc-box-zigzag-tablet.svg");
+		width: 21px;
+		left: -21px;
+	}
+	/* ~tnc */
 }
 @media (max-width: 767px){
 	.inner {
@@ -1041,7 +1085,89 @@ iframe {
 	.vids__main__vid {
 		height: 236px;
 	}
+	/* tnc */
+	.tnc-box {
+		height: 100px;
+		display: block;
+	}
+	.tnc-box > img {
+    position: absolute;
+    left: -3%;
+    bottom: 0;
+	}
+	.tnc-box__texts {
+		position: relative;
+		padding: 8px 0;
+		padding-left: 14%;
+    padding-right: 95px;
+		max-width: 100%;
+	}
+	.tnc-box__texts h3 {
+		font-size: 12px;
+		line-height: 18px;
+	}
+	.tnc-box__texts p {
+		font-size: 12px;
+		line-height: 18px;
+	}
+	html[lang="ja-JP"] .tnc-box__texts h3 {
+		font-size: 10px;
+	}
+	.tnc-box > a {
+		margin: 0;
+		display: block;
+		text-align: right;
+		padding-right: 0;
+		position: absolute;
+		right: 95px;
+		bottom: 6px;
+	}
+	.tnc-box__logos {
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 0;
+		height: 100%;
+		padding: 8px;
+	}
+	.tnc-box__logos:before {
+		background-image: url("../../images/wc22/tnc/tnc-box-zigzag-mobi.svg");
+		width: 18px;
+		height: 100px;
+		left: -18px;
+	}
+	.tnc-box__logos > img:first-child {
+		width: 57px;
+		height: 49px;
+		display: block;
+		margin: 0 auto;
+	}
+	.tnc-box__logos > img:last-child {
+		width: 37px;
+		height: 37px;
+		display: block;
+		margin: 0 auto;
+	}
+	/* ~tnc */
 }
+@media (max-width: 559px) {
+	/* tnc */
+	.tnc-box > img {
+		left: -3%;
+	}
+	/* ~tnc */
+}
+@media (max-width: 459px) {
+	/* tnc */
+	html[lang="ja-JP"] .tnc-box__texts h3 {
+		font-size: 10px;
+	}
+	.tnc-box > img {
+		left: -3%;
+	}
+	/* ~tnc */
+}
+
 @media (hover: hover){
 	.odds-upcoming-card:hover {
 		-webkit-transform: scale(1.05);

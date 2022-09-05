@@ -30,42 +30,42 @@
       <!-- for Swiper -->
       <div class="swiper swiper--stdm">
         <div class="swiper-wrapper flex-horizontal">
-          <div class="swiper-slide slide-stadium item-abs scale-image" onclick="openStadiumPopup(this.children)">
+          <div class="swiper-slide slide-stadium item-abs scale-image">
             <div></div>
             <img src="images/stadiums/primary-stdm/lusail.jpg" alt="1" class="stadium-img-1">
             <p>Lusail Iconic Stadium</p>
           </div>
-          <div class="swiper-slide slide-stadium item-abs scale-image" onclick="openStadiumPopup(this.children)">
+          <div class="swiper-slide slide-stadium item-abs scale-image">
             <div></div>
             <img src="images/stadiums/primary-stdm/al-bayt.jpg" alt="2">
             <p>Al Bayt Stadium</p>
           </div>
-          <div class="swiper-slide slide-stadium item-abs scale-image" onclick="openStadiumPopup(this.children)">
+          <div class="swiper-slide slide-stadium item-abs scale-image">
             <div></div>
             <img src="images/stadiums/primary-stdm/khalifa.jpg" alt="3">
             <p>Khalifa International Stadium</p>
           </div>
-          <div class="swiper-slide slide-stadium item-abs scale-image" onclick="openStadiumPopup(this.children)">
+          <div class="swiper-slide slide-stadium item-abs scale-image">
             <div></div>
             <img src="images/stadiums/primary-stdm/al-thumama.jpg" alt="4">
             <p>Al Thumama Stadium</p>
           </div>
-          <div class="swiper-slide slide-stadium item-abs scale-image" onclick="openStadiumPopup(this.children)">
+          <div class="swiper-slide slide-stadium item-abs scale-image">
             <div></div>
             <img src="images/stadiums/primary-stdm/education-city.jpg" alt="5">
             <p>Education City Stadium</p>
           </div>
-          <div class="swiper-slide slide-stadium item-abs scale-image" onclick="openStadiumPopup(this.children)">
+          <div class="swiper-slide slide-stadium item-abs scale-image">
             <div></div>
             <img src="images/stadiums/primary-stdm/ahmad-bin-ali.jpg" alt="6">
             <p>Ahmad bin Ali Stadium</p>
           </div>
-          <div class="swiper-slide slide-stadium item-abs scale-image" onclick="openStadiumPopup(this.children)">
+          <div class="swiper-slide slide-stadium item-abs scale-image">
             <div></div>
             <img src="images/stadiums/primary-stdm/974.jpg" alt="7">
             <p>Stadium 974</p>
           </div>
-          <div class="swiper-slide slide-stadium item-abs scale-image" onclick="openStadiumPopup(this.children)">
+          <div class="swiper-slide slide-stadium item-abs scale-image">
             <div></div>
             <img src="images/stadiums/primary-stdm/al-janoub.jpg" alt="8">
             <p>Al Janoub Stadium</p>
@@ -84,7 +84,7 @@
         <p class="popup-stadium-title-text">
           <!-- Stadium 974 -->
         </p>
-        <img src="./images/icon-close.svg" class="popup-stadium-close" onclick="closeStadiumPopup()">
+        <img src="./images/icon-close.svg" class="popup-stadium-close">
       </div>
       <div class="popup-stadium-content">
         <div class="popup-stadium-top">
@@ -97,30 +97,6 @@
           <p class="popup-stadium-other">Other Photos</p>
           <div class="swiper swiper--stdm popup-stadium-swiper">
             <div class="swiper-wrapper flex-horizontal popup-stadium-swiper-img-cont">
-              <!-- <div class="swiper-slide popup-stadium-slide" onclick="pictureChange(this.children[0].getAttribute('src'))">
-                    <img src="images/stadiums/primary-stdm/1.jpg">
-                  </div>
-                  <div class="swiper-slide popup-stadium-slide" onclick="pictureChange(this.children[0].getAttribute('src'))">
-                    <img src="images/stadiums/primary-stdm/2.jpg">
-                  </div>
-                  <div class="swiper-slide popup-stadium-slide" onclick="pictureChange(this.children[0].getAttribute('src'))">
-                    <img src="images/stadiums/primary-stdm/3.jpg">
-                  </div>
-                  <div class="swiper-slide popup-stadium-slide" onclick="pictureChange(this.children[0].getAttribute('src'))">
-                    <img src="images/stadiums/primary-stdm/4.jpg">
-                  </div>
-                  <div class="swiper-slide popup-stadium-slide" onclick="pictureChange(this.children[0].getAttribute('src'))">
-                    <img src="images/stadiums/primary-stdm/5.jpg">
-                  </div>
-                  <div class="swiper-slide popup-stadium-slide" onclick="pictureChange(this.children[0].getAttribute('src'))">
-                    <img src="images/stadiums/primary-stdm/6.jpg">
-                  </div>
-                  <div class="swiper-slide popup-stadium-slide" onclick="pictureChange(this.children[0].getAttribute('src'))">
-                    <img src="images/stadiums/primary-stdm/7.jpg">
-                  </div>
-                  <div class="swiper-slide popup-stadium-slide" onclick="pictureChange(this.children[0].getAttribute('src'))">
-                    <img src="images/stadiums/primary-stdm/8.jpg">
-                  </div> -->
             </div>
             <div class="swiper-button-prev wc-thumb--prev popup-stadium-prev"></div>
             <div class="swiper-button-next wc-thumb--next popup-stadium-next"></div>
@@ -129,56 +105,6 @@
       </div>
     </div>
   </div>
-
-  <!-- <div class="popup-stadium popup-stadium-2">
-    <div>
-      <div class="popup-stadium-title">
-        <p>Lusail Iconic Stadium</p>
-        <img src="./images/icon-close.svg" class="popup-stadium-close" onclick="closeStadiumPopup()">
-      </div>
-      <div class="popup-stadium-content">
-        <div class="popup-stadium-top">
-          <img src="images/stadiums/primary-stdm/2.jpg" class="popup-stadium-big-img">
-          <p class="popup-stadium-text">
-            The Lusail Iconic Stadium will be the main venue of the 2022 FIFA World Cup. Aside from being the site of Group C, G, and H matches, it will also hold a match in every knockout round, including the championship game
-          </p>
-        </div>
-        <div class="popup-stadium-bottom">
-          <p class="popup-stadium-other">Other Photos</p>
-          <div class="swiper swiper--stdm popup-stadium-swiper">
-                <div class="swiper-wrapper flex-horizontal">
-                  <div class="swiper-slide popup-stadium-slide" onclick="pictureChange(this.children[0].getAttribute('src'))">
-                    <img src="images/stadiums/primary-stdm/1.jpg">
-                  </div>
-                  <div class="swiper-slide popup-stadium-slide" onclick="pictureChange(this.children[0].getAttribute('src'))">
-                    <img src="images/stadiums/primary-stdm/2.jpg">
-                  </div>
-                  <div class="swiper-slide popup-stadium-slide" onclick="pictureChange(this.children[0].getAttribute('src'))">
-                    <img src="images/stadiums/primary-stdm/3.jpg">
-                  </div>
-                  <div class="swiper-slide popup-stadium-slide" onclick="pictureChange(this.children[0].getAttribute('src'))">
-                    <img src="images/stadiums/primary-stdm/4.jpg">
-                  </div>
-                  <div class="swiper-slide popup-stadium-slide" onclick="pictureChange(this.children[0].getAttribute('src'))">
-                    <img src="images/stadiums/primary-stdm/5.jpg">
-                  </div>
-                  <div class="swiper-slide popup-stadium-slide" onclick="pictureChange(this.children[0].getAttribute('src'))">
-                    <img src="images/stadiums/primary-stdm/6.jpg">
-                  </div>
-                  <div class="swiper-slide popup-stadium-slide" onclick="pictureChange(this.children[0].getAttribute('src'))">
-                    <img src="images/stadiums/primary-stdm/7.jpg">
-                  </div>
-                  <div class="swiper-slide popup-stadium-slide" onclick="pictureChange(this.children[0].getAttribute('src'))">
-                    <img src="images/stadiums/primary-stdm/8.jpg">
-                  </div>
-                </div>
-                <div class="swiper-button-prev wc-thumb--prev popup-stadium-prev"></div>
-                <div class="swiper-button-next wc-thumb--next popup-stadium-next"></div>
-            </div>
-        </div>
-      </div>
-    </div>
-  </div>  -->
   <!--STADIUM POPUPS END-->
 
 </div>

@@ -744,6 +744,85 @@ iframe {
 	display: none;
 }
 /* ~prediction */
+/* knockouts */
+.knockouts {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.knockouts__col {
+	height: 573px;
+}
+.knockouts__col__batch {
+	margin-bottom: 16px;
+}
+.knockouts__col__batch:last-child {
+	margin-bottom: 0;
+}
+.knockouts__col__batch__grp {
+	background-color: var(--other-1);
+	border-radius: 10px;
+	padding: 16px;
+	width: 152px;
+	min-height: 121px;
+	margin-bottom: 8px;
+}
+.knockouts__col__batch__grp:last-child {
+	margin-bottom: 0;
+}
+.knockouts__col__batch__grp__head {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	margin-bottom: 8px;
+}
+.knockouts__col__batch__grp__head__team {
+	text-align: center;
+}
+.knockouts__col__batch__grp__head__team__name {
+	font-size: 14px;
+	line-height: 20px;
+	font-weight: 700;
+}
+.knockouts__col__batch__grp__head__team__group {
+	font-size: 10px;
+	line-height: 14px;
+	color: var(--charcoal);
+}
+.knockouts__col__batch__grp__head__scores > span {
+	font-size: 14px;
+	line-height: 20px;
+	text-align: center;
+	font-weight: 700;
+}
+.knockouts__col__batch__grp__date {
+	font-size: 10px;
+	line-height: 14px;
+	color: var(--light-grayish-blue);
+	text-align: center;
+}
+.knockouts__col__batch--quarter{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	height: 100%;
+}
+.knockouts__col__batch--semi {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	height: 100%;
+}
+.knockouts__col__batch--finals {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	height: 100%;
+}
+/* ~knockouts */
 @media (max-width: 1023px){
 	.inner {
 		padding: 0 16px;

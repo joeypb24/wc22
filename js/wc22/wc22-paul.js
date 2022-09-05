@@ -74,7 +74,7 @@ const swipeMblDisable = (remSwiper) => {
   }
 }
 setTimeout(function(){
-  thumbSwiper.init();
+  thumbSwiper.init;
 }, 1000)
 
 let remSwiper = window.matchMedia("(max-width: 767px)")

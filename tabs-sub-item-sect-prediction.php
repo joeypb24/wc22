@@ -24,7 +24,7 @@
 		<div class="scroll-holder scroll-x bracket-scroller-x">
 			<div class="scroll-mover">
 				<div class="scroller-inner">
-					<div class="match-lbl-wrap">
+					<!-- <div class="match-lbl-wrap">
 						<div class="match-lbl-item">
 							<h3 class="lbl-txt">Round of 16</h3>
 						</div>
@@ -46,9 +46,9 @@
 						<div class="match-lbl-item">
 							<h3 class="lbl-txt">Round of 16</h3>
 						</div>
-					</div>
+					</div> -->
 					<div class="bracket-wrap"></div>
-					<div class="match-lbl-wrap">
+					<!-- <div class="match-lbl-wrap">
 						<div class="match-lbl-item">
 							<h3 class="lbl-txt">Round of 16</h3>
 						</div>
@@ -70,7 +70,7 @@
 						<div class="match-lbl-item">
 							<h3 class="lbl-txt">Round of 16</h3>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>

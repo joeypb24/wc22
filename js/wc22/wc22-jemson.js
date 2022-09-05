@@ -119,6 +119,9 @@ jQuery(function($) {
 	var prevDesk;
 
 	function bracketResponsive(){
+		let scroll = ($(window).width() >= 560) ? $('.bracket-wrap.x-inner').removeClass('x-inner') : $('.bracket-wrap').addClass('x-inner');
+		scroll;
+		
 		var bracketFormat = ($(window).width() >= 768) ? bracketFormat = 'desktop' : bracketFormat = 'mobile';
 		if(typeof prevDesk == "undefined" || prevDesk != bracketFormat) {
 			prevDesk = bracketFormat;

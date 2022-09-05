@@ -24,53 +24,7 @@
 		<div class="scroll-holder scroll-x bracket-scroller-x">
 			<div class="scroll-mover">
 				<div class="scroller-inner">
-					<!-- <div class="match-lbl-wrap">
-						<div class="match-lbl-item">
-							<h3 class="lbl-txt">Round of 16</h3>
-						</div>
-						<div class="match-lbl-item">
-							<h3 class="lbl-txt">Quarter-Finals</h3>
-						</div>
-						<div class="match-lbl-item">
-							<h3 class="lbl-txt">Semi-finals</h3>
-						</div>
-						<div class="match-lbl-item">
-							<h3 class="lbl-txt">play-off for 3rd place</h3>
-						</div>
-						<div class="match-lbl-item">
-							<h3 class="lbl-txt">Semi-finals</h3>
-						</div>
-						<div class="match-lbl-item">
-							<h3 class="lbl-txt">Quarter-Finals</h3>
-						</div>
-						<div class="match-lbl-item">
-							<h3 class="lbl-txt">Round of 16</h3>
-						</div>
-					</div> -->
 					<div class="bracket-wrap"></div>
-					<!-- <div class="match-lbl-wrap">
-						<div class="match-lbl-item">
-							<h3 class="lbl-txt">Round of 16</h3>
-						</div>
-						<div class="match-lbl-item">
-							<h3 class="lbl-txt">Quarter-Finals</h3>
-						</div>
-						<div class="match-lbl-item">
-							<h3 class="lbl-txt">Semi-finals</h3>
-						</div>
-						<div class="match-lbl-item">
-							<h3 class="lbl-txt">play-off for 3rd place</h3>
-						</div>
-						<div class="match-lbl-item">
-							<h3 class="lbl-txt">Semi-finals</h3>
-						</div>
-						<div class="match-lbl-item">
-							<h3 class="lbl-txt">Quarter-Finals</h3>
-						</div>
-						<div class="match-lbl-item">
-							<h3 class="lbl-txt">Round of 16</h3>
-						</div>
-					</div> -->
 				</div>
 			</div>
 		</div>

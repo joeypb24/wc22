@@ -217,7 +217,7 @@
     display: block;
     position: absolute;
 	content: '';
-    Width: 14px;
+    Width: 14px!important;
     Height: 14px;
     top: 9px;
     left: 90%;
@@ -447,9 +447,10 @@
     width: 100%;
 }
 .bracket.finals .match-bracket{
-	display: flex;
+    display: flex;
     justify-content: space-between;
     width: 100%;
+    flex-direction: row;
     align-items: center;
 }
 .bracket.finals .bracket-line {
@@ -546,7 +547,7 @@
 	#main {
 		background-image: url(../images/bg-pred-mobile.jpg);
 	}
-	.logo-uefa {
+	.logo-wc22 {
 		width: 61px;
 		height: 69px;
 		position: absolute;
@@ -566,22 +567,38 @@
 	.bracket-scroller-x .scroll-mover {
 		padding: 0 0 250px;
 	}
+	.x-inner .dd-wrap .dd-option-wrap{
+		padding: 0;
+	}
+	.x-inner .dd-wrap .dd-option-wrap .scrollbar-inner.list{
+		padding: 8px;
+	}
+	.x-inner .dd-wrap .dd-option:not(:last-child):not(:hover):after{
+		transform: translateX(0);
+	}
+	.x-inner .dd-wrap .dd-option.icon.selected::after{
+		top: 15px;
+	}
 	.match-bracket-wrap {
 		position: relative;
 	}
 	.bracket-wrap > *:not(:last-child) {
-		margin-right: 12px;
+		/* margin-right: 12px; */
+		margin-right: 40px;
+		width: 140px;
 	}
 	.bracket-line {
-		right: -6px;
+		right: -10px;
 	}
-	.bracket-line {
-		right: -6px;
+	/* .bracket-line {
+		right: -10px;
 		height: calc(100% - 88px);
-	}
+	} */
 	.match-bracket-wrap.semi-finals .bracket-line {
-		height: calc(100% - (88px + 28px));
-		margin-top: calc(28px / 2);
+		/* height: calc(100% - (88px + 28px));
+		margin-top: calc(28px / 2); */
+		height: calc(100% - (6px + 28px));
+		margin-top: 0;
 	}
 	.match-bracket-wrap.finals .bracket-line {
 		height: calc(100% - (48px + 28px));
@@ -600,11 +617,18 @@
 		margin-bottom: 32px;
 	}
 	.bracket.semi-finals:not(:last-child) {
-		margin-bottom: 162px;
+		/* margin-bottom: 162px; */
+		margin-bottom: 85px;
 	}
 	.bracket .bracket-title {
 		font-size: 14px;
 		line-height: 20px;
+	}
+	.bracket.finals .match-bracket{
+		flex-direction: column;
+	}
+	.bracket.finals .dd-wrap:not(:last-child) {
+		margin-bottom: 250px;
 	}
 	.bracket-wrap .bracket.champion .dd-champ-wrap {
 		padding: 35px 8px 8px;
@@ -625,6 +649,9 @@
 	.bracket.semi-finals .dd-wrap:not(:last-child) {
 		margin-bottom: 8px;
 	}
+	.bracket.semi-finals .match-bracket .dd-wrap:not(:last-child){
+		padding-bottom: 92px;
+	}
 	.bracket-wrap .bracket.champion {
 		position: relative;
 		left: auto;
@@ -643,7 +670,8 @@
 		white-space: normal;
 	}
 	.dd-wrap .dd-selected {
-		width: calc((((((100vw - 375px) * 100) / (768 - 375)) / 100) * (180 - 104)) + 104px);
+		/* width: calc((((((100vw - 375px) * 100) / (768 - 375)) / 100) * (180 - 104)) + 104px); */
+		width: 140px;
 		height: 40px;
 		padding: 0 21px 0 8px;
 	}
@@ -663,6 +691,7 @@
 		box-sizing: border-box;
 		background-color: #fff;
 		margin: 0;
+		z-index: 1;
 	}
 	.cta-area .btn {
 		width: 100%;
@@ -682,6 +711,10 @@
 	}
 	.bracket.active {
 		z-index: unset;
+	}
+	.scroller-inner .bracket-wrap.x-inner{
+		max-width: 9999px;
+		overflow-x: auto;
 	}
 	.dd-wrap .dd-option-wrap {
 		position: fixed;
@@ -719,7 +752,7 @@
 		vertical-align: middle;
 		width: 16px;
 		height: 16px;
-		background-image: url(../images/icons/close-dark.svg);
+		background-image: url(../../images/prediction/icons/close-dark.svg);
 		background-repeat: no-repeat;
 		background-size: contain;
 		font-size: 0;
@@ -738,7 +771,7 @@
 	.bracket-wrap .middle-wrap .bracket.champion {
 		width: 120px;
 	}
-	.dd-wrap .dd-selected {
+	/* .dd-wrap .dd-selected {
 		width: 104px;
-	}
+	} */
 }

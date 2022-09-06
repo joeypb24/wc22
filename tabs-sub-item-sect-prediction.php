@@ -5,8 +5,8 @@
 		<div class="tnc-box">
 			<img src="./images/wc22/tnc/tnc-char.png" alt="" width="131" height="101">
 			<div class="tnc-box__texts">
-				<h3>Please select your predictions to win</h3>
-				<p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.</p>
+				<h3>勝利チームを選んで、予想して、賞金獲得!!</h3>
+				<p>最大USD 888,000まで獲得</p>
 			</div>
 			<a role="button" class="to-tnc">Terms & Conditions</a>
 			<div class="tnc-box__logos">
@@ -24,53 +24,7 @@
 		<div class="scroll-holder scroll-x bracket-scroller-x">
 			<div class="scroll-mover">
 				<div class="scroller-inner">
-					<!-- <div class="match-lbl-wrap">
-						<div class="match-lbl-item">
-							<h3 class="lbl-txt">Round of 16</h3>
-						</div>
-						<div class="match-lbl-item">
-							<h3 class="lbl-txt">Quarter-Finals</h3>
-						</div>
-						<div class="match-lbl-item">
-							<h3 class="lbl-txt">Semi-finals</h3>
-						</div>
-						<div class="match-lbl-item">
-							<h3 class="lbl-txt">play-off for 3rd place</h3>
-						</div>
-						<div class="match-lbl-item">
-							<h3 class="lbl-txt">Semi-finals</h3>
-						</div>
-						<div class="match-lbl-item">
-							<h3 class="lbl-txt">Quarter-Finals</h3>
-						</div>
-						<div class="match-lbl-item">
-							<h3 class="lbl-txt">Round of 16</h3>
-						</div>
-					</div> -->
 					<div class="bracket-wrap"></div>
-					<!-- <div class="match-lbl-wrap">
-						<div class="match-lbl-item">
-							<h3 class="lbl-txt">Round of 16</h3>
-						</div>
-						<div class="match-lbl-item">
-							<h3 class="lbl-txt">Quarter-Finals</h3>
-						</div>
-						<div class="match-lbl-item">
-							<h3 class="lbl-txt">Semi-finals</h3>
-						</div>
-						<div class="match-lbl-item">
-							<h3 class="lbl-txt">play-off for 3rd place</h3>
-						</div>
-						<div class="match-lbl-item">
-							<h3 class="lbl-txt">Semi-finals</h3>
-						</div>
-						<div class="match-lbl-item">
-							<h3 class="lbl-txt">Quarter-Finals</h3>
-						</div>
-						<div class="match-lbl-item">
-							<h3 class="lbl-txt">Round of 16</h3>
-						</div>
-					</div> -->
 				</div>
 			</div>
 		</div>

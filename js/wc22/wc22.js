@@ -171,6 +171,21 @@ jQuery(function() {
 		}
 	});
 
+	// modals
+	$(".to-tnc").on("click", function(){
+		$(".wc22-modals").addClass("act");
+		$(".wc22-modals__lbox--tnc").addClass("act");
+		$("body").css("overflow", "hidden");
+	});
+	$(".wc22-modals, .wc22-modals__lbox__close, .wc22-modals__lbox__bar").on("click", function(){
+		$(".wc22-modals").removeClass("act");
+		$(".wc22-modals__lbox").removeClass("act");
+		$("body").css("overflow", "auto");
+	})
+	$(".wc22-modals__lbox").on("click", function(e){
+		e.stopPropagation();
+	});
+
 	
 
 });

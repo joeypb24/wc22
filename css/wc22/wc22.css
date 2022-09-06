@@ -846,6 +846,8 @@ iframe {
 	right: 0;
 	bottom: 0;
 	background-color: rgba(var(--blue-cool-rgb), .75);
+	align-items: center;
+	justify-content: center;
 }
 .wc22-modals.act {
 	display: flex;
@@ -860,8 +862,7 @@ iframe {
 	color: var(--dark-grayish-navy);
 	overflow: hidden;
 	display: none;
-	align-items: center;
-	justify-content: center;
+	margin: 0 auto;
 }
 .wc22-modals__lbox.act {
 	display: block;

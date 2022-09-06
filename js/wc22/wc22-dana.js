@@ -82,6 +82,7 @@
 						// stadiumSlide.setAttribute("onclick", "pictureChange(this.children[0].getAttribute('src'))");
 						var slideImg = document.createElement('img');
 						slideImg.src = otherImages[i];
+						console.log(otherImages[i]);
 						
 						imgCont.appendChild(stadiumSlide);
 						stadiumSlide.appendChild(slideImg);
@@ -104,6 +105,11 @@
 
 	$(closePopup).click(function(){
         stadiumPopup.style.display = "none";
+		var first = imgCont.firstElementChild;
+        while (first) {
+            first.remove();
+            first = imgCont.firstElementChild;
+        }
     });
 
 // });

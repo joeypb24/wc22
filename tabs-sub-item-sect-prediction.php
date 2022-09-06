@@ -24,7 +24,9 @@
 		<div class="scroll-holder scroll-x bracket-scroller-x">
 			<div class="scroll-mover">
 				<div class="scroller-inner">
-					<div class="bracket-wrap"></div>
+					<form id="predictTest">
+						<div class="bracket-wrap"></div>
+					</form>
 				</div>
 			</div>
 		</div>

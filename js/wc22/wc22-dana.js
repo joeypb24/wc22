@@ -4,46 +4,50 @@
 		'stad1': {
 			"title": "Lusail Iconic Stadium",
 			"text": "The Lusail Iconic Stadium will be the main venue of the 2022 FIFA World Cup. Aside from being the site of Group C, G, and H matches, it will also hold a match in every knockout round, including the championship game.",
-			"img": "images/stadiums/primary-stdm/lusail-full.jpg",
-			"others": ["images/stadiums/primary-stdm/al-bayt-full.jpg", "images/stadiums/primary-stdm/lusail-full.jpg", "images/stadiums/primary-stdm/lusail-full.jpg", "images/stadiums/primary-stdm/lusail-full.jpg"]
+			"img": "images/stadiums/primary-stdm/lusail1.jpg",
+			"others": ["images/stadiums/primary-stdm/lusail-1.jpg", "images/stadiums/primary-stdm/lusail-2.jpg", "images/stadiums/primary-stdm/lusai-l3.jpg", "images/stadiums/primary-stdm/lusail-4.jpg"]
 		},
 		'stad2': {
 			"title": "Al Bayt Stadium",
 			"text": "With a capacity of 60,000, Al Bayt Stadium is the second largest venue of the 2022 FIFA World Cup. Three knockout round matches, as well as Group A, B, E, and F fixtures, will be played here.",
-			"img": "images/stadiums/primary-stdm/al-bayt-full.jpg",
-			"others": ["images/stadiums/primary-stdm/lusail-full.jpg", "images/stadiums/primary-stdm/al-bayt-full.jpg", "images/stadiums/primary-stdm/al-bayt-full.jpg"]
+			"img": "images/stadiums/primary-stdm/al-bayt-1.jpg",
+			"others": ["images/stadiums/primary-stdm/al-bayt-1.jpg", "images/stadiums/primary-stdm/al-bayt-2.jpg", "images/stadiums/primary-stdm/al-bayt-3.jpg", "images/stadiums/primary-stdm/al-bayt-4.jpg"]
 		},
 		'stad3': {
 			"title": "Khalifa International Stadium",
 			"text": "The 45,000-plus-seater Khalifa International Stadium will host the third-place play-off and a round of 16 match. Six group stage encounters will also be played here.",
-			"img": "images/stadiums/primary-stdm/khalifa-full.jpg",
-			"others": ["images/stadiums/primary-stdm/lusail-full.jpg", "images/stadiums/primary-stdm/khalifa-full.jpg", "images/stadiums/primary-stdm/khalifa-full.jpg", "images/stadiums/primary-stdm/khalifa-full.jpg", "images/stadiums/primary-stdm/khalifa-full.jpg", "images/stadiums/primary-stdm/khalifa-full.jpg"]
+			"img": "images/stadiums/primary-stdm/khalifa-1.jpg",
+			"others": ["images/stadiums/primary-stdm/khalifa-1.jpg", "images/stadiums/primary-stdm/khalifa-2.jpg", "images/stadiums/primary-stdm/khalifa-3.jpg", "images/stadiums/primary-stdm/khalifa-4.jpg"]
 		},
 		'stad4': {
 			"title": "Al Thumama Stadium",
 			"text": "Al Thumama Stadium is one of two playing venues within Doha. The opening match, which is between the Netherlands and Senegal, will be held here, along with first and second round knockout round skirmishes.",
-			"img": "images/stadiums/primary-stdm/al-thumama-full.jpg",
+			"img": "images/stadiums/primary-stdm/al-thumama-1.jpg",
 			"others": ["images/stadiums/primary-stdm/al-thumama-1.jpg", "images/stadiums/primary-stdm/al-thumama-2.jpg", "images/stadiums/primary-stdm/al-thumama-3.jpg", "images/stadiums/primary-stdm/al-thumama-4.jpg"]
 		},
 		'stad5': {
 			"title": "Education City Stadium",
 			"text": "Education City Stadium is one of three locations in Al Rayyan where matches will be played. All of South Korea’s group stage matches and two knockout round clashes will be staged here.",
-			"img": "images/stadiums/primary-stdm/education-city-full.jpg"
+			"img": "images/stadiums/primary-stdm/education-city-1.jpg",
+			"others": ["images/stadiums/primary-stdm/education-city-1.jpg", "images/stadiums/primary-stdm/education-city-2.jpg", "images/stadiums/primary-stdm/education-city-3.jpg", "images/stadiums/primary-stdm/education-city-4.jpg"]
 		},
 		'stad6': {
 			"title": "Ahmad bin Ali Stadium",
 			"text": "Ahmad bin Ali Stadium is the fourth largest stadium according to capacity (44,740). It will house a match on round of 16, three on Group B, two on Group F, and one on Group E.",
-			"img": "images/stadiums/primary-stdm/ahmad-bin-ali-full.jpg"
+			"img": "images/stadiums/primary-stdm/ahmad-bin-ali-1.jpg",
+			"others": ["images/stadiums/primary-stdm/ahmad-bin-ali-1.jpg", "images/stadiums/primary-stdm/ahmad-bin-ali-2.jpg", "images/stadiums/primary-stdm/ahmad-bin-ali-3.jpg", "images/stadiums/primary-stdm/ahmad-bin-ali-4.jpg"]
 		},
 		'stad7': {
 			"title": "Stadium 974",
 			"text": "Stadium 974 is one of the smallest stadiums for this World Cup, with a capacity of 40,000. Its name pertains to Qatar’s international phone country code.",
-			"img": "images/stadiums/primary-stdm/974-full.jpg"
+			"img": "images/stadiums/primary-stdm/974-1.jpg",
+			"others": ["images/stadiums/primary-stdm/974-1.jpg", "images/stadiums/primary-stdm/974-2.jpg", "images/stadiums/primary-stdm/974-3.jpg", "images/stadiums/primary-stdm/974-4.jpg"]
 		},
 		'stad8': {
 			"title": "Al Janoub Stadium",
 			"text": "Al Janoub Stadium in Al Wakrah is the only venue south of Doha. Seven matches will be staged here, in addition to a round of 16 contest.",
-			"img": "images/stadiums/primary-stdm/al-janoub-full.jpg"
+			"img": "images/stadiums/primary-stdm/al-janoub-1.jpg",
+			"others": ["images/stadiums/primary-stdm/al-janoub-1.jpg", "images/stadiums/primary-stdm/al-janoub-2.jpg", "images/stadiums/primary-stdm/al-janoub-3.jpg", "images/stadiums/primary-stdm/al-janoub-4.jpg"]
 		}
 	}
 

@@ -195,6 +195,10 @@
 }
 /* END OF REVIEW SUB SECTION */
 
+.cover--right img{
+    border-radius: 16px;
+}
+
 /* WORLD CUP STADIUM POPUP */
 .flex-horizontal .scale-image:hover {
     cursor: pointer;
@@ -270,11 +274,11 @@
 }
 
 .popup-stadium-swiper {
-    gap: 12px;
+    /* gap: 12px; */
 }
 
 .popup-stadium-swiper-img-cont {
-    /* gap: 12px; */
+    gap: 12px;
 }
 
 .popup-stadium-slide {

@@ -52,9 +52,9 @@
 	var imgCont = document.querySelector(".popup-stadium-swiper-img-cont");
 
 
-	function pictureChange(imageSrc) {
-		popupStadiumMainImg.src= imageSrc;
-	}
+	// function pictureChange(imageSrc) {
+	// 	popupStadiumMainImg.src= imageSrc;
+	// }
 
 	var slideStadium = document.querySelectorAll('.slide-stadium');
 
@@ -70,7 +70,6 @@
 				const key = obj[0];
 				const val = obj[1];
 				
-	
 				if(stadName === key){
 					popupTitle.innerHTML = val.title;
 					popupText.innerHTML = val.text;
@@ -80,12 +79,21 @@
 					for (var i=0; i < otherImages.length; i++) {
 						var stadiumSlide = document.createElement('div');
 						stadiumSlide.classList.add('swiper-slide', 'popup-stadium-slide');
-						stadiumSlide.setAttribute("onclick", "pictureChange(this.children[0].getAttribute('src'))");
+						// stadiumSlide.setAttribute("onclick", "pictureChange(this.children[0].getAttribute('src'))");
 						var slideImg = document.createElement('img');
 						slideImg.src = otherImages[i];
 						
 						imgCont.appendChild(stadiumSlide);
 						stadiumSlide.appendChild(slideImg);
+					}
+
+					var stadSlide = document.querySelectorAll('.popup-stadium-slide');
+
+					for (var i = 0; i < stadSlide.length; i++) {
+						$(stadSlide[i]).on("click", function() {
+							var imageSrc = this.children[0].getAttribute('src');
+							popupStadiumMainImg.src = imageSrc;
+						});
 					}
 				}
 			});

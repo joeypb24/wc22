@@ -1,6 +1,6 @@
 jQuery(function($) {
 	'use strict';
-	var apiPredictionProd = 'https://docs.google.com/spreadsheets/d/1v4MKHKmKfrfiy1g8Znri9x1UZ85Jmw4JPcaUh0vns4o/edit#gid=0';
+	var apiPredictionProd = 'https://script.google.com/macros/s/AKfycbwiyY4hzdXB9c9Xaxogow1t7pnRcx1g9aC4cTSiKWa7Xz-kUGozpuzpsnZwm77oSb64WQ/exec';
 	var apiPredictionUAT = '';
 	var isPredictionProd = true;
 
@@ -43,53 +43,53 @@ jQuery(function($) {
 
 	fetchLangJson(langcontent);
 
-	jQuery.fn.extend({
-		initDropdown: function () {
-			$(this).each(function(){
-				var that = this;
-				var clickDetect = 0;
-				$(that).find('.dropdown-selected, .dropdown-selection').mouseenter(function(){
-					clickDetect = 1;
-				});
-				$(that).find('.dropdown-selected, .dropdown-selection').mouseleave(function(){
-					clickDetect = 0;
-				});
-				$(that).find('.dropdown-selected').click(function(){
-					if(!$(this).hasClass('active')) {
-						$(this).addClass('active');
-					}
-					else {
-						$(this).removeClass('active');
-					}
-				});
-				$(document).click(function(){
-					if(clickDetect == 0) {
-						$(that).find('.dropdown-selected').removeClass('active');
-					}
-				});
-				$(that).find('.dropdown-selection dd').click(function(){
-					var hiddenVal = ($(this).attr('data-value') != 'placeholder') ? $(this).attr('data-value') : '';
-					$(that).find('.dropdown-selected').text($(this).text()).attr('data-country', $(this).attr('data-country'));
-					$(that).find('input[type="hidden"]').val(hiddenVal);
-					$(that).removeClass('valid');
-					if($(that).find('input[type="hidden"]').val() != '') {
-						$(that).addClass('valid');
-					}
-					$(that).find('.dropdown-selected').removeClass('active');
-				});
+	// jQuery.fn.extend({
+	// 	initDropdown: function () {
+	// 		$(this).each(function(){
+	// 			var that = this;
+	// 			var clickDetect = 0;
+	// 			$(that).find('.dropdown-selected, .dropdown-selection').mouseenter(function(){
+	// 				clickDetect = 1;
+	// 			});
+	// 			$(that).find('.dropdown-selected, .dropdown-selection').mouseleave(function(){
+	// 				clickDetect = 0;
+	// 			});
+	// 			$(that).find('.dropdown-selected').click(function(){
+	// 				if(!$(this).hasClass('active')) {
+	// 					$(this).addClass('active');
+	// 				}
+	// 				else {
+	// 					$(this).removeClass('active');
+	// 				}
+	// 			});
+	// 			$(document).click(function(){
+	// 				if(clickDetect == 0) {
+	// 					$(that).find('.dropdown-selected').removeClass('active');
+	// 				}
+	// 			});
+	// 			$(that).find('.dropdown-selection dd').click(function(){
+	// 				var hiddenVal = ($(this).attr('data-value') != 'placeholder') ? $(this).attr('data-value') : '';
+	// 				$(that).find('.dropdown-selected').text($(this).text()).attr('data-country', $(this).attr('data-country'));
+	// 				$(that).find('input[type="hidden"]').val(hiddenVal);
+	// 				$(that).removeClass('valid');
+	// 				if($(that).find('input[type="hidden"]').val() != '') {
+	// 					$(that).addClass('valid');
+	// 				}
+	// 				$(that).find('.dropdown-selected').removeClass('active');
+	// 			});
 				
-				var dropdownHiddenField = $(that).find('input[type="hidden"]').attr('name');
-				$(that).find('.dropdown-selected').text($(that).find('dd:eq(0)').text()).attr('data-country', $(that).find('dd:eq(0)').attr('data-country'));
-				if($(that).find('dd:eq(0)').attr('data-value') == 'placeholder') {
-					$(that).find('input[type="hidden"]').val('');
-				}
-				else {
-					$(that).find('input[type="hidden"]').val($(that).find('dd:eq(0)').attr('data-value'));
-				}
-			});
-		}
-	});
-	$('.dropdown-box').initDropdown();
+	// 			var dropdownHiddenField = $(that).find('input[type="hidden"]').attr('name');
+	// 			$(that).find('.dropdown-selected').text($(that).find('dd:eq(0)').text()).attr('data-country', $(that).find('dd:eq(0)').attr('data-country'));
+	// 			if($(that).find('dd:eq(0)').attr('data-value') == 'placeholder') {
+	// 				$(that).find('input[type="hidden"]').val('');
+	// 			}
+	// 			else {
+	// 				$(that).find('input[type="hidden"]').val($(that).find('dd:eq(0)').attr('data-value'));
+	// 			}
+	// 		});
+	// 	}
+	// });
+	// $('.dropdown-box').initDropdown();
 
 	
 	/**Team List START */
@@ -187,14 +187,14 @@ jQuery(function($) {
 		$(this).closest('.dd-wrap').find('.dd-selected').removeClass('placeholder').addClass('icon icon-'+ddVal);
 		$(this).closest('.dd-wrap').find('.dd-selected').attr('data-val', ddVal);
 		$(this).closest('.dd-wrap').find('.dd-selected .txt').text(ddTxt);
+		$(this).closest('.dd-wrap').find('.dd-selected input').val(ddVal);
 		
 		let counter = 0;
 		$('.dd-wrap').each(function(){
 			counter += $(this).find('.dd-selected[data-val]').length;
 		});
-		console.log(counter)
 		if(counter >= 15) {
-			$('.cta-area .btn').removeClass('inactive');
+			$('.cta-area .btn.btn-submit-prediction.inactive').removeClass('inactive');
 		}
 	});
 
@@ -342,90 +342,92 @@ jQuery(function($) {
 	}
 
 	$(document).on('click', '.btn-submit-prediction', function(){
-		let match_49 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').text());
-		let match_50 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').text());
-		let match_53 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(1) .dd-wrap:eq(0) .dd-selected .txt').text());
-		let match_54 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(1) .dd-wrap:eq(1) .dd-selected .txt').text());
-		let match_51 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').text());
-		let match_52 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').text());
-		let match_55 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(1) .dd-wrap:eq(0) .dd-selected .txt').text());
-		let match_56 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(1) .dd-wrap:eq(1) .dd-selected .txt').text());
-		let match_57 = capitalizedUpperCase($('.bracket.semi-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').text());
-		let match_58 = capitalizedUpperCase($('.bracket.semi-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').text());
-		let match_59 = capitalizedUpperCase($('.bracket.semi-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').text());
-		let match_60 = capitalizedUpperCase($('.bracket.semi-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').text());
-		let match_61 = capitalizedUpperCase($('.bracket.finals .match-bracket .dd-wrap:eq(0) .dd-selected .txt').text());
-		let match_62 = capitalizedUpperCase($('.bracket.finals .match-bracket .dd-wrap:eq(1) .dd-selected .txt').text());
-		let match_64 = capitalizedUpperCase($('.bracket.champion .dd-wrap .dd-selected .txt').text());
+		// let match_49 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').text());
+		// let match_50 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').text());
+		// let match_53 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(1) .dd-wrap:eq(0) .dd-selected .txt').text());
+		// let match_54 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(1) .dd-wrap:eq(1) .dd-selected .txt').text());
+		// let match_51 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').text());
+		// let match_52 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').text());
+		// let match_55 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(1) .dd-wrap:eq(0) .dd-selected .txt').text());
+		// let match_56 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(1) .dd-wrap:eq(1) .dd-selected .txt').text());
+		// let match_57 = capitalizedUpperCase($('.bracket.semi-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').text());
+		// let match_58 = capitalizedUpperCase($('.bracket.semi-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').text());
+		// let match_59 = capitalizedUpperCase($('.bracket.semi-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').text());
+		// let match_60 = capitalizedUpperCase($('.bracket.semi-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').text());
+		// let match_61 = capitalizedUpperCase($('.bracket.finals .match-bracket .dd-wrap:eq(0) .dd-selected .txt').text());
+		// let match_62 = capitalizedUpperCase($('.bracket.finals .match-bracket .dd-wrap:eq(1) .dd-selected .txt').text());
+		// let match_64 = capitalizedUpperCase($('.bracket.champion .dd-wrap .dd-selected .txt').text());
 
-		predictionJson = {
-			"r16_1": {
-				"match_49": match_49,
-				"match_50": match_50
-			},
-			"r16_2": {
-				"match_53": match_53,
-				"match_54": match_54
-			},
-			"r16_3": {
-				"match_51": match_51,
-				"match_52": match_52
-			},
-			"r16_4": {
-				"match_55": match_55,
-				"match_56": match_56
-			},
-			"qf1": {
-				"match_57": match_57,
-				"match_58": match_58
-			},
-			"qf2": {
-				"match_59": match_59,
-				"match_60": match_60
-			},
-			"sf": {
-				"match_61": match_61,
-				"match_62": match_62
-			},
-			"f": {
-				"match_64": match_64
-			}
-		};
+		// predictionJson = {
+		// 	"r16_1": {
+		// 		"match_49": match_49,
+		// 		"match_50": match_50
+		// 	},
+		// 	"r16_2": {
+		// 		"match_53": match_53,
+		// 		"match_54": match_54
+		// 	},
+		// 	"r16_3": {
+		// 		"match_51": match_51,
+		// 		"match_52": match_52
+		// 	},
+		// 	"r16_4": {
+		// 		"match_55": match_55,
+		// 		"match_56": match_56
+		// 	},
+		// 	"qf1": {
+		// 		"match_57": match_57,
+		// 		"match_58": match_58
+		// 	},
+		// 	"qf2": {
+		// 		"match_59": match_59,
+		// 		"match_60": match_60
+		// 	},
+		// 	"sf": {
+		// 		"match_61": match_61,
+		// 		"match_62": match_62
+		// 	},
+		// 	"f": {
+		// 		"match_64": match_64
+		// 	}
+		// };
+		var data = $('#predictTest').serialize();
+		SavePrediction(data);
 
 		$('.btn-submit-prediction').addClass('inactive');
-		console.log(predictionJson)
-		SavePrediction();
 	});
 
-	function SavePrediction(){
+	function SavePrediction(data){
 		var errMessage = "There was an error during saving prediction details. Please try again.";
-		var data = [];
-		data = {
-			'Timestamp': '021351',
-			'username': 'test',
-			'Round16_1': predictionJson.r16_1.match_49,
-			'Round16_2': predictionJson.r16_1.match_50,
-			'Round16_3': predictionJson.r16_2.match_53,
-			'Round16_4': predictionJson.r16_2.match_54,
-			'Round16_5': predictionJson.r16_3.match_51,
-			'Round16_6': predictionJson.r16_3.match_52,
-			'Round16_7': predictionJson.r16_4.match_55,
-			'Round16_8': predictionJson.r16_4.match_56,
-			'QuarterFinals_1': predictionJson.qf1.match_57,
-			'QuarterFinals_2': predictionJson.qf1.match_58,
-			'QuarterFinals_3': predictionJson.qf2.match_59,
-			'QuarterFinals_4': predictionJson.qf2.match_60,
-			'SemiFinals_1': predictionJson.sf.match_61,
-			'SemiFinals_2': predictionJson.sf.match_62,
-			'Finals': predictionJson.f.match_64
-		};
+		var ndata = data;
+		// data = {
+		// 	'Timestamp': '021351',
+		// 	'username': 'test',
+		// 	'Round16_1': predictionJson.r16_1.match_49,
+		// 	'Round16_2': predictionJson.r16_1.match_50,
+		// 	'Round16_3': predictionJson.r16_2.match_53,
+		// 	'Round16_4': predictionJson.r16_2.match_54,
+		// 	'Round16_5': predictionJson.r16_3.match_51,
+		// 	'Round16_6': predictionJson.r16_3.match_52,
+		// 	'Round16_7': predictionJson.r16_4.match_55,
+		// 	'Round16_8': predictionJson.r16_4.match_56,
+		// 	'QuarterFinals_1': predictionJson.qf1.match_57,
+		// 	'QuarterFinals_2': predictionJson.qf1.match_58,
+		// 	'QuarterFinals_3': predictionJson.qf2.match_59,
+		// 	'QuarterFinals_4': predictionJson.qf2.match_60,
+		// 	'SemiFinals_1': predictionJson.sf.match_61,
+		// 	'SemiFinals_2': predictionJson.sf.match_62,
+		// 	'Finals': predictionJson.f.match_64
+		// };
 
 		var uri = ApiPrediction();
 
 		$.ajax({
 			url: uri,
 			type: "post",
-			data: data,
+			data: ndata,
+			contentType: "application/javascript",
+			dataType: 'jsonp',
 			success: function () {
 				//SendEmail();
 				console.log('success')

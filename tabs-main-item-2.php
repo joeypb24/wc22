@@ -18,7 +18,7 @@
           <p>Four-time champions and reigning European champions Italy failed to qualify for the second successive World Cup. They are the only multiple-time titleholder that would not be competing in 2022.</p>
         </div>
         <div class="cover--right">
-          <img src="images/stadiums/stdm-cover-right.jpg" alt="">
+          <img src="images/stadiums/stdm-cover.jpg" alt="">
         </div>
       </div>
     </div>

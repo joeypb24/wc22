@@ -1,6 +1,6 @@
 jQuery(function($) {
 	'use strict';
-	var apiPredictionProd = 'https://docs.google.com/spreadsheets/d/1v4MKHKmKfrfiy1g8Znri9x1UZ85Jmw4JPcaUh0vns4o/edit#gid=0';
+	var apiPredictionProd = 'https://script.google.com/macros/s/AKfycbwiyY4hzdXB9c9Xaxogow1t7pnRcx1g9aC4cTSiKWa7Xz-kUGozpuzpsnZwm77oSb64WQ/exec';
 	var apiPredictionUAT = '';
 	var isPredictionProd = true;
 
@@ -43,53 +43,53 @@ jQuery(function($) {
 
 	fetchLangJson(langcontent);
 
-	jQuery.fn.extend({
-		initDropdown: function () {
-			$(this).each(function(){
-				var that = this;
-				var clickDetect = 0;
-				$(that).find('.dropdown-selected, .dropdown-selection').mouseenter(function(){
-					clickDetect = 1;
-				});
-				$(that).find('.dropdown-selected, .dropdown-selection').mouseleave(function(){
-					clickDetect = 0;
-				});
-				$(that).find('.dropdown-selected').click(function(){
-					if(!$(this).hasClass('active')) {
-						$(this).addClass('active');
-					}
-					else {
-						$(this).removeClass('active');
-					}
-				});
-				$(document).click(function(){
-					if(clickDetect == 0) {
-						$(that).find('.dropdown-selected').removeClass('active');
-					}
-				});
-				$(that).find('.dropdown-selection dd').click(function(){
-					var hiddenVal = ($(this).attr('data-value') != 'placeholder') ? $(this).attr('data-value') : '';
-					$(that).find('.dropdown-selected').text($(this).text()).attr('data-country', $(this).attr('data-country'));
-					$(that).find('input[type="hidden"]').val(hiddenVal);
-					$(that).removeClass('valid');
-					if($(that).find('input[type="hidden"]').val() != '') {
-						$(that).addClass('valid');
-					}
-					$(that).find('.dropdown-selected').removeClass('active');
-				});
+	// jQuery.fn.extend({
+	// 	initDropdown: function () {
+	// 		$(this).each(function(){
+	// 			var that = this;
+	// 			var clickDetect = 0;
+	// 			$(that).find('.dropdown-selected, .dropdown-selection').mouseenter(function(){
+	// 				clickDetect = 1;
+	// 			});
+	// 			$(that).find('.dropdown-selected, .dropdown-selection').mouseleave(function(){
+	// 				clickDetect = 0;
+	// 			});
+	// 			$(that).find('.dropdown-selected').click(function(){
+	// 				if(!$(this).hasClass('active')) {
+	// 					$(this).addClass('active');
+	// 				}
+	// 				else {
+	// 					$(this).removeClass('active');
+	// 				}
+	// 			});
+	// 			$(document).click(function(){
+	// 				if(clickDetect == 0) {
+	// 					$(that).find('.dropdown-selected').removeClass('active');
+	// 				}
+	// 			});
+	// 			$(that).find('.dropdown-selection dd').click(function(){
+	// 				var hiddenVal = ($(this).attr('data-value') != 'placeholder') ? $(this).attr('data-value') : '';
+	// 				$(that).find('.dropdown-selected').text($(this).text()).attr('data-country', $(this).attr('data-country'));
+	// 				$(that).find('input[type="hidden"]').val(hiddenVal);
+	// 				$(that).removeClass('valid');
+	// 				if($(that).find('input[type="hidden"]').val() != '') {
+	// 					$(that).addClass('valid');
+	// 				}
+	// 				$(that).find('.dropdown-selected').removeClass('active');
+	// 			});
 				
-				var dropdownHiddenField = $(that).find('input[type="hidden"]').attr('name');
-				$(that).find('.dropdown-selected').text($(that).find('dd:eq(0)').text()).attr('data-country', $(that).find('dd:eq(0)').attr('data-country'));
-				if($(that).find('dd:eq(0)').attr('data-value') == 'placeholder') {
-					$(that).find('input[type="hidden"]').val('');
-				}
-				else {
-					$(that).find('input[type="hidden"]').val($(that).find('dd:eq(0)').attr('data-value'));
-				}
-			});
-		}
-	});
-	$('.dropdown-box').initDropdown();
+	// 			var dropdownHiddenField = $(that).find('input[type="hidden"]').attr('name');
+	// 			$(that).find('.dropdown-selected').text($(that).find('dd:eq(0)').text()).attr('data-country', $(that).find('dd:eq(0)').attr('data-country'));
+	// 			if($(that).find('dd:eq(0)').attr('data-value') == 'placeholder') {
+	// 				$(that).find('input[type="hidden"]').val('');
+	// 			}
+	// 			else {
+	// 				$(that).find('input[type="hidden"]').val($(that).find('dd:eq(0)').attr('data-value'));
+	// 			}
+	// 		});
+	// 	}
+	// });
+	// $('.dropdown-box').initDropdown();
 
 	
 	/**Team List START */
@@ -187,14 +187,14 @@ jQuery(function($) {
 		$(this).closest('.dd-wrap').find('.dd-selected').removeClass('placeholder').addClass('icon icon-'+ddVal);
 		$(this).closest('.dd-wrap').find('.dd-selected').attr('data-val', ddVal);
 		$(this).closest('.dd-wrap').find('.dd-selected .txt').text(ddTxt);
+		$(this).closest('.dd-wrap').find('.dd-selected input').val(ddVal);
 		
 		let counter = 0;
 		$('.dd-wrap').each(function(){
 			counter += $(this).find('.dd-selected[data-val]').length;
 		});
-		console.log(counter)
 		if(counter >= 15) {
-			$('.cta-area .btn').removeClass('inactive');
+			$('.cta-area .btn.btn-submit-prediction.inactive').removeClass('inactive');
 		}
 	});
 
@@ -341,7 +341,7 @@ jQuery(function($) {
 		$('.dd-wrap[data-self="'+ddWrap+'"] .list').height(accumulateHeight);
 	}
 
-	$(document).on('click', '.btn-submit-prediction', function(){
+	$(document).on("click", ".btn-submit-prediction", function () {
 		let match_49 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').text());
 		let match_50 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').text());
 		let match_53 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(1) .dd-wrap:eq(0) .dd-selected .txt').text());
@@ -391,41 +391,41 @@ jQuery(function($) {
 				"match_64": match_64
 			}
 		};
+		SavePrediction();
 
 		$('.btn-submit-prediction').addClass('inactive');
-		console.log(predictionJson)
-		SavePrediction();
 	});
 
 	function SavePrediction(){
 		var errMessage = "There was an error during saving prediction details. Please try again.";
-		var data = [];
-		data = {
-			'Timestamp': '021351',
-			'username': 'test',
-			'Round16_1': predictionJson.r16_1.match_49,
-			'Round16_2': predictionJson.r16_1.match_50,
-			'Round16_3': predictionJson.r16_2.match_53,
-			'Round16_4': predictionJson.r16_2.match_54,
-			'Round16_5': predictionJson.r16_3.match_51,
-			'Round16_6': predictionJson.r16_3.match_52,
-			'Round16_7': predictionJson.r16_4.match_55,
-			'Round16_8': predictionJson.r16_4.match_56,
-			'QuarterFinals_1': predictionJson.qf1.match_57,
-			'QuarterFinals_2': predictionJson.qf1.match_58,
-			'QuarterFinals_3': predictionJson.qf2.match_59,
-			'QuarterFinals_4': predictionJson.qf2.match_60,
-			'SemiFinals_1': predictionJson.sf.match_61,
-			'SemiFinals_2': predictionJson.sf.match_62,
-			'Finals': predictionJson.f.match_64
-		};
+		var data = 'Timestamp=12345';
+			data += '&username=anyeong';
+			data += '&Round16_1=' + predictionJson.r16_1.match_49;
+			data += '&Round16_2=' + predictionJson.r16_1.match_50;
+			data += '&Round16_3=' + predictionJson.r16_2.match_53;
+			data += '&Round16_4=' + predictionJson.r16_2.match_54;
+			data += '&Round16_5=' + predictionJson.r16_3.match_51;
+			data += '&Round16_6=' + predictionJson.r16_3.match_52;
+			data += '&Round16_7=' + predictionJson.r16_4.match_55;
+			data += '&Round16_8=' + predictionJson.r16_4.match_56;
+			data += '&QuarterFinals_9=' + predictionJson.qf1.match_57;
+			data += '&QuarterFinals_10=' + predictionJson.qf1.match_58;
+			data += '&QuarterFinals_11=' + predictionJson.qf2.match_59;
+			data += '&QuarterFinals_12=' + predictionJson.qf2.match_60;
+			data += '&SemiFinals_13=' + predictionJson.sf.match_61;
+			data += '&SemiFinals_14=' + predictionJson.sf.match_62;
+			data += '&Finals_15=' + predictionJson.f.match_64;
 
 		var uri = ApiPrediction();
 
 		$.ajax({
 			url: uri,
+			headers: {'Content-type': 'application/x-www-form-urlencoded'},
 			type: "post",
 			data: data,
+			contentType: 'multipart/form-data',
+			// contentType: "application/javascript",
+        	// dataType: "jsonp",
 			success: function () {
 				//SendEmail();
 				console.log('success')

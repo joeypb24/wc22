@@ -521,12 +521,9 @@
 .cta-area .btn {
 	width: 288px;
 }
-.cta-area .btn.inactive {
-	background: #917d19;
-	pointer-events: none;
-}
 .cta-area .btn.btn--red.inactive{
-	background: var(--torch-red);
+	background-color: var(--torch-red-disabled);
+	color: var(--torch-2b);
 	pointer-events: none;
 }
 @media (min-width: 768px) {

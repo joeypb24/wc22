@@ -24,12 +24,10 @@
 		<div class="scroll-holder scroll-x bracket-scroller-x">
 			<div class="scroll-mover">
 				<div class="scroller-inner">
-					<form id="predictTest">
 						<div class="bracket-wrap"></div>
-					</form>
+					</div>
 				</div>
 			</div>
-		</div>
 		<div class="cta-area">
 			<button class="btn btn--red btn-submit-prediction inactive">Submit</button>
 		</div>

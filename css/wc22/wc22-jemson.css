@@ -129,9 +129,9 @@
 	text-transform: capitalize;
 	box-sizing: border-box;
 }
-.dd-wrap.active .dd-selected input[type="text"] {
+/* .dd-wrap.active .dd-selected input[type="text"] {
 	opacity: 1;
-}
+} */
 .dd-wrap .dd-option-wrap {
 	display: none;
 	position: absolute;

@@ -341,93 +341,91 @@ jQuery(function($) {
 		$('.dd-wrap[data-self="'+ddWrap+'"] .list').height(accumulateHeight);
 	}
 
-	$(document).on('click', '.btn-submit-prediction', function(){
-		// let match_49 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').text());
-		// let match_50 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').text());
-		// let match_53 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(1) .dd-wrap:eq(0) .dd-selected .txt').text());
-		// let match_54 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(1) .dd-wrap:eq(1) .dd-selected .txt').text());
-		// let match_51 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').text());
-		// let match_52 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').text());
-		// let match_55 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(1) .dd-wrap:eq(0) .dd-selected .txt').text());
-		// let match_56 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(1) .dd-wrap:eq(1) .dd-selected .txt').text());
-		// let match_57 = capitalizedUpperCase($('.bracket.semi-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').text());
-		// let match_58 = capitalizedUpperCase($('.bracket.semi-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').text());
-		// let match_59 = capitalizedUpperCase($('.bracket.semi-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').text());
-		// let match_60 = capitalizedUpperCase($('.bracket.semi-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').text());
-		// let match_61 = capitalizedUpperCase($('.bracket.finals .match-bracket .dd-wrap:eq(0) .dd-selected .txt').text());
-		// let match_62 = capitalizedUpperCase($('.bracket.finals .match-bracket .dd-wrap:eq(1) .dd-selected .txt').text());
-		// let match_64 = capitalizedUpperCase($('.bracket.champion .dd-wrap .dd-selected .txt').text());
+	$(document).on("click", ".btn-submit-prediction", function () {
+		let match_49 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').text());
+		let match_50 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').text());
+		let match_53 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(1) .dd-wrap:eq(0) .dd-selected .txt').text());
+		let match_54 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(1) .dd-wrap:eq(1) .dd-selected .txt').text());
+		let match_51 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').text());
+		let match_52 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').text());
+		let match_55 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(1) .dd-wrap:eq(0) .dd-selected .txt').text());
+		let match_56 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(1) .dd-wrap:eq(1) .dd-selected .txt').text());
+		let match_57 = capitalizedUpperCase($('.bracket.semi-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').text());
+		let match_58 = capitalizedUpperCase($('.bracket.semi-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').text());
+		let match_59 = capitalizedUpperCase($('.bracket.semi-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').text());
+		let match_60 = capitalizedUpperCase($('.bracket.semi-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').text());
+		let match_61 = capitalizedUpperCase($('.bracket.finals .match-bracket .dd-wrap:eq(0) .dd-selected .txt').text());
+		let match_62 = capitalizedUpperCase($('.bracket.finals .match-bracket .dd-wrap:eq(1) .dd-selected .txt').text());
+		let match_64 = capitalizedUpperCase($('.bracket.champion .dd-wrap .dd-selected .txt').text());
 
-		// predictionJson = {
-		// 	"r16_1": {
-		// 		"match_49": match_49,
-		// 		"match_50": match_50
-		// 	},
-		// 	"r16_2": {
-		// 		"match_53": match_53,
-		// 		"match_54": match_54
-		// 	},
-		// 	"r16_3": {
-		// 		"match_51": match_51,
-		// 		"match_52": match_52
-		// 	},
-		// 	"r16_4": {
-		// 		"match_55": match_55,
-		// 		"match_56": match_56
-		// 	},
-		// 	"qf1": {
-		// 		"match_57": match_57,
-		// 		"match_58": match_58
-		// 	},
-		// 	"qf2": {
-		// 		"match_59": match_59,
-		// 		"match_60": match_60
-		// 	},
-		// 	"sf": {
-		// 		"match_61": match_61,
-		// 		"match_62": match_62
-		// 	},
-		// 	"f": {
-		// 		"match_64": match_64
-		// 	}
-		// };
-		var data = $('#predictTest').serialize();
-		SavePrediction(data);
+		predictionJson = {
+			"r16_1": {
+				"match_49": match_49,
+				"match_50": match_50
+			},
+			"r16_2": {
+				"match_53": match_53,
+				"match_54": match_54
+			},
+			"r16_3": {
+				"match_51": match_51,
+				"match_52": match_52
+			},
+			"r16_4": {
+				"match_55": match_55,
+				"match_56": match_56
+			},
+			"qf1": {
+				"match_57": match_57,
+				"match_58": match_58
+			},
+			"qf2": {
+				"match_59": match_59,
+				"match_60": match_60
+			},
+			"sf": {
+				"match_61": match_61,
+				"match_62": match_62
+			},
+			"f": {
+				"match_64": match_64
+			}
+		};
+		SavePrediction();
 
 		$('.btn-submit-prediction').addClass('inactive');
 	});
 
-	function SavePrediction(data){
+	function SavePrediction(){
 		var errMessage = "There was an error during saving prediction details. Please try again.";
-		var ndata = data;
-		// data = {
-		// 	'Timestamp': '021351',
-		// 	'username': 'test',
-		// 	'Round16_1': predictionJson.r16_1.match_49,
-		// 	'Round16_2': predictionJson.r16_1.match_50,
-		// 	'Round16_3': predictionJson.r16_2.match_53,
-		// 	'Round16_4': predictionJson.r16_2.match_54,
-		// 	'Round16_5': predictionJson.r16_3.match_51,
-		// 	'Round16_6': predictionJson.r16_3.match_52,
-		// 	'Round16_7': predictionJson.r16_4.match_55,
-		// 	'Round16_8': predictionJson.r16_4.match_56,
-		// 	'QuarterFinals_1': predictionJson.qf1.match_57,
-		// 	'QuarterFinals_2': predictionJson.qf1.match_58,
-		// 	'QuarterFinals_3': predictionJson.qf2.match_59,
-		// 	'QuarterFinals_4': predictionJson.qf2.match_60,
-		// 	'SemiFinals_1': predictionJson.sf.match_61,
-		// 	'SemiFinals_2': predictionJson.sf.match_62,
-		// 	'Finals': predictionJson.f.match_64
-		// };
+		var data = 'Timestamp=12345';
+			data += '&username=anyeong';
+			data += '&Round16_1=' + predictionJson.r16_1.match_49;
+			data += '&Round16_2=' + predictionJson.r16_1.match_50;
+			data += '&Round16_3=' + predictionJson.r16_2.match_53;
+			data += '&Round16_4=' + predictionJson.r16_2.match_54;
+			data += '&Round16_5=' + predictionJson.r16_3.match_51;
+			data += '&Round16_6=' + predictionJson.r16_3.match_52;
+			data += '&Round16_7=' + predictionJson.r16_4.match_55;
+			data += '&Round16_8=' + predictionJson.r16_4.match_56;
+			data += '&QuarterFinals_9=' + predictionJson.qf1.match_57;
+			data += '&QuarterFinals_10=' + predictionJson.qf1.match_58;
+			data += '&QuarterFinals_11=' + predictionJson.qf2.match_59;
+			data += '&QuarterFinals_12=' + predictionJson.qf2.match_60;
+			data += '&SemiFinals_13=' + predictionJson.sf.match_61;
+			data += '&SemiFinals_14=' + predictionJson.sf.match_62;
+			data += '&Finals_15=' + predictionJson.f.match_64;
 
 		var uri = ApiPrediction();
 
 		$.ajax({
 			url: uri,
+			headers: {'Content-type': 'application/x-www-form-urlencoded'},
 			type: "post",
-			data: ndata,
-			contentType: "application/javascript",
-			dataType: 'jsonp',
+			data: data,
+			contentType: 'multipart/form-data',
+			// contentType: "application/javascript",
+        	// dataType: "jsonp",
 			success: function () {
 				//SendEmail();
 				console.log('success')

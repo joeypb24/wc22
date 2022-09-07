@@ -5,7 +5,12 @@ jQuery(function($) {
 	var isPredictionProd = true;
 
 	var urlParamLang = state.user.locale;
-	// var urlParamLang = "th-TH";
+	var preAuth = state.user.authenticated;
+
+	/**Add data-url start */
+	var ddWrapAuth = (preAuth === "False") ? "/register":"";
+	$('.dd-wrap').attr('data-url', ddWrapAuth);
+	/**Add data-url end */
 
 	if(urlParamLang == null) {
 		urlParamLang = 'en-US';
@@ -418,22 +423,22 @@ jQuery(function($) {
 
 		var uri = ApiPrediction();
 
-		$.ajax({
-			url: uri,
-			headers: {'Content-type': 'application/x-www-form-urlencoded'},
-			type: "post",
-			data: data,
-			contentType: 'multipart/form-data',
-			// contentType: "application/javascript",
-        	// dataType: "jsonp",
-			success: function () {
-				//SendEmail();
-				console.log('success')
-			},
-			error: function () {
-				console.log(errMessage);
-			}
-		});
+		// $.ajax({
+		// 	url: uri,
+		// 	headers: {'Content-type': 'application/x-www-form-urlencoded'},
+		// 	type: "post",
+		// 	data: data,
+		// 	contentType: 'multipart/form-data',
+		// 	// contentType: "application/javascript",
+        // 	// dataType: "jsonp",
+		// 	success: function () {
+		// 		//SendEmail();
+		// 		console.log('success')
+		// 	},
+		// 	error: function () {
+		// 		console.log(errMessage);
+		// 	}
+		// });
 	}
 
 	function ApiPrediction(){

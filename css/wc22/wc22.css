@@ -973,6 +973,79 @@ iframe {
 	background-color: var(--ghost-white);
 }
 /* ~modals */
+/* match schedule */
+.match-sched__cards {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.match-sched__cards__card {
+	max-width: 600px; 
+	flex-basis: 50%;
+	padding: 30px;
+	margin-bottom: 20px;
+}
+.match-sched__cards__card__teams {
+	display: flex;
+	/* align-items: center; */
+	justify-content: center;
+	margin-bottom: 30px;
+}
+.match-sched__cards__card__teams__info {
+	flex-basis: 50%;
+}
+.match-sched__cards__card__teams__info--home {
+	text-align: right;
+}
+.match-sched__cards__card__teams__info--away {
+	text-align: left;
+}
+.match-sched__cards__card__teams__info > img {
+	display: block;
+	width: 36px;
+	height: 24px;
+	margin-bottom: 8px;
+}
+.match-sched__cards__card__teams__info--home > img {
+	margin-left: auto;
+}
+.match-sched__cards__card__teams__info--away > img {
+	margin-right: auto;
+}
+.match-sched__cards__card__teams__info__name {
+	font-size: 24px;
+	line-height: 32px;
+}
+.match-sched__cards__card__teams__vs {
+	margin: 0 32px;
+	font-size: 16px;
+	line-height: 20px;
+}
+.match-sched__cards__card__teams__info__grp {
+	font-size: 14px;
+	line-height: 20px;
+	color: var(--light-grayish-blue);
+}
+.match-sched__cards__card__stadium {
+	text-align: center;
+}
+.match-sched__cards__card__stadium > img {
+	margin-bottom: 30px;
+}
+.match-sched__cards__card__stadium__name {
+	font-size: 16px;
+	line-height: 20px;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+.match-sched__cards__card__stadium__time,
+.match-sched__cards__card__stadium__date {
+	font-size: 12px;
+	line-height: 18px;
+	color: var(--light-grayish-blue);
+}
+/* ~match schedule */
 @media (max-width: 1199px) {
 	/* tnc */
 	.tnc-box > img {
@@ -1323,6 +1396,12 @@ iframe {
 		left: -3%;
 	}
 	/* ~tnc */
+	/* modals */
+	.wc22-modals__lbox__content li table th,
+	.wc22-modals__lbox__content li table td {
+		padding: 6px;
+	}
+	/* ~modals */
 }
 @media (max-width: 459px) {
 	/* tnc */

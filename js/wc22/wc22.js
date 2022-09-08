@@ -130,7 +130,7 @@ jQuery(function() {
 				: wc22TabItems[i].classList.remove("act");
 		}
 	}
-	displayActiveTab(0);
+	displayActiveTab(2);
 
 	wc22Content.addEventListener("click", (e) => {
 		if (e.target.className === "wc22-tabs__tab") {

@@ -4,16 +4,17 @@
 	--blue-cool-rgb: 15,23,42;
 	--charcoal: #334155;
 	--dark-grayish-navy: #222939;
-	--ghost-white: #F4F4F5;
 	--link-water: #CBD5E1;
 	--light-grayish-blue: #64748B;
-	--link-water: #D3D4D7;
 	--mourn-mountain-snow: #E9EAEB;
 	--nelvy: #1A2E4D;
 	--pattens-blue: #e6e9eb;
 	--qatar-maroon: #8A1538;
 	--red-wine: #AA0A3E;
 	--torch-red: #FF004C;
+	--torch-red-hover: #FF2969;
+	--torch-red-disabled: #D80348;
+	--torch-2b: #85002B;
 	--white: #fff;
 }
 .wc22 * {
@@ -445,6 +446,10 @@ iframe {
 }
 .btn--red {
 	background-color: var(--torch-red);
+	color: var(--other-1);
+}
+.btn--red:hover {
+	background-color: var(--torch-red-hover);
 	color: var(--other-1);
 }
 .wc22-tab-items__item--1__subs__item__sect {

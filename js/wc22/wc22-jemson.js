@@ -1,9 +1,16 @@
 jQuery(function($) {
 	'use strict';
+	var apiPredictionProd = 'https://script.google.com/macros/s/AKfycbwiyY4hzdXB9c9Xaxogow1t7pnRcx1g9aC4cTSiKWa7Xz-kUGozpuzpsnZwm77oSb64WQ/exec';
+	var apiPredictionUAT = '';
 	var isPredictionProd = true;
 
 	var urlParamLang = state.user.locale;
-	// var urlParamLang = "th-TH";
+	var preAuth = state.user.authenticated;
+
+	/**Add data-url start */
+	var ddWrapAuth = (preAuth === "False") ? "/register":"";
+	$('.dd-wrap').attr('data-url', ddWrapAuth);
+	/**Add data-url end */
 
 	if(urlParamLang == null) {
 		urlParamLang = 'en-US';
@@ -41,53 +48,53 @@ jQuery(function($) {
 
 	fetchLangJson(langcontent);
 
-	jQuery.fn.extend({
-		initDropdown: function () {
-			$(this).each(function(){
-				var that = this;
-				var clickDetect = 0;
-				$(that).find('.dropdown-selected, .dropdown-selection').mouseenter(function(){
-					clickDetect = 1;
-				});
-				$(that).find('.dropdown-selected, .dropdown-selection').mouseleave(function(){
-					clickDetect = 0;
-				});
-				$(that).find('.dropdown-selected').click(function(){
-					if(!$(this).hasClass('active')) {
-						$(this).addClass('active');
-					}
-					else {
-						$(this).removeClass('active');
-					}
-				});
-				$(document).click(function(){
-					if(clickDetect == 0) {
-						$(that).find('.dropdown-selected').removeClass('active');
-					}
-				});
-				$(that).find('.dropdown-selection dd').click(function(){
-					var hiddenVal = ($(this).attr('data-value') != 'placeholder') ? $(this).attr('data-value') : '';
-					$(that).find('.dropdown-selected').text($(this).text()).attr('data-country', $(this).attr('data-country'));
-					$(that).find('input[type="hidden"]').val(hiddenVal);
-					$(that).removeClass('valid');
-					if($(that).find('input[type="hidden"]').val() != '') {
-						$(that).addClass('valid');
-					}
-					$(that).find('.dropdown-selected').removeClass('active');
-				});
+	// jQuery.fn.extend({
+	// 	initDropdown: function () {
+	// 		$(this).each(function(){
+	// 			var that = this;
+	// 			var clickDetect = 0;
+	// 			$(that).find('.dropdown-selected, .dropdown-selection').mouseenter(function(){
+	// 				clickDetect = 1;
+	// 			});
+	// 			$(that).find('.dropdown-selected, .dropdown-selection').mouseleave(function(){
+	// 				clickDetect = 0;
+	// 			});
+	// 			$(that).find('.dropdown-selected').click(function(){
+	// 				if(!$(this).hasClass('active')) {
+	// 					$(this).addClass('active');
+	// 				}
+	// 				else {
+	// 					$(this).removeClass('active');
+	// 				}
+	// 			});
+	// 			$(document).click(function(){
+	// 				if(clickDetect == 0) {
+	// 					$(that).find('.dropdown-selected').removeClass('active');
+	// 				}
+	// 			});
+	// 			$(that).find('.dropdown-selection dd').click(function(){
+	// 				var hiddenVal = ($(this).attr('data-value') != 'placeholder') ? $(this).attr('data-value') : '';
+	// 				$(that).find('.dropdown-selected').text($(this).text()).attr('data-country', $(this).attr('data-country'));
+	// 				$(that).find('input[type="hidden"]').val(hiddenVal);
+	// 				$(that).removeClass('valid');
+	// 				if($(that).find('input[type="hidden"]').val() != '') {
+	// 					$(that).addClass('valid');
+	// 				}
+	// 				$(that).find('.dropdown-selected').removeClass('active');
+	// 			});
 				
-				var dropdownHiddenField = $(that).find('input[type="hidden"]').attr('name');
-				$(that).find('.dropdown-selected').text($(that).find('dd:eq(0)').text()).attr('data-country', $(that).find('dd:eq(0)').attr('data-country'));
-				if($(that).find('dd:eq(0)').attr('data-value') == 'placeholder') {
-					$(that).find('input[type="hidden"]').val('');
-				}
-				else {
-					$(that).find('input[type="hidden"]').val($(that).find('dd:eq(0)').attr('data-value'));
-				}
-			});
-		}
-	});
-	$('.dropdown-box').initDropdown();
+	// 			var dropdownHiddenField = $(that).find('input[type="hidden"]').attr('name');
+	// 			$(that).find('.dropdown-selected').text($(that).find('dd:eq(0)').text()).attr('data-country', $(that).find('dd:eq(0)').attr('data-country'));
+	// 			if($(that).find('dd:eq(0)').attr('data-value') == 'placeholder') {
+	// 				$(that).find('input[type="hidden"]').val('');
+	// 			}
+	// 			else {
+	// 				$(that).find('input[type="hidden"]').val($(that).find('dd:eq(0)').attr('data-value'));
+	// 			}
+	// 		});
+	// 	}
+	// });
+	// $('.dropdown-box').initDropdown();
 
 	
 	/**Team List START */
@@ -185,14 +192,14 @@ jQuery(function($) {
 		$(this).closest('.dd-wrap').find('.dd-selected').removeClass('placeholder').addClass('icon icon-'+ddVal);
 		$(this).closest('.dd-wrap').find('.dd-selected').attr('data-val', ddVal);
 		$(this).closest('.dd-wrap').find('.dd-selected .txt').text(ddTxt);
+		$(this).closest('.dd-wrap').find('.dd-selected input').val(ddVal);
 		
 		let counter = 0;
 		$('.dd-wrap').each(function(){
 			counter += $(this).find('.dd-selected[data-val]').length;
 		});
-		console.log(counter)
 		if(counter >= 15) {
-			$('.cta-area .btn').removeClass('inactive');
+			$('.cta-area .btn.btn-submit-prediction.inactive').removeClass('inactive');
 		}
 	});
 
@@ -339,60 +346,108 @@ jQuery(function($) {
 		$('.dd-wrap[data-self="'+ddWrap+'"] .list').height(accumulateHeight);
 	}
 
-	$(document).on('click', '.btn-submit-prediction', function(){
-		let qf1Team1 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').text());
-		let qf1Team2 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').text());
-		let qf2Team1 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(1) .dd-wrap:eq(0) .dd-selected .txt').text());
-		let qf2Team2 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(1) .dd-wrap:eq(1) .dd-selected .txt').text());
-		let qf3Team1 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').text());
-		let qf3Team2 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').text());
-		let qf4Team1 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(1) .dd-wrap:eq(0) .dd-selected .txt').text());
-		let qf4Team2 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(1) .dd-wrap:eq(1) .dd-selected .txt').text());
-		let sf1Team1 = capitalizedUpperCase($('.bracket.semi-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').text());
-		let sf1Team2 = capitalizedUpperCase($('.bracket.semi-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').text());
-		let sf2Team1 = capitalizedUpperCase($('.bracket.semi-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').text());
-		let sf2Team2 = capitalizedUpperCase($('.bracket.semi-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').text());
-		let f2Team1 = capitalizedUpperCase($('.bracket.finals .match-bracket .dd-wrap:eq(0) .dd-selected .txt').text());
-		let f2Team2 = capitalizedUpperCase($('.bracket.finals .match-bracket .dd-wrap:eq(1) .dd-selected .txt').text());
-		let cTeam1 = capitalizedUpperCase($('.bracket.champion .dd-wrap .dd-selected .txt').text());
+	$(document).on("click", ".btn-submit-prediction", function () {
+		let match_49 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').text());
+		let match_50 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').text());
+		let match_53 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(1) .dd-wrap:eq(0) .dd-selected .txt').text());
+		let match_54 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(1) .dd-wrap:eq(1) .dd-selected .txt').text());
+		let match_51 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').text());
+		let match_52 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').text());
+		let match_55 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(1) .dd-wrap:eq(0) .dd-selected .txt').text());
+		let match_56 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(1) .dd-wrap:eq(1) .dd-selected .txt').text());
+		let match_57 = capitalizedUpperCase($('.bracket.semi-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').text());
+		let match_58 = capitalizedUpperCase($('.bracket.semi-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').text());
+		let match_59 = capitalizedUpperCase($('.bracket.semi-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').text());
+		let match_60 = capitalizedUpperCase($('.bracket.semi-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').text());
+		let match_61 = capitalizedUpperCase($('.bracket.finals .match-bracket .dd-wrap:eq(0) .dd-selected .txt').text());
+		let match_62 = capitalizedUpperCase($('.bracket.finals .match-bracket .dd-wrap:eq(1) .dd-selected .txt').text());
+		let match_64 = capitalizedUpperCase($('.bracket.champion .dd-wrap .dd-selected .txt').text());
 
 		predictionJson = {
+			"r16_1": {
+				"match_49": match_49,
+				"match_50": match_50
+			},
+			"r16_2": {
+				"match_53": match_53,
+				"match_54": match_54
+			},
+			"r16_3": {
+				"match_51": match_51,
+				"match_52": match_52
+			},
+			"r16_4": {
+				"match_55": match_55,
+				"match_56": match_56
+			},
 			"qf1": {
-				"team1": qf1Team1,
-				"team2": qf1Team2
+				"match_57": match_57,
+				"match_58": match_58
 			},
 			"qf2": {
-				"team1": qf2Team1,
-				"team2": qf2Team2
+				"match_59": match_59,
+				"match_60": match_60
 			},
-			"qf3": {
-				"team1": qf3Team1,
-				"team2": qf3Team2
-			},
-			"qf4": {
-				"team1": qf4Team1,
-				"team2": qf4Team2
-			},
-			"sf1": {
-				"team1": sf1Team1,
-				"team2": sf1Team2
-			},
-			"sf2": {
-				"team1": sf2Team1,
-				"team2": sf2Team2
+			"sf": {
+				"match_61": match_61,
+				"match_62": match_62
 			},
 			"f": {
-				"team1": f2Team1,
-				"team2": f2Team2
-			},
-			"c": {
-				"team1": cTeam1
+				"match_64": match_64
 			}
 		};
+		SavePrediction();
 
 		$('.btn-submit-prediction').addClass('inactive');
-		console.log(predictionJson)
 	});
+
+	function SavePrediction(){
+		var errMessage = "There was an error during saving prediction details. Please try again.";
+		var data = 'Timestamp=12345';
+			data += '&username=anyeong';
+			data += '&Round16_1=' + predictionJson.r16_1.match_49;
+			data += '&Round16_2=' + predictionJson.r16_1.match_50;
+			data += '&Round16_3=' + predictionJson.r16_2.match_53;
+			data += '&Round16_4=' + predictionJson.r16_2.match_54;
+			data += '&Round16_5=' + predictionJson.r16_3.match_51;
+			data += '&Round16_6=' + predictionJson.r16_3.match_52;
+			data += '&Round16_7=' + predictionJson.r16_4.match_55;
+			data += '&Round16_8=' + predictionJson.r16_4.match_56;
+			data += '&QuarterFinals_9=' + predictionJson.qf1.match_57;
+			data += '&QuarterFinals_10=' + predictionJson.qf1.match_58;
+			data += '&QuarterFinals_11=' + predictionJson.qf2.match_59;
+			data += '&QuarterFinals_12=' + predictionJson.qf2.match_60;
+			data += '&SemiFinals_13=' + predictionJson.sf.match_61;
+			data += '&SemiFinals_14=' + predictionJson.sf.match_62;
+			data += '&Finals_15=' + predictionJson.f.match_64;
+
+		var uri = ApiPrediction();
+
+		// $.ajax({
+		// 	url: uri,
+		// 	headers: {'Content-type': 'application/x-www-form-urlencoded'},
+		// 	type: "post",
+		// 	data: data,
+		// 	contentType: 'multipart/form-data',
+		// 	// contentType: "application/javascript",
+        // 	// dataType: "jsonp",
+		// 	success: function () {
+		// 		//SendEmail();
+		// 		console.log('success')
+		// 	},
+		// 	error: function () {
+		// 		console.log(errMessage);
+		// 	}
+		// });
+	}
+
+	function ApiPrediction(){
+		if(isPredictionProd){
+			return apiPredictionProd; //PROD
+		}else{
+			return apiPredictionUAT;
+		}
+	}
 	
 	function capitalizeFirstLetter(str) {
 

@@ -87,31 +87,9 @@ jQuery(function() {
 				}
 		});
 
-		var sliderRouletteGames = new Swiper(".swiper--laliga-slots", {
-			slidesPerView: "auto",
-			navigation: {
-				nextEl: ".swiper-button-next",
-				prevEl: ".swiper-button-prev",
-			},
-			slidesPerGroupAuto: true,
-			freeMode: {
-				enabled: true,
-				sticky: true,
-			},
-			simulateTouch: true,
-			breakpoints: {
-				0: {
-					spaceBetween: 8,
-				},
-				1024: {
-					spaceBetween: 16,
-				}
-			}
-		});
 		setTimeout(function(){
-			swiperOddsLive.init();
-			swiperOddsUpcoming.init();
-			sliderRouletteGames.init();
+			swiperOddsLive.init;
+			swiperOddsUpcoming.init;
 		}, 1000)
 	});
 
@@ -186,6 +164,30 @@ jQuery(function() {
 		e.stopPropagation();
 	});
 
-	
+	// match schedule
+	var matchSchedule = new Swiper(".swiper-sched", {
+		autoHeight: true,
+		slidesPerView: 1,
+		slideVisibleClass: "swiper-slide-visible",
+		// thumbs: {
+		// 	matchScheduleDate: matchScheduleDate
+		// }
+	});
+
+	var matchScheduleDate = new Swiper(".swiper-sched-dates", {
+		slidesPerView: "auto",
+		slideVisibleClass: "swiper-slide-visible",
+		// freeMode: true,
+		centeredSlides: true,
+		navigation: {
+			nextEl: ".swiper-sched-next",
+			prevEl: ".swiper-sched-prev",
+		},
+		slideToClickedSlide: true,
+		watchSlidesProgress: true,
+	});
+
+	matchSchedule.controller.control = matchScheduleDate;
+	matchScheduleDate.controller.control = matchSchedule;
 
 });

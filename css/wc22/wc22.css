@@ -7,6 +7,8 @@
 	--link-water: #CBD5E1;
 	--light-grayish-blue: #64748B;
 	--mourn-mountain-snow: #E9EAEB;
+	--light-silver: #D9D9D9;
+	--light-AEB: #E9EAEB;
 	--nelvy: #1A2E4D;
 	--pattens-blue: #e6e9eb;
 	--qatar-maroon: #8A1538;
@@ -14,6 +16,8 @@
 	--torch-red: #FF004C;
 	--torch-red-hover: #FF2969;
 	--torch-red-disabled: #D80348;
+	--pink-red: #F6034D;
+	--pink-red-dark: #C9334E;
 	--torch-2b: #85002B;
 	--white: #fff;
 }
@@ -404,9 +408,17 @@ iframe {
 	    -ms-flex-pack: center;
 	        justify-content: center;
 }
+.swiper-odds-prev.swiper-sched-prev,
+.swiper-odds-next.swiper-sched-next {
+	background: var(--torch-red);
+}
 .swiper-odds-prev:active,
 .swiper-odds-next:active {
 	background: #A7A9B0;
+}
+.swiper-odds-prev.swiper-sched-prev:active,
+.swiper-odds-next.swiper-sched-next:active {
+	background: var(--torch-red);
 }
 .swiper-odds-prev {
 	left: 0;
@@ -420,7 +432,7 @@ iframe {
 	display: block;
 	width: 12px;
 	height: 8px;
-	background: url("../images/east.svg") no-repeat center center;   
+	background: url("../../images/icon-east.svg") no-repeat center center;   
 }
 .swiper-odds-prev:after,
 .swiper-button-prev:before {
@@ -428,7 +440,7 @@ iframe {
 	display: block;
 	width: 12px;
 	height: 8px;
-	background: url("../images/west.svg") no-repeat center center; 
+	background: url("../../images/icon-west.svg") no-repeat center center; 
 }
 .swiper-odds-next.swiper-button-disabled,
 .swiper-odds-prev.swiper-button-disabled {
@@ -768,9 +780,11 @@ iframe {
 }
 .knockouts__col {
 	height: 573px;
+	position: relative;
 }
 .knockouts__col__batch {
 	margin-bottom: 16px;
+	position: relative;
 }
 .knockouts__col__batch:last-child {
 	margin-bottom: 0;
@@ -782,6 +796,8 @@ iframe {
 	width: 152px;
 	min-height: 121px;
 	margin-bottom: 8px;
+	position: relative;
+	z-index: 2;
 }
 .knockouts__col__batch__grp:last-child {
 	margin-bottom: 0;
@@ -837,6 +853,29 @@ iframe {
 	align-items: center;
 	justify-content: space-between;
 	height: 100%;
+}
+.knockouts__col__batch--1:after,
+.knockouts__col__batch--2:after {
+	content: "";
+	width: 50%;
+	height: 50%;
+	position: absolute;
+	border-top: 1px solid var(--pink-red);
+	border-right: 1px solid var(--pink-red);
+	border-bottom: 1px solid var(--pink-red);
+	right: -15%;
+	top: 25%;
+	z-index: 1;
+}
+.knockouts__col__batch__grp--1n2:after {
+	content: "";
+	width: 50%;
+	height: 1px;
+	position: absolute;
+	border-top: 1px solid var(--pink-red);
+	left: -15%;
+	top: 50%;
+	z-index: 1;
 }
 /* ~knockouts */
 /* modals */
@@ -978,6 +1017,120 @@ iframe {
 	background-color: var(--ghost-white);
 }
 /* ~modals */
+/* match schedule */
+.match-sched {
+	padding: 50px 0;
+}
+.swiper-sched-dates {
+	position: relative;
+}
+.match-sched__cards__card__stadium__time,
+.match-sched__cards__card__stadium__date {
+	font-size: 12px;
+	line-height: 18px;
+	color: var(--light-grayish-blue);
+}
+.swiper-sched-dates__card {
+	text-align: center;
+	padding: 0 0px;
+	border-right: 1px solid var(--link-water);
+	cursor: pointer;
+	width: 93px;
+}
+.swiper-slide:first-child .swiper-sched-dates__card {
+	border-left: 1px solid var(--link-water);
+}
+.swiper-sched-dates__card > span {
+	font-size: 12px;
+	line-height: 18px;
+}
+.swiper-slide-active .swiper-sched-dates__card > span {
+	font-weight: 900;
+	color: var(--charcoal);
+}
+.swiper-sched .swiper-slide {
+	width: max-content;
+}
+.swiper-sched-dates .swiper-slide {
+	width: max-content;
+	flex-shrink: 1;
+}
+.match-sched__cards {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.match-sched__cards__card {
+	max-width: 600px; 
+	flex-basis: 50%;
+	padding: 30px 0;
+	margin-bottom: 20px;
+}
+.match-sched__cards__card__teams {
+	display: flex;
+	/* align-items: center; */
+	justify-content: center;
+	margin-bottom: 30px;
+}
+.match-sched__cards__card__teams__info {
+	flex-basis: 50%;
+}
+.match-sched__cards__card__teams__info--home {
+	text-align: right;
+}
+.match-sched__cards__card__teams__info--away {
+	text-align: left;
+}
+.match-sched__cards__card__teams__info > img {
+	display: block;
+	width: 36px;
+	height: 24px;
+	margin-bottom: 8px;
+}
+.match-sched__cards__card__teams__info--home > img {
+	margin-left: auto;
+}
+.match-sched__cards__card__teams__info--away > img {
+	margin-right: auto;
+}
+.match-sched__cards__card__teams__info__name {
+	font-size: 24px;
+	line-height: 32px;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+.match-sched__cards__card__teams__info__name.desk {
+	display: block;
+}
+.match-sched__cards__card__teams__info__name.mobi {
+	display: none;
+}
+.match-sched__cards__card__teams__vs {
+	margin: 0 32px;
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: 700;
+}
+.match-sched__cards__card__teams__info__grp {
+	font-size: 14px;
+	line-height: 20px;
+	color: var(--light-grayish-blue);
+}
+.match-sched__cards__card__stadium {
+	text-align: center;
+}
+.match-sched__cards__card__stadium > img {
+	margin-bottom: 30px;
+}
+.match-sched__cards__card__stadium__name {
+	font-size: 16px;
+	line-height: 20px;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+/* ~match schedule */
 @media (max-width: 1199px) {
 	/* tnc */
 	.tnc-box > img {
@@ -1086,6 +1239,14 @@ iframe {
 		left: -20px;
 	}
 	/* ~tnc */
+	/* match schedule */
+	.match-sched__cards__card__teams__info__name.desk {
+		display: none;
+	}
+	.match-sched__cards__card__teams__info__name.mobi {
+		display: inline-block;
+	}
+	/* ~match schedule */
 }
 @media (max-width: 767px){
 	.inner {
@@ -1321,6 +1482,17 @@ iframe {
 		max-height: 80vh
 	}
 	/* ~tnc */
+	/* match schedule */
+	.match-sched {
+		padding: 15px 0;
+	}
+	.match-sched__cards__card {
+		flex-basis: 100%;
+		width: 100%;
+		padding: 15px 0;
+		margin-bottom: 0;
+	}
+	/* ~match schedule */
 }
 @media (max-width: 559px) {
 	/* tnc */
@@ -1328,6 +1500,12 @@ iframe {
 		left: -3%;
 	}
 	/* ~tnc */
+	/* modals */
+	.wc22-modals__lbox__content li table th,
+	.wc22-modals__lbox__content li table td {
+		padding: 6px;
+	}
+	/* ~modals */
 }
 @media (max-width: 459px) {
 	/* tnc */
@@ -1353,12 +1531,27 @@ iframe {
 	.swiper-odds-next:hover {
 			background: var(--primary-5);
 	}
+	.swiper-odds-prev.swiper-sched-prev:hover,
+	.swiper-odds-next.swiper-sched-next:hover {
+			background: var(--torch-red-hover);
+			opacity: 1;
+	}
 	.swiper-odds--upcoming:hover .swiper-odds-prev,
 	.swiper-odds--upcoming:hover .swiper-odds-next {
 			opacity: 1;
 	}
+	.swiper-sched-dates:hover .swiper-odds-prev,
+	.swiper-sched-dates:hover .swiper-odds-next {
+			opacity: .2;
+	}
+	.swiper-sched-dates:hover .swiper-odds-prev:hover,
+	.swiper-sched-dates:hover .swiper-odds-next:hover {
+			opacity: 1;
+	}
 	.swiper-odds--upcoming:hover .swiper-odds-prev.swiper-odds-disabled,
-	.swiper-odds--upcoming:hover .swiper-odds-next.swiper-odds-disabled {
+	.swiper-odds--upcoming:hover .swiper-odds-next.swiper-odds-disabled,
+	.swiper-sched-dates:hover .swiper-odds-prev.swiper-odds-disabled,
+	.swiper-sched-dates:hover .swiper-odds-next.swiper-odds-disabled {
 			opacity: 0;
 			cursor: auto;
 	}

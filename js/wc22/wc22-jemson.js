@@ -490,6 +490,8 @@ jQuery(function($) {
 		}
 	}
 
+	openCongratsPopup('true');
+
 	function openCongratsPopup(args){
 		$('.wc22-modals').addClass('act');
 		var modalPred = $('.wc22-modals__lbox--pred');
@@ -514,7 +516,7 @@ jQuery(function($) {
 		modalPredBody = '<div class="modals__lbx--wrap">';
 		  modalPredBody += '<img class="mrgn-btm" src="../../images/prediction/icons/promotion-' + modalPredImg + '.svg" />';
 		  modalPredBody += '<div class="modals__lbx--top--msg mrgn-btm">' + modalPredBigText + '</div>';
-		  if(args == 'true'){
+		  if(args == 'false'){
 			modalPredBody += '<span class="modals__lbx--bottom--msg mrgn-btm">Your prediction has not been placed. Try to repeat the process.</span>';
 		  }else{
 			modalPredBody += '<span class="modals__lbx--bottom--msg">If you want a summary of your prediction, input your email.!</span>';
@@ -648,7 +650,18 @@ jQuery(function($) {
 	
 		$.ajax(settings).done(function (response) {
 			console.log(JSON.stringify(response));
+			
+			openEmailSuccess();
 		});
+	}
+	
+
+    function openEmailSuccess(){
+		$('.modals__lbx--bottom--msg:eq(0)').html('A summary of your prediction will be sent to your email.');
+		$('.modals__lbx--bottom--msg:eq(1)').addClass('d-none').html('');
+		$('.email-lbl').addClass('d-none').val('');
+		$('.txt-err').text('');
+		$('.wc22-modals__lbox__footer > .btn').removeClass('btn-send-email').text('OK');
 	}
 
 	function IsEmail(email){

@@ -526,6 +526,115 @@
 	color: var(--torch-2b);
 	pointer-events: none;
 }
+
+/*POPUP START*/
+.wc22-modals__lbox.wc22-modals__lbox--pred.act{
+	height: 100%;
+    max-height: 606px;
+}
+.wc22-modals__lbox.wc22-modals__lbox--pred .wc22-modals__lbox__head > h4{
+	text-transform: uppercase;
+}
+.wc22-modals__lbox.wc22-modals__lbox--pred .wc22-modals__lbox__content{
+    max-height: 352px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 32px 32px;
+    justify-content: center;
+}
+.modals__lbx--wrap{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.modals__lbx--top--msg{
+	color: #222939;
+	font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    text-transform: uppercase;
+    width: 416px;
+    text-align: center;
+}
+.email-lbl{
+	padding: 12px 16px;
+    border: 1px solid #D3D4D7;
+    border-radius: 60px;
+	width: 100%;
+}
+.email-lbl > input[type=email]{
+	box-sizing: border-box;
+    outline: 0;
+    border: 0;
+    font-size: 14px;
+    width: 100%;
+}
+.email-lbl > input[type=email]::placeholder,
+.email-lbl > input[type=email]:-ms-input-placeholder,
+.email-lbl > input[type=email]::-ms-input-placeholder {
+    color: #BDBFC4;
+}
+.mrgn-btm{
+    margin-bottom: 24px;
+}
+.mrgn-btm:last-child{
+	margin-bottom: 0;
+}
+.modals__lbx--bottom--msg{
+	color: #222939;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 20px;
+}
+.wc22-modals__lbox__footer{
+    background-color: var(--white);
+    border-top: 1px solid var(--light-AEB);
+	box-sizing: border-box;
+	padding: 24px 32px 32px;
+    position: sticky;
+	display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -ms-flex-line-pack: end;
+    align-content: flex-end;
+	width: 100%;
+}
+.btn--confirm{
+	background-color: var(--secondary-3);
+	border: 1px solid rgba(0, 0, 0, 0);
+    font-weight: 900;
+}
+.btn--disabled{
+    color: var(--secondary-3);
+    background-color: var(--secondary-5);
+    font-weight: 900;
+}
+.email-lbl.err{
+	border: 1px solid var(--pink-red-dark) !important;
+    outline: none;
+}
+.txt-err{
+	margin-top: 5px;
+    text-align: left;
+    display: block;
+    width: 100%;
+    font-size: 12px;
+    color: var(--pink-red-dark);
+    font-weight: 700;
+}
+/*POPUP END*/
+
 @media (min-width: 768px) {
 	.bracket.finals {
 		position: relative;

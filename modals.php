@@ -69,4 +69,15 @@
 		</div>
 	</div>
 
+	<div class="wc22-modals__lbox wc22-modals__lbox--pred">
+		<div class="wc22-modals__lbox__bar"></div>
+		<div class="wc22-modals__lbox__head">
+			<h4>Lorem Ipsum</h4>
+			<div class="wc22-modals__lbox__close"></div>
+		</div>
+		<div class="wc22-modals__lbox__content">
+			Lipsum
+		</div>
+		<div class="wc22-modals__lbox__footer"></div>
+	</div>
 </section>

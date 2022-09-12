@@ -472,7 +472,7 @@ jQuery(function($) {
 			contentType: 'multipart/form-data',
 			// contentType: "application/javascript",
         	// dataType: "jsonp",
-			success: function () {
+			success: function (res) {
 				var stats = (res.result === "success") ? 'true' : 'false';
 				openCongratsPopup(stats);
 			},
@@ -480,6 +480,7 @@ jQuery(function($) {
 				console.log(errMessage);
 			}
 		});
+		// openCongratsPopup('true');
 	}
 
 	function ApiPrediction(){
@@ -529,6 +530,24 @@ jQuery(function($) {
 		modalPredFooter = "<button class='btn " + modalPredBtnClass + " btn--disabled'>" + modalPredBtnText + "</button>";
 		modalPred.find('.wc22-modals__lbox__content').html(modalPredBody);
 		modalPred.find('.wc22-modals__lbox__footer').html(modalPredFooter);
+
+		$('.wc22-modals__lbox--pred.act .btn-send-email').on('click',  function(e){
+			e.preventDefault();
+			let emailInput = $('#pred_email').val();
+
+			console.log(IsEmail(emailInput))
+	
+			//validation for email
+			if(IsEmail(emailInput) === true){
+				$('.email-lbl').removeClass('err');
+				$('.txt-err').addClass('d-none');
+				SendEmail(emailInput);
+			}else{
+				$('.email-lbl').addClass('err');
+				$('.txt-err').removeClass('d-none');
+			}
+		});
+	
 	}
 
 
@@ -541,47 +560,44 @@ jQuery(function($) {
 		}
 	});
 
-	$('.wc22-modals__lbox--pred.act .btn-send-email').on('click',  function(e){
-		e.preventDefault();
-		let emailInput = $('#pred_email').val();
-
-		//validation for email
-		if(IsEmail(emailInput) === true){
-			$('.email-lbl').removeClass('err');
-			$('.txt-err').addClass('d-none');
-			SendEmail(emailInput);
-		}else{
-			$('.email-lbl').addClass('err');
-			$('.txt-err').removeClass('d-none');
-		}
-	});
-
 	function GetEmailTemplate() {
 		var templateId = "";
-	
+    
 		if (isPredictionProd) {
-			//PROD
-			if (urlParamLang.toLowerCase() === "en") {
-				templateId = "6503694a-2c1b-44ec-9d14-06a4d85287d2";
-			} else if (urlParamLang.toLowerCase() === "id") {
-				templateId = "2e240550-6b3b-48c6-97d2-dc89ac6e09aa";
-			} else if (urlParamLang.toLowerCase() === "vn") {
-				templateId = "9353b405-35b9-42e6-9ce3-a7eacbd88a10";
-			} else if (urlParamLang.toLowerCase() === "th") {
-				templateId = "f4c4b9f3-4c5e-46fa-80dd-05be8a24b0f4";
-			}
+		  //PROD
+		  if (htmlLang === "en-US") {
+			templateId = "763817e5-8cfb-48c6-8370-4ff2e68fdec4";
+		  } else if (htmlLang === "id-ID") {
+			templateId = "29ede0c8-9e3a-4555-8f8c-1bfe8f192118";
+		  } else if (htmlLang === "vi-VN") {
+			templateId = "77879a12-4010-4e1e-b262-3c1e565f5fee";
+		  } else if (htmlLang === "th-TH") {
+			templateId = "123e0578-4fe7-4e88-a60f-d5c68fbef8ca";
+		  } else if (htmlLang === "zh-CN") {
+			templateId = "433ee0ad-5721-4db4-8603-70fd43e46725";
+		  } else if (htmlLang === "ko-KR") {
+			templateId = "049929ec-6485-472b-8f85-da82fc12a3e9";
+		  } else if (htmlLang === "ja-JP") {
+			templateId = "5c6f6a00-5b17-4719-b8a3-df4208d32c0f";
+		  }
 		}
 		else {
-			//UAT
-			if (urlParamLang.toLowerCase() === "en") {
-				templateId = "6503694a-2c1b-44ec-9d14-06a4d85287d2";
-			} else if (urlParamLang.toLowerCase() === "id") {
-				templateId = "2e240550-6b3b-48c6-97d2-dc89ac6e09aa";
-			} else if (urlParamLang.toLowerCase() === "vn") {
-				templateId = "9353b405-35b9-42e6-9ce3-a7eacbd88a10";
-			} else if (urlParamLang.toLowerCase() === "th") {
-				templateId = "f4c4b9f3-4c5e-46fa-80dd-05be8a24b0f4";
-			}
+		  //UAT
+		  if (htmlLang === "en-US") {
+			templateId = "763817e5-8cfb-48c6-8370-4ff2e68fdec4";
+		  } else if (htmlLang === "id-ID") {
+			templateId = "29ede0c8-9e3a-4555-8f8c-1bfe8f192118";
+		  } else if (htmlLang === "vi-VN") {
+			templateId = "77879a12-4010-4e1e-b262-3c1e565f5fee";
+		  } else if (htmlLang === "th-TH") {
+			templateId = "123e0578-4fe7-4e88-a60f-d5c68fbef8ca";
+		  } else if (htmlLang === "zh-CN") {
+			templateId = "433ee0ad-5721-4db4-8603-70fd43e46725";
+		  } else if (htmlLang === "ko-KR") {
+			templateId = "049929ec-6485-472b-8f85-da82fc12a3e9";
+		  } else if (htmlLang === "ja-JP") {
+			templateId = "5c6f6a00-5b17-4719-b8a3-df4208d32c0f";
+		  }
 		}
 	
 		return templateId;
@@ -649,20 +665,24 @@ jQuery(function($) {
 		};
 	
 		$.ajax(settings).done(function (response) {
-			console.log(JSON.stringify(response));
-			
-			openEmailSuccess();
+			var res = JSON.stringify(response);
+			var args = JSON.parse(res);
+			if(args.ok === true){
+				openEmailSuccess();
+			}else{
+				openCongratsPopup('false');
+			}
 		});
 	}
 	
 
     function openEmailSuccess(){
-		$('.modals__lbx--bottom--msg:eq(0)').html('A summary of your prediction will be sent to your email.');
-		$('.modals__lbx--bottom--msg:eq(1)').addClass('d-none').html('');
-		$('.email-lbl').addClass('d-none').val('');
-		$('.txt-err').text('');
-		$('.wc22-modals__lbox__footer > .btn').removeClass('btn-send-email').text('OK');
-	}
+      $('.modals__lbx--bottom--msg:eq(0)').html('A summary of your prediction will be sent to your email.');
+      $('.modals__lbx--bottom--msg:eq(1)').addClass('d-none').html('');
+      $('.email-lbl').addClass('d-none').val('');
+      $('.txt-err').text('');
+      $('.wc22-modals__lbox__footer > .btn').removeClass('btn-send-email').text('OK');
+    }
 
 	function IsEmail(email){
 		var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;

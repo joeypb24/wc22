@@ -1,7 +1,7 @@
 <div class="wc22-tab-items__item--1__subs__item wc22-tab-items__item--1__subs__item--3">
 	
 <section class="wc22-tab-items__item--1__subs__item__sect">	
-		<div class="inner">
+		<!-- <div class="inner">
 			
 			<div class="swiper-holder">
 				<div class="swiper-groups">
@@ -21,10 +21,10 @@
 											<th>PTS</th>
 										</tr>
 									</thead>
-									<tbody>
+									<tbody class="table--body">
 										<tr>
 											<td>A1</td>
-											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/qa.svg"> QAT</td>
+											<td class="country"><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/qa.svg"> </td>
 											<td>0</td>
 											<td>0</td>
 											<td>0</td>
@@ -34,7 +34,7 @@
 										</tr>
 										<tr>
 											<td>A2</td>
-											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/ec.svg"> ECU</td>
+											<td class="country2"><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/ec.svg"> </td>
 											<td>0</td>
 											<td>0</td>
 											<td>0</td>
@@ -494,7 +494,7 @@
 				</div>
 			</div>
 
-		</div>
+		</div> -->
 </section>
 
 

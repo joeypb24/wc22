@@ -1,41 +1,5 @@
 'use strict';
 
-// (function () {
-//   const second = 1000,
-//     minute = second * 60,
-//     hour = minute * 60,
-//     day = hour * 24;
-
-//   let today = new Date(),
-//     dd = String(today.getUTCDate()).padStart(2, "0"),
-//     mm = String(today.getUTCMonth() + 1).padStart(2, "0"),
-//     yyyy = today.getUTCFullYear(),
-//     nextYear = yyyy + 1,
-//     dayMonth = "11/20/",
-//     wc = dayMonth + yyyy;
-
-//   today = mm + "/" + dd + "/" + yyyy;
-//   if (today > wc) {
-//     wc = dayMonth + nextYear;
-//   }
-//   //end
-
-//   const countDown = new Date(wc).getTime(),
-//     x = setInterval(function () {
-//       const now = new Date().getTime(),
-//         distance = countDown - now;
-
-//       (document.getElementById("days").innerText = Math.floor(distance / day)),
-//         (document.getElementById("hours").innerText = Math.floor(
-//           (distance % day) / hour
-//         )),
-//         (document.getElementById("minutes").innerText = Math.floor(
-//           (distance % hour) / minute
-//         ));
-//     }, 0);
-// })();
-
-
 // Set the date we're counting down to
 var countDownDate = new Date("Nov 20, 2022 16:00:00").getTime();
 
@@ -54,46 +18,83 @@ var x = setInterval(function() {
 }, 1000);
 
 
-// SWIPER
-var thumbSwiper = new Swiper('.swiper--stdm', {
-  // Optional parameters
-  slidesPerView: "auto",
-  direction: 'horizontal',
-  draggable: true,
-  loop: false,
 
-  // If we need pagination
-  pagination: {
-      clickable: true,
-      el: '.swiper-pagination',
-  },
 
-  // Navigation arrows
-  navigation: {
-    nextEl: '.wc-thumb--next',
-    prevEl: '.wc-thumb--prev',
-  },
-  breakpoints: {
-    0: {
-      spaceBetween: 16,
-    },
-    1023: {
-      slidesPerView: "auto",
-      spaceBetween: 16,
-    }
-  }
-});
 
-const swipeMblDisable = (remSwiper) => {
-  if (remSwiper.matches) { // If media query matches
-    // thumbSwiper.destroy();
-    console.log("Thumb Swiper Removal is enable")
-  }
+/**
+ * Fetch API from knockouts
+ */
+
+const basedAPIURL = "https://msportsfeed.m88api.com/api/v1/feed/standsknockouts";
+let data;
+
+const teamData = function() {
+  fetch(basedAPIURL)
+    .then((res) => {
+      return res.json();
+    })
+    .then((res) => {
+      data = res;
+      dataManipulation(data);
+      console.log(res);
+      console.log(Object.keys(res.data));
+      console.log(Object.values(res.data)[0][1]);
+      var standings = Object.values(res.data)[0];
+      for (var i = 0; i < standings.length; i++) {
+        console.log(standings[i].group_name);
+        console.log(standings[i].no_team);
+      }
+    })
 }
-setTimeout(function(){
-  thumbSwiper.init;
-}, 1000)
 
-let remSwiper = window.matchMedia("(max-width: 767px)")
-swipeMblDisable(remSwiper) // Call listener function at run time
-remSwiper.addListener(swipeMblDisable) // Attach listener function on state changes
+// dataManipulation container
+const dataManipulation = function(args) {
+  Object.entries(args).map(obj => {
+    const key = obj[0]; // status
+    const val = obj[1]; // data -> knockouts and standings
+
+    // conditional for entries
+    if (val.knockouts && val.standings) {
+      Object.entries(val.knockouts).map(objKO => {
+        const valKO = objKO[1];
+        console.log(valKO);
+      }),
+      Object.entries(val.standings).map(objStand => {
+        const valStand = objStand[1];
+
+        // Get data parameters
+        const country = valStand['country'];
+        const play = valStand['play'];
+        const points = valStand['points'];
+        const win = valStand['win'];
+        const draw = valStand['draw'];
+        const goal = valStand['goal'];
+        const lose = valStand['lose'];
+        // to deploy data
+        const group_name = valStand['group_name'];
+        const conceded = valStand['conceded'];
+
+      
+
+        // insert data to html
+        // var standingData = `
+        //   <tr>
+        //     <td>A1</td>
+        //     <td class="country"><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/qa.svg">${country} </td>
+        //     <td> ${play}</td>
+        //     <td>${win}</td>
+        //     <td>${draw}</td>
+        //     <td>${lose}</td>
+        //     <td> ${goal}</td>
+        //     <td>${points}</td>
+        //   </tr>
+        // `;
+
+        // document.querySelector(".table--body").insertAdjacentHTML('beforeend', standingData)
+
+      })
+    }
+  })
+}
+
+teamData();

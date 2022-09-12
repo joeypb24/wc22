@@ -87,9 +87,32 @@ jQuery(function() {
 				}
 		});
 
+		var sliderGroups = new Swiper(".swiper-groups", {
+			slidesPerView: "auto",
+			navigation: {
+				nextEl: ".swiper-odds-next",
+				prevEl: ".swiper-odds-prev",
+			},
+			slidesPerGroupAuto: true,
+			freeMode: {
+				enabled: true,
+				sticky: true,
+			},
+			simulateTouch: true,
+			breakpoints: {
+				0: {
+					spaceBetween: 8,
+				},
+				1024: {
+					spaceBetween: 16,
+				},
+			},
+		});
+
 		setTimeout(function(){
 			swiperOddsLive.init;
 			swiperOddsUpcoming.init;
+			sliderGroups.init;
 		}, 1000)
 	});
 

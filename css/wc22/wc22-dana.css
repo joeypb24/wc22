@@ -200,6 +200,9 @@
 }
 
 /* WORLD CUP STADIUM POPUP */
+.overflowHidden {
+    overflow: hidden !important;
+}
 .flex-horizontal .scale-image:hover {
     cursor: pointer;
 }

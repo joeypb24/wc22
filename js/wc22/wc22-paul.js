@@ -55,7 +55,7 @@ var templateHTML = `
 								<table>
 									<thead>
 										<tr>
-											<th colspan="2">Group</th>
+											<th colspan="2">Group A</th>
 											<th>P</th>
 											<th>W</th>
 											<th>D</th>
@@ -67,7 +67,7 @@ var templateHTML = `
 									<tbody>
 										<tr>
 											<td>A1</td>
-											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/qa.svg?build=2.58.1.16080-"> QAT</td>
+											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/qa.svg?build=2.58.1.16080-"> ${standings[0].country}</td>
 											<td>0</td>
 											<td>0</td>
 											<td>0</td>
@@ -558,26 +558,26 @@ const teamData = function() {
       var standings = Object.values(res.data)[0];
       console.log(standings);
 
-      for (var i = 0; i < standings.length; i++) {
-        if (standings[i].group_name == 'A') {
-          standingFormatted.standingGroupA.push(standings[i]);
-        } else if (standings[i].group_name == 'B') {
-          standingFormatted.standingGroupB.push(standings[i]);
-        } else if (standings[i].group_name == 'C') {
-          standingFormatted.standingGroupC.push(standings[i]);
-        } else if (standings[i].group_name == 'D') {
-          standingFormatted.standingGroupD.push(standings[i]);
-        } else if (standings[i].group_name == 'E') {
-          standingFormatted.standingGroupE.push(standings[i]);
-        } else if (standings[i].group_name == 'F') {
-          standingFormatted.standingGroupF.push(standings[i]);
-        } else if (standings[i].group_name == 'G') {
-          standingFormatted.standingGroupG.push(standings[i]);
-        } else if (standings[i].group_name == 'H') {
-          standingFormatted.standingGroupH.push(standings[i]);
+      standings.map((group) => {
+        if (group.group_name == 'A') {
+          standingFormatted.standingGroupA.push(group);
+        } else if (group.group_name == 'B') {
+          standingFormatted.standingGroupB.push(group);
+        } else if (group.group_name == 'C') {
+          standingFormatted.standingGroupC.push(group);
+        } else if (group.group_name == 'D') {
+          standingFormatted.standingGroupD.push(group);
+        } else if (group.group_name == 'E') {
+          standingFormatted.standingGroupE.push(group);
+        } else if (group.group_name == 'F') {
+          standingFormatted.standingGroupF.push(group);
+        } else if (group.group_name == 'G') {
+          standingFormatted.standingGroupG.push(group);
+        } else if (group.group_name == 'H') {
+          standingFormatted.standingGroupH.push(group);
         } 
-      }
-    })  
+      })
+    }) 
 }
 
 // dataManipulation container

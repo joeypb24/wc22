@@ -5,13 +5,14 @@
 			<div class="review-section1 review-section">
 				<div class="review-section-left">
 					<div class="image-stack image-stack-mobi">
-						<div class="image-stack-item image-stack-item-top">
+						<img src="./images/wc22/review/betting-tip_mobile.png"/>
+						<!-- <div class="image-stack-item image-stack-item-top">
 							<img src="./images/wc22/review/main-img.png"/>
 	
 						</div>
 						<div class="image-stack-item image-stack-item-bottom">
 							<img src="./images/wc22/review/back-img.png"/>
-						</div>
+						</div> -->
 					</div>
 						<h4 class="review-heading review-heading-main">2022 FIFA World Cup Betting tips</h4>
 					<p class="review-text">
@@ -23,13 +24,14 @@
 				</div>
 				<div class="review-section-right">
 					<div class="image-stack image-stack-desk">
-						<div class="image-stack-item image-stack-item-top">
+						<img src="./images/wc22/review/betting-tip_desktop.png"/>
+						<!-- <div class="image-stack-item image-stack-item-top">
 							<img src="./images/wc22/review/main-img.png"/>
 	
 						</div>
 						<div class="image-stack-item image-stack-item-bottom">
 							<img src="./images/wc22/review/back-img.png"/>
-						</div>
+						</div> -->
 					</div>
 				</div>
 

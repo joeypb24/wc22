@@ -42,6 +42,10 @@
     width: 61.967%;
 }
 
+.image-stack-desk img {
+    width: 100%;
+}
+
 .image-stack-mobi {
     display: none;
 }

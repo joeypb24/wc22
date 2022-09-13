@@ -40,21 +40,19 @@ const teamData = function() {
       console.log(Object.keys(res.data));
       console.log(Object.values(res.data)[0][1]);
 
-      var first_group = Object.values(res.data)[0][0];
-      var sec__group = Object.values(res.data)[0][1];
-      var third__group = Object.values(res.data)[0][2];
-      var fourth__group = Object.values(res.data)[0][3];
-      console.log("FIRST", first_group);
-      console.log("SEC", sec__group)
-      console.log("THIRD", third__group)
-      console.log("FOURTH", fourth__group)
-
       var standings = Object.values(res.data)[0];
 
       // for loop by getting group of data
       for (var i = 0; i < standings.length; i++) {
-        console.log(standings[i].group_name);
-        console.log(standings[i].no_team);
+        // console.log(standings[i].country);
+
+        if(standings[i].country === "SEN") {
+          var countrySen = standings[1] = "SEN";
+          var countryQat = standings[1] = "";
+
+          document.querySelector(".sen").insertAdjacentText('beforeend', countrySen)
+          document.querySelector(".qat").insertAdjacentText('beforeend', countryQat)
+        }
       }
     })
 }

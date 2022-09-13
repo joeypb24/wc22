@@ -22,611 +22,514 @@ var x = setInterval(function() {
 
 
 /**
- * Fetch API from knockouts
- */
+ * Fetch API from KO and Standings
+ * const basedAPIURL = "https://msportsfeed.m88api.com/api/v1/feed/standsknockouts"; PROD
+ * */
+ const basedAPIURL = "https://api.mbosports.com/api/v1/feed/standsknockouts"; // STAGING
+ let data;
+ 
+ const teamData = function() {
+   fetch(basedAPIURL)
+     .then((res) => {
+       return res.json();
+     })
+     .then((res) => {
+       data = res;
+    //    dataManipulation(data);
+       console.log(res);
+    //    console.log(Object.keys(res.data));
+    //    console.log(Object.values(res.data)[0][1]);
+ 
+       var standings = Object.values(res.data)[0];
+ 
+       // for loop by getting group of data
+       for (var i = 1; i <= 1; i++) {
 
-const basedAPIURL = "https://msportsfeed.m88api.com/api/v1/feed/standsknockouts";
-let data;
+         var templateHTML = `
+            <div class="swiper-slide">
+                <div class="groups-card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="2">Group ${standings[0].group_name}</th>
+                                <th>P</th>
+                                <th>W</th>
+                                <th>D</th>
+                                <th>L</th>
+                                <th>GD</th>
+                                <th>PTS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>A1</td>
+                                <td><span class="flag--${standings[0].country}"></span>${standings[0].country} </td>
+                                <td>${standings[0].play}</td>
+                                <td>${standings[0].win}</td>
+                                <td>${standings[0].draw}</td>
+                                <td>${standings[0].lose}</td>
+                                <td>${standings[0].goal}</td>
+                                <td>${standings[0].points}</td>
+                            </tr>
+                            <tr>
+                                <td>A2</td>
+                                <td><span class="flag--${standings[1].country}"></span>${standings[1].country} </td>
+                                <td>${standings[1].play}</td>
+                                <td>${standings[1].win}</td>
+                                <td>${standings[1].draw}</td>
+                                <td>${standings[1].lose}</td>
+                                <td>${standings[1].goal}</td>
+                                <td>${standings[1].points}</td>
+                            </tr>
+                            <tr>
+                                <td>A3</td>
+                                <td><span class="flag--${standings[2].country}"></span>${standings[2].country} </td>
+                                <td>${standings[2].play}</td>
+                                <td>${standings[2].win}</td>
+                                <td>${standings[2].draw}</td>
+                                <td>${standings[2].lose}</td>
+                                <td>${standings[2].goal}</td>
+                                <td>${standings[2].points}</td>
+                            </tr>
+                            <tr>
+                                <td>A4</td>
+                                <td><span class="flag--${standings[3].country}"></span>${standings[3].country} </td>
+                                <td>${standings[3].play}</td>
+                                <td>${standings[3].win}</td>
+                                <td>${standings[3].draw}</td>
+                                <td>${standings[3].lose}</td>
+                                <td>${standings[3].goal}</td>
+                                <td>${standings[3].points}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-var standingFormatted = {
-  standingGroupA: [],  
-  standingGroupB: [],
-  standingGroupC: [],
-  standingGroupD: [],
-  standingGroupE: [],
-  standingGroupF: [],
-  standingGroupG: [],
-  standingGroupH: [],
-}
-  
-console.log(Object.entries(standingFormatted));
+            <div class="swiper-slide">
+                <div class="groups-card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="2">Group ${standings[4].group_name}</th>
+                                <th>P</th>
+                                <th>W</th>
+                                <th>D</th>
+                                <th>L</th>
+                                <th>GD</th>
+                                <th>PTS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>B1</td>
+                                <td><span class="flag--${standings[4].country}"></span>${standings[4].country} </td>
+                                <td>${standings[4].play}</td>
+                                <td>${standings[4].win}</td>
+                                <td>${standings[4].draw}</td>
+                                <td>${standings[4].lose}</td>
+                                <td>${standings[4].goal}</td>
+                                <td>${standings[4].points}</td>
+                            </tr>
+                            <tr>
+                                <td>B2</td>
+                                <td><span class="flag--${standings[5].country}"></span>${standings[5].country} </td>
+                                <td>${standings[5].play}</td>
+                                <td>${standings[5].win}</td>
+                                <td>${standings[5].draw}</td>
+                                <td>${standings[5].lose}</td>
+                                <td>${standings[5].goal}</td>
+                                <td>${standings[5].points}</td>
+                            </tr>
+                            <tr>
+                                <td>B3</td>
+                                <td><span class="flag--${standings[6].country}"></span>${standings[6].country} </td>
+                                <td>${standings[6].play}</td>
+                                <td>${standings[6].win}</td>
+                                <td>${standings[6].draw}</td>
+                                <td>${standings[6].lose}</td>
+                                <td>${standings[6].goal}</td>
+                                <td>${standings[6].points}</td>
+                            </tr>
+                            <tr>
+                                <td>B4</td>
+                                <td><span class="flag--${standings[7].country}"></span>${standings[7].country} </td>
+                                <td>${standings[7].play}</td>
+                                <td>${standings[7].win}</td>
+                                <td>${standings[7].draw}</td>
+                                <td>${standings[7].lose}</td>
+                                <td>${standings[7].goal}</td>
+                                <td>${standings[7].points}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-var templateHTML = `
-<section class="wc22-tab-items__item--1__subs__item__sect">	
-		<div class="inner">
-			
-			<div class="swiper-holder">
-				<div class="swiper-groups">
-					<div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="groups-card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="2">Group ${standings[8].group_name}</th>
+                                <th>P</th>
+                                <th>W</th>
+                                <th>D</th>
+                                <th>L</th>
+                                <th>GD</th>
+                                <th>PTS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>C1</td>
+                                <td><span class="flag--${standings[8].country}"></span>${standings[8].country} </td>
+                                <td>${standings[8].play}</td>
+                                <td>${standings[8].win}</td>
+                                <td>${standings[8].draw}</td>
+                                <td>${standings[8].lose}</td>
+                                <td>${standings[8].goal}</td>
+                                <td>${standings[8].points}</td>
+                            </tr>
+                            <tr>
+                                <td>C2</td>
+                                <td><span class="flag--${standings[9].country}"></span>${standings[9].country} </td>
+                                <td>${standings[9].play}</td>
+                                <td>${standings[9].win}</td>
+                                <td>${standings[9].draw}</td>
+                                <td>${standings[9].lose}</td>
+                                <td>${standings[9].goal}</td>
+                                <td>${standings[9].points}</td>
+                            </tr>
+                            <tr>
+                                <td>C3</td>
+                                <td><span class="flag--${standings[10].country}"></span>${standings[10].country} </td>
+                                <td>${standings[10].play}</td>
+                                <td>${standings[10].win}</td>
+                                <td>${standings[10].draw}</td>
+                                <td>${standings[10].lose}</td>
+                                <td>${standings[10].goal}</td>
+                                <td>${standings[10].points}</td>
+                            </tr>
+                            <tr>
+                                <td>C4</td>
+                                <td><span class="flag--${standings[11].country}"></span>${standings[11].country} </td>
+                                <td>${standings[11].play}</td>
+                                <td>${standings[11].win}</td>
+                                <td>${standings[11].draw}</td>
+                                <td>${standings[11].lose}</td>
+                                <td>${standings[11].goal}</td>
+                                <td>${standings[11].points}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-						<div class="swiper-slide">
-							<div class="groups-card">
-								<table>
-									<thead>
-										<tr>
-											<th colspan="2">Group A</th>
-											<th>P</th>
-											<th>W</th>
-											<th>D</th>
-											<th>L</th>
-											<th>GD</th>
-											<th>PTS</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>A1</td>
-											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/qa.svg?build=2.58.1.16080-"> </td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-										</tr>
-										<tr>
-											<td>A2</td>
-											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/ec.svg?build=2.58.1.16080-"> ECU</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-										</tr>
-										<tr>
-											<td>A3</td>
-											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/sn.svg?build=2.58.1.16080-"> SEN</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-										</tr>
-										<tr>
-											<td>A4</td>
-											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/nl.svg?build=2.58.1.16080-"> NED</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
+            <div class="swiper-slide">
+                <div class="groups-card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="2">Group ${standings[12].group_name}</th>
+                                <th>P</th>
+                                <th>W</th>
+                                <th>D</th>
+                                <th>L</th>
+                                <th>GD</th>
+                                <th>PTS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>D1</td>
+                                <td><span class="flag--${standings[12].country}"></span>${standings[12].country} </td>
+                                <td>${standings[12].play}</td>
+                                <td>${standings[12].win}</td>
+                                <td>${standings[12].draw}</td>
+                                <td>${standings[12].lose}</td>
+                                <td>${standings[12].goal}</td>
+                                <td>${standings[12].points}</td>
+                            </tr>
+                            <tr>
+                                <td>D2</td>
+                                <td><span class="flag--${standings[13].country}"></span>${standings[13].country} </td>
+                                <td>${standings[13].play}</td>
+                                <td>${standings[13].win}</td>
+                                <td>${standings[13].draw}</td>
+                                <td>${standings[13].lose}</td>
+                                <td>${standings[13].goal}</td>
+                                <td>${standings[13].points}</td>
+                            </tr>
+                            <tr>
+                                <td>D3</td>
+                                <td><span class="flag--${standings[14].country}"></span>${standings[14].country} </td>
+                                <td>${standings[14].play}</td>
+                                <td>${standings[14].win}</td>
+                                <td>${standings[14].draw}</td>
+                                <td>${standings[14].lose}</td>
+                                <td>${standings[14].goal}</td>
+                                <td>${standings[14].points}</td>
+                            </tr>
+                            <tr>
+                                <td>D4</td>
+                                <td><span class="flag--${standings[15].country}"></span>${standings[15].country} </td>
+                                <td>${standings[15].play}</td>
+                                <td>${standings[15].win}</td>
+                                <td>${standings[15].draw}</td>
+                                <td>${standings[15].lose}</td>
+                                <td>${standings[15].goal}</td>
+                                <td>${standings[15].points}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-						<div class="swiper-slide">
-							<div class="groups-card">
-								<table>
-									<thead>
-										<tr>
-											<th colspan="2">Group B</th>
-											<th>P</th>
-											<th>W</th>
-											<th>D</th>
-											<th>L</th>
-											<th>GD</th>
-											<th>PTS</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>B1</td>
-											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/en.svg?build=2.58.1.16080-"> ENG</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-										</tr>
-										<tr>
-											<td>B2</td>
-											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/ir.svg?build=2.58.1.16080-"> IRN</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-										</tr>
-										<tr>
-											<td>B3</td>
-											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/us.svg?build=2.58.1.16080-"> USA</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-										</tr>
-										<tr>
-											<td>B4</td>
-											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/wls.svg?build=2.58.1.16080-"> WAL</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
+            <div class="swiper-slide">
+                <div class="groups-card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="2">Group ${standings[16].group_name}</th>
+                                <th>P</th>
+                                <th>W</th>
+                                <th>D</th>
+                                <th>L</th>
+                                <th>GD</th>
+                                <th>PTS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>E1</td>
+                                <td><span class="flag--${standings[16].country}"></span>${standings[16].country} </td>
+                                <td>${standings[16].play}</td>
+                                <td>${standings[16].win}</td>
+                                <td>${standings[16].draw}</td>
+                                <td>${standings[16].lose}</td>
+                                <td>${standings[16].goal}</td>
+                                <td>${standings[16].points}</td>
+                            </tr>
+                            <tr>
+                                <td>E2</td>
+                                <td><span class="flag--${standings[17].country}"></span>${standings[17].country} </td>
+                                <td>${standings[17].play}</td>
+                                <td>${standings[17].win}</td>
+                                <td>${standings[17].draw}</td>
+                                <td>${standings[17].lose}</td>
+                                <td>${standings[17].goal}</td>
+                                <td>${standings[17].points}</td>
+                            </tr>
+                            <tr>
+                                <td>E3</td>
+                                <td><span class="flag--${standings[18].country}"></span>${standings[18].country} </td>
+                                <td>${standings[18].play}</td>
+                                <td>${standings[18].win}</td>
+                                <td>${standings[18].draw}</td>
+                                <td>${standings[18].lose}</td>
+                                <td>${standings[18].goal}</td>
+                                <td>${standings[18].points}</td>
+                            </tr>
+                            <tr>
+                                <td>E4</td>
+                                <td><span class="flag--${standings[19].country}"></span>${standings[19].country} </td>
+                                <td>${standings[19].play}</td>
+                                <td>${standings[19].win}</td>
+                                <td>${standings[19].draw}</td>
+                                <td>${standings[19].lose}</td>
+                                <td>${standings[19].goal}</td>
+                                <td>${standings[19].points}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-						<div class="swiper-slide">
-							<div class="groups-card">
-								<table>
-									<thead>
-										<tr>
-											<th colspan="2">Group C</th>
-											<th>P</th>
-											<th>W</th>
-											<th>D</th>
-											<th>L</th>
-											<th>GD</th>
-											<th>PTS</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>C1</td>
-											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/ar.svg?build=2.58.1.16080-"> ARG</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-										</tr>
-										<tr>
-											<td>C2</td>
-											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/sa.svg?build=2.58.1.16080-"> KSA</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-										</tr>
-										<tr>
-											<td>C3</td>
-											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/mx.svg?build=2.58.1.16080-"> MEX</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-										</tr>
-										<tr>
-											<td>C4</td>
-											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/pl.svg?build=2.58.1.16080-"> POL</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
+            <div class="swiper-slide">
+                <div class="groups-card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="2">Group ${standings[20].group_name}</th>
+                                <th>P</th>
+                                <th>W</th>
+                                <th>D</th>
+                                <th>L</th>
+                                <th>GD</th>
+                                <th>PTS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>F1</td>
+                                <td><span class="flag--${standings[20].country}"></span>${standings[20].country} </td>
+                                <td>${standings[20].play}</td>
+                                <td>${standings[20].win}</td>
+                                <td>${standings[20].draw}</td>
+                                <td>${standings[20].lose}</td>
+                                <td>${standings[20].goal}</td>
+                                <td>${standings[20].points}</td>
+                            </tr>
+                            <tr>
+                                <td>F2</td>
+                                <td><span class="flag--${standings[21].country}"></span>${standings[21].country} </td>
+                                <td>${standings[21].play}</td>
+                                <td>${standings[21].win}</td>
+                                <td>${standings[21].draw}</td>
+                                <td>${standings[21].lose}</td>
+                                <td>${standings[21].goal}</td>
+                                <td>${standings[21].points}</td>
+                            </tr>
+                            <tr>
+                                <td>F3</td>
+                                <td><span class="flag--${standings[22].country}"></span>${standings[22].country} </td>
+                                <td>${standings[22].play}</td>
+                                <td>${standings[22].win}</td>
+                                <td>${standings[22].draw}</td>
+                                <td>${standings[22].lose}</td>
+                                <td>${standings[22].goal}</td>
+                                <td>${standings[22].points}</td>
+                            </tr>
+                            <tr>
+                                <td>F4</td>
+                                <td><span class="flag--${standings[23].country}"></span>${standings[23].country} </td>
+                                <td>${standings[23].play}</td>
+                                <td>${standings[23].win}</td>
+                                <td>${standings[23].draw}</td>
+                                <td>${standings[23].lose}</td>
+                                <td>${standings[23].goal}</td>
+                                <td>${standings[23].points}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-						<div class="swiper-slide">
-							<div class="groups-card">
-								<table>
-									<thead>
-										<tr>
-											<th colspan="2">Group D</th>
-											<th>P</th>
-											<th>W</th>
-											<th>D</th>
-											<th>L</th>
-											<th>GD</th>
-											<th>PTS</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>D1</td>
-											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/fr.svg?build=2.58.1.16080-"> FRA</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-										</tr>
-										<tr>
-											<td>D2</td>
-											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/at.svg?build=2.58.1.16080-"> AUS</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-										</tr>
-										<tr>
-											<td>D3</td>
-											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/dk.svg?build=2.58.1.16080-"> DEN</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-										</tr>
-										<tr>
-											<td>D4</td>
-											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/tn.svg?build=2.58.1.16080-"> TUN</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
+            <div class="swiper-slide">
+                <div class="groups-card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="2">Group ${standings[24].group_name}</th>
+                                <th>P</th>
+                                <th>W</th>
+                                <th>D</th>
+                                <th>L</th>
+                                <th>GD</th>
+                                <th>PTS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>G1</td>
+                                <td><span class="flag--${standings[24].country}"></span>${standings[24].country} </td>
+                                <td>${standings[24].play}</td>
+                                <td>${standings[24].win}</td>
+                                <td>${standings[24].draw}</td>
+                                <td>${standings[24].lose}</td>
+                                <td>${standings[24].goal}</td>
+                                <td>${standings[24].points}</td>
+                            </tr>
+                            <tr>
+                                <td>G2</td>
+                                <td><span class="flag--${standings[25].country}"></span>${standings[25].country} </td>
+                                <td>${standings[25].play}</td>
+                                <td>${standings[25].win}</td>
+                                <td>${standings[25].draw}</td>
+                                <td>${standings[25].lose}</td>
+                                <td>${standings[25].goal}</td>
+                                <td>${standings[25].points}</td>
+                            </tr>
+                            <tr>
+                                <td>G3</td>
+                                <td><span class="flag--${standings[26].country}"></span>${standings[26].country} </td>
+                                <td>${standings[26].play}</td>
+                                <td>${standings[26].win}</td>
+                                <td>${standings[26].draw}</td>
+                                <td>${standings[26].lose}</td>
+                                <td>${standings[26].goal}</td>
+                                <td>${standings[26].points}</td>
+                            </tr>
+                            <tr>
+                                <td>G4</td>
+                                <td><span class="flag--${standings[27].country}"></span>${standings[27].country} </td>
+                                <td>${standings[27].play}</td>
+                                <td>${standings[27].win}</td>
+                                <td>${standings[27].draw}</td>
+                                <td>${standings[27].lose}</td>
+                                <td>${standings[27].goal}</td>
+                                <td>${standings[27].points}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-						<div class="swiper-slide">
-							<div class="groups-card">
-								<table>
-									<thead>
-										<tr>
-											<th colspan="2">Group E</th>
-											<th>P</th>
-											<th>W</th>
-											<th>D</th>
-											<th>L</th>
-											<th>GD</th>
-											<th>PTS</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>E1</td>
-											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/es.svg?build=2.58.1.16080-"> ESP</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-										</tr>
-										<tr>
-											<td>E2</td>
-											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/cr.svg?build=2.58.1.16080-"> CRC</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-										</tr>
-										<tr>
-											<td>E3</td>
-											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/de.svg?build=2.58.1.16080-"> GER</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-										</tr>
-										<tr>
-											<td>E4</td>
-											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/jp.svg?build=2.58.1.16080-"> JPN</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
+            <div class="swiper-slide">
+                <div class="groups-card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="2">Group ${standings[28].group_name}</th>
+                                <th>P</th>
+                                <th>W</th>
+                                <th>D</th>
+                                <th>L</th>
+                                <th>GD</th>
+                                <th>PTS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>H1</td>
+                                <td><span class="flag--${standings[28].country}"></span>${standings[28].country} </td>
+                                <td>${standings[28].play}</td>
+                                <td>${standings[28].win}</td>
+                                <td>${standings[28].draw}</td>
+                                <td>${standings[28].lose}</td>
+                                <td>${standings[28].goal}</td>
+                                <td>${standings[28].points}</td>
+                            </tr>
+                            <tr>
+                                <td>H2</td>
+                                <td><span class="flag--${standings[29].country}"></span>${standings[29].country} </td>
+                                <td>${standings[29].play}</td>
+                                <td>${standings[29].win}</td>
+                                <td>${standings[29].draw}</td>
+                                <td>${standings[29].lose}</td>
+                                <td>${standings[29].goal}</td>
+                                <td>${standings[29].points}</td>
+                            </tr>
+                            <tr>
+                                <td>H3</td>
+                                <td><span class="flag--${standings[30].country}"></span>${standings[30].country} </td>
+                                <td>${standings[30].play}</td>
+                                <td>${standings[30].win}</td>
+                                <td>${standings[30].draw}</td>
+                                <td>${standings[30].lose}</td>
+                                <td>${standings[30].goal}</td>
+                                <td>${standings[30].points}</td>
+                            </tr>
+                            <tr>
+                                <td>H4</td>
+                                <td><span class="flag--${standings[31].country}"></span>${standings[31].country} </td>
+                                <td>${standings[31].play}</td>
+                                <td>${standings[31].win}</td>
+                                <td>${standings[31].draw}</td>
+                                <td>${standings[31].lose}</td>
+                                <td>${standings[31].goal}</td>
+                                <td>${standings[31].points}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+         
+         `;
+         document.querySelector(".template--scripts").insertAdjacentHTML('beforeend', templateHTML)
+       }
+     })
+ }
 
-						<div class="swiper-slide">
-							<div class="groups-card">
-								<table>
-									<thead>
-										<tr>
-											<th colspan="2">Group F</th>
-											<th>P</th>
-											<th>W</th>
-											<th>D</th>
-											<th>L</th>
-											<th>GD</th>
-											<th>PTS</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>F1</td>
-											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/be.svg?build=2.58.1.16080-"> BEL</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-										</tr>
-										<tr>
-											<td>F2</td>
-											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/ca.svg?build=2.58.1.16080-"> CAN</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-										</tr>
-										<tr>
-											<td>F3</td>
-											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/ma.svg?build=2.58.1.16080-"> MAR</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-										</tr>
-										<tr>
-											<td>F4</td>
-											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/hr.svg?build=2.58.1.16080-"> CRO</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-
-						<div class="swiper-slide">
-							<div class="groups-card">
-								<table>
-									<thead>
-										<tr>
-											<th colspan="2">Group G</th>
-											<th>P</th>
-											<th>W</th>
-											<th>D</th>
-											<th>L</th>
-											<th>GD</th>
-											<th>PTS</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>G1</td>
-											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/br.svg?build=2.58.1.16080-"> BRA</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-										</tr>
-										<tr>
-											<td>G2</td>
-											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/rs.svg?build=2.58.1.16080-"> SRB</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-										</tr>
-										<tr>
-											<td>G3</td>
-											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/ch.svg?build=2.58.1.16080-"> SUI</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-										</tr>
-										<tr>
-											<td>G4</td>
-											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/cm.svg?build=2.58.1.16080-"> CMR</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-
-						<div class="swiper-slide">
-							<div class="groups-card">
-								<table>
-									<thead>
-										<tr>
-											<th colspan="2">Group H</th>
-											<th>P</th>
-											<th>W</th>
-											<th>D</th>
-											<th>L</th>
-											<th>GD</th>
-											<th>PTS</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>H1</td>
-											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/pt.svg?build=2.58.1.16080-"> POR</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-										</tr>
-										<tr>
-											<td>H2</td>
-											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/gh.svg?build=2.58.1.16080-"> GHA</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-										</tr>
-										<tr>
-											<td>H3</td>
-											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/uy.svg?build=2.58.1.16080-"> URU</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-										</tr>
-										<tr>
-											<td>H4</td>
-											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/kor.svg?build=2.58.1.16080-"> KOR</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-
-					</div> 
-
-					<div class="swiper-odds-prev"></div>
-					<div class="swiper-odds-next"></div>
-				</div>
-			</div>
-
-		</div>
-</section>
-`;
-
-document.querySelector("body").insertAdjacentHTML('beforeend', templateHTML)
-
-const teamData = function() {
-  fetch(basedAPIURL)
-    .then((res) => {
-      return res.json();
-    })
-    .then((res) => {
-      data = res;
-      dataManipulation(data);
-      // console.log(res);
-      // console.log(Object.keys(res.data));
-      // console.log(Object.values(res.data)[0][1]);
-
-      var standings = Object.values(res.data)[0];
-      console.log(standings);
-
-      standings.map((group) => {
-        if (group.group_name == 'A') {
-          standingFormatted.standingGroupA.push(group);
-        } else if (group.group_name == 'B') {
-          standingFormatted.standingGroupB.push(group);
-        } else if (group.group_name == 'C') {
-          standingFormatted.standingGroupC.push(group);
-        } else if (group.group_name == 'D') {
-          standingFormatted.standingGroupD.push(group);
-        } else if (group.group_name == 'E') {
-          standingFormatted.standingGroupE.push(group);
-        } else if (group.group_name == 'F') {
-          standingFormatted.standingGroupF.push(group);
-        } else if (group.group_name == 'G') {
-          standingFormatted.standingGroupG.push(group);
-        } else if (group.group_name == 'H') {
-          standingFormatted.standingGroupH.push(group);
-        } 
-      })
-    }) 
-}
-
-// dataManipulation container
-const dataManipulation = function(args) {
-  Object.entries(args).map(obj => {
-    const key = obj[0]; // status
-    const val = obj[1]; // data -> knockouts and standings
-
-    // conditional for entries
-    if (val.knockouts && val.standings) {
-      Object.entries(val.knockouts).map(objKO => {
-        const valKO = objKO[1];
-        console.log(valKO);
-      }),
-      Object.entries(val.standings).map(objStand => {
-        const valStand = objStand[1];
-
-        // Get data parameters
-        const country = valStand['country'];
-        const play = valStand['play'];
-        const points = valStand['points'];
-        const win = valStand['win'];
-        const draw = valStand['draw'];
-        const goal = valStand['goal'];
-        const lose = valStand['lose'];
-        // to deploy data
-        const group_name = valStand['group_name'];
-        const conceded = valStand['conceded'];
-
-      
-
-        // insert data to html
-        // var standingData = `
-        //   <tr>
-        //     <td>A1</td>
-        //     <td class="country"><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/qa.svg">${country} </td>
-        //     <td> ${play}</td>
-        //     <td>${win}</td>
-        //     <td>${draw}</td>
-        //     <td>${lose}</td>
-        //     <td> ${goal}</td>
-        //     <td>${points}</td>
-        //   </tr>
-        // `;
-
-        // document.querySelector(".table--body").insertAdjacentHTML('beforeend', standingData)
-
-      })
-    }
-  })
-}
-
-teamData();
+ teamData();

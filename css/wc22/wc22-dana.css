@@ -289,6 +289,7 @@
     cursor: pointer;
     width: 192px;
     height: 110px;
+    margin-right: 0px!important;
 }
 
 .popup-stadium-slide img {

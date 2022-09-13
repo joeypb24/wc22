@@ -41,7 +41,6 @@ var standingFormatted = {
   
 console.log(Object.entries(standingFormatted));
 
-
 var templateHTML = `
 <section class="wc22-tab-items__item--1__subs__item__sect">	
 		<div class="inner">
@@ -67,7 +66,7 @@ var templateHTML = `
 									<tbody>
 										<tr>
 											<td>A1</td>
-											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/qa.svg?build=2.58.1.16080-"> ${standings[0].country}</td>
+											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/qa.svg?build=2.58.1.16080-"> </td>
 											<td>0</td>
 											<td>0</td>
 											<td>0</td>

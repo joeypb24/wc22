@@ -281,7 +281,7 @@
 }
 
 .popup-stadium-swiper-img-cont {
-    gap: 12px;
+    gap: 12px!important;
 }
 
 .popup-stadium-slide {
@@ -315,6 +315,13 @@
     margin-left: -6px;
 }
 
+@media (max-width: 767px) {
+    .popup-stadium-swiper-img-cont {
+        flex-wrap: unset!important;
+        justify-content: unset!important;
+    }
+}
+
 @media (max-width: 720px){
     .popup-stadium div > .popup-stadium-title {
         border-bottom: none;
@@ -345,9 +352,9 @@
         font-size: 16px;
     }
 
-    .popup-stadium-swiper-img-cont {
-        flex-wrap: unset;
-    }
+    /* .popup-stadium-swiper-img-cont {
+        flex-wrap: unset!important;
+    } */
 
     .popup-stadium-prev, .popup-stadium-next {
         display: none;

@@ -35,16 +35,12 @@ var x = setInterval(function() {
      })
      .then((res) => {
        data = res;
-    //    dataManipulation(data);
-       console.log(res);
-    //    console.log(Object.keys(res.data));
-    //    console.log(Object.values(res.data)[0][1]);
+    // console.log(res);
  
        var standings = Object.values(res.data)[0];
- 
+
        // for loop by getting group of data
        for (var i = 1; i <= 1; i++) {
-
          var templateHTML = `
             <div class="swiper-slide">
                 <div class="groups-card">
@@ -525,11 +521,9 @@ var x = setInterval(function() {
                     </table>
                 </div>
             </div>
-         
          `;
          document.querySelector(".template--scripts").insertAdjacentHTML('beforeend', templateHTML)
        }
      })
  }
-
  teamData();

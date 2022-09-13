@@ -28,6 +28,17 @@ var x = setInterval(function() {
 const basedAPIURL = "https://msportsfeed.m88api.com/api/v1/feed/standsknockouts";
 let data;
 
+var standingFormatted = {
+  standingGroupA: [],
+  standingGroupB: [],
+  standingGroupC: [],
+  standingGroupD: [],
+  standingGroupE: [],
+  standingGroupF: [],
+  standingGroupG: [],
+  standingGroupH: [],
+}
+
 const teamData = function() {
   fetch(basedAPIURL)
     .then((res) => {
@@ -36,9 +47,9 @@ const teamData = function() {
     .then((res) => {
       data = res;
       dataManipulation(data);
-      console.log(res);
-      console.log(Object.keys(res.data));
-      console.log(Object.values(res.data)[0][1]);
+      // console.log(res);
+      // console.log(Object.keys(res.data));
+      // console.log(Object.values(res.data)[0][1]);
 
       var first_group = Object.values(res.data)[0][0];
       var sec__group = Object.values(res.data)[0][1];
@@ -50,13 +61,37 @@ const teamData = function() {
       console.log("FOURTH", fourth__group)
 
       var standings = Object.values(res.data)[0];
+      console.log(standings);
 
       // for loop by getting group of data
+      // for (var i = 0; i < standings.length; i++) {
+      //   console.log(standings[i]);
+      //   console.log(standings[i].no_team);
+      // }
       for (var i = 0; i < standings.length; i++) {
-        console.log(standings[i].group_name);
-        console.log(standings[i].no_team);
+        if (standings[i].group_name == 'A') {
+          standingFormatted.standingGroupA.push(standings[i]);
+        } else if (standings[i].group_name == 'B') {
+          standingFormatted.standingGroupB.push(standings[i]);
+        } else if (standings[i].group_name == 'C') {
+          standingFormatted.standingGroupC.push(standings[i]);
+        } else if (standings[i].group_name == 'D') {
+          standingFormatted.standingGroupD.push(standings[i]);
+        } else if (standings[i].group_name == 'E') {
+          standingFormatted.standingGroupE.push(standings[i]);
+        } else if (standings[i].group_name == 'F') {
+          standingFormatted.standingGroupF.push(standings[i]);
+        } else if (standings[i].group_name == 'G') {
+          standingFormatted.standingGroupG.push(standings[i]);
+        } else if (standings[i].group_name == 'H') {
+          standingFormatted.standingGroupH.push(standings[i]);
+        } 
       }
     })
+// }
+
+// for(var i=0; i < standings.length; i++) {
+  
 }
 
 // dataManipulation container

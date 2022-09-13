@@ -487,13 +487,14 @@
 							</div>
 						</div>
 
-					</div> <!-- swiper-wrapper -->
+					</div>
+					// swiper-wrapper
 
 					<div class="swiper-odds-prev"></div>
 					<div class="swiper-odds-next"></div>
 				</div>
 			</div>
-
+ 
 		</div> -->
 </section>
 

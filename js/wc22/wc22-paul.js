@@ -29,7 +29,7 @@ const basedAPIURL = "https://msportsfeed.m88api.com/api/v1/feed/standsknockouts"
 let data;
 
 var standingFormatted = {
-  standingGroupA: [],
+  standingGroupA: [],  
   standingGroupB: [],
   standingGroupC: [],
   standingGroupD: [],
@@ -38,6 +38,510 @@ var standingFormatted = {
   standingGroupG: [],
   standingGroupH: [],
 }
+  
+console.log(Object.entries(standingFormatted));
+
+
+var templateHTML = `
+<section class="wc22-tab-items__item--1__subs__item__sect">	
+		<div class="inner">
+			
+			<div class="swiper-holder">
+				<div class="swiper-groups">
+					<div class="swiper-wrapper">
+
+						<div class="swiper-slide">
+							<div class="groups-card">
+								<table>
+									<thead>
+										<tr>
+											<th colspan="2">Group</th>
+											<th>P</th>
+											<th>W</th>
+											<th>D</th>
+											<th>L</th>
+											<th>GD</th>
+											<th>PTS</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>A1</td>
+											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/qa.svg?build=2.58.1.16080-"> QAT</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>A2</td>
+											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/ec.svg?build=2.58.1.16080-"> ECU</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>A3</td>
+											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/sn.svg?build=2.58.1.16080-"> SEN</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>A4</td>
+											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/nl.svg?build=2.58.1.16080-"> NED</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+						<div class="swiper-slide">
+							<div class="groups-card">
+								<table>
+									<thead>
+										<tr>
+											<th colspan="2">Group B</th>
+											<th>P</th>
+											<th>W</th>
+											<th>D</th>
+											<th>L</th>
+											<th>GD</th>
+											<th>PTS</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>B1</td>
+											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/en.svg?build=2.58.1.16080-"> ENG</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>B2</td>
+											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/ir.svg?build=2.58.1.16080-"> IRN</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>B3</td>
+											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/us.svg?build=2.58.1.16080-"> USA</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>B4</td>
+											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/wls.svg?build=2.58.1.16080-"> WAL</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+						<div class="swiper-slide">
+							<div class="groups-card">
+								<table>
+									<thead>
+										<tr>
+											<th colspan="2">Group C</th>
+											<th>P</th>
+											<th>W</th>
+											<th>D</th>
+											<th>L</th>
+											<th>GD</th>
+											<th>PTS</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>C1</td>
+											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/ar.svg?build=2.58.1.16080-"> ARG</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>C2</td>
+											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/sa.svg?build=2.58.1.16080-"> KSA</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>C3</td>
+											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/mx.svg?build=2.58.1.16080-"> MEX</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>C4</td>
+											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/pl.svg?build=2.58.1.16080-"> POL</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+						<div class="swiper-slide">
+							<div class="groups-card">
+								<table>
+									<thead>
+										<tr>
+											<th colspan="2">Group D</th>
+											<th>P</th>
+											<th>W</th>
+											<th>D</th>
+											<th>L</th>
+											<th>GD</th>
+											<th>PTS</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>D1</td>
+											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/fr.svg?build=2.58.1.16080-"> FRA</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>D2</td>
+											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/at.svg?build=2.58.1.16080-"> AUS</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>D3</td>
+											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/dk.svg?build=2.58.1.16080-"> DEN</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>D4</td>
+											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/tn.svg?build=2.58.1.16080-"> TUN</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+						<div class="swiper-slide">
+							<div class="groups-card">
+								<table>
+									<thead>
+										<tr>
+											<th colspan="2">Group E</th>
+											<th>P</th>
+											<th>W</th>
+											<th>D</th>
+											<th>L</th>
+											<th>GD</th>
+											<th>PTS</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>E1</td>
+											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/es.svg?build=2.58.1.16080-"> ESP</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>E2</td>
+											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/cr.svg?build=2.58.1.16080-"> CRC</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>E3</td>
+											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/de.svg?build=2.58.1.16080-"> GER</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>E4</td>
+											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/jp.svg?build=2.58.1.16080-"> JPN</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+						<div class="swiper-slide">
+							<div class="groups-card">
+								<table>
+									<thead>
+										<tr>
+											<th colspan="2">Group F</th>
+											<th>P</th>
+											<th>W</th>
+											<th>D</th>
+											<th>L</th>
+											<th>GD</th>
+											<th>PTS</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>F1</td>
+											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/be.svg?build=2.58.1.16080-"> BEL</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>F2</td>
+											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/ca.svg?build=2.58.1.16080-"> CAN</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>F3</td>
+											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/ma.svg?build=2.58.1.16080-"> MAR</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>F4</td>
+											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/hr.svg?build=2.58.1.16080-"> CRO</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+						<div class="swiper-slide">
+							<div class="groups-card">
+								<table>
+									<thead>
+										<tr>
+											<th colspan="2">Group G</th>
+											<th>P</th>
+											<th>W</th>
+											<th>D</th>
+											<th>L</th>
+											<th>GD</th>
+											<th>PTS</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>G1</td>
+											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/br.svg?build=2.58.1.16080-"> BRA</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>G2</td>
+											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/rs.svg?build=2.58.1.16080-"> SRB</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>G3</td>
+											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/ch.svg?build=2.58.1.16080-"> SUI</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>G4</td>
+											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/cm.svg?build=2.58.1.16080-"> CMR</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+						<div class="swiper-slide">
+							<div class="groups-card">
+								<table>
+									<thead>
+										<tr>
+											<th colspan="2">Group H</th>
+											<th>P</th>
+											<th>W</th>
+											<th>D</th>
+											<th>L</th>
+											<th>GD</th>
+											<th>PTS</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>H1</td>
+											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/pt.svg?build=2.58.1.16080-"> POR</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>H2</td>
+											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/gh.svg?build=2.58.1.16080-"> GHA</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>H3</td>
+											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/uy.svg?build=2.58.1.16080-"> URU</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>H4</td>
+											<td><img src="/~/static/sub-section/fifa-world-cup/assets/img/prediction/flags/team-flags/kor.svg?build=2.58.1.16080-"> KOR</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+					</div> 
+
+					<div class="swiper-odds-prev"></div>
+					<div class="swiper-odds-next"></div>
+				</div>
+			</div>
+
+		</div>
+</section>
+`;
+
+document.querySelector("body").insertAdjacentHTML('beforeend', templateHTML)
 
 const teamData = function() {
   fetch(basedAPIURL)
@@ -54,23 +558,7 @@ const teamData = function() {
       var standings = Object.values(res.data)[0];
       console.log(standings);
 
-      // for loop by getting group of data
-      // for (var i = 0; i < standings.length; i++) {
-      //   console.log(standings[i]);
-      //   console.log(standings[i].no_team);
-      // }
       for (var i = 0; i < standings.length; i++) {
-<<<<<<< HEAD
-        // console.log(standings[i].country);
-
-        if(standings[i].country === "SEN") {
-          var countrySen = standings[1] = "SEN";
-          var countryQat = standings[1] = "";
-
-          document.querySelector(".sen").insertAdjacentText('beforeend', countrySen)
-          document.querySelector(".qat").insertAdjacentText('beforeend', countryQat)
-        }
-=======
         if (standings[i].group_name == 'A') {
           standingFormatted.standingGroupA.push(standings[i]);
         } else if (standings[i].group_name == 'B') {
@@ -88,13 +576,8 @@ const teamData = function() {
         } else if (standings[i].group_name == 'H') {
           standingFormatted.standingGroupH.push(standings[i]);
         } 
->>>>>>> 450954ed96d7b3fcef07273475122b3fe3bbf1cb
       }
-    })
-// }
-
-// for(var i=0; i < standings.length; i++) {
-  
+    })  
 }
 
 // dataManipulation container

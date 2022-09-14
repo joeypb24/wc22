@@ -170,8 +170,8 @@ jQuery(function($) {
 	}
 
 	var apiPredictionProd = 'https://script.google.com/macros/s/AKfycbwiyY4hzdXB9c9Xaxogow1t7pnRcx1g9aC4cTSiKWa7Xz-kUGozpuzpsnZwm77oSb64WQ/exec';
-	var apiPredictionUAT = '';
-	var isPredictionProd = true;
+	var apiPredictionUAT = 'https://script.google.com/macros/s/AKfycbwiyY4hzdXB9c9Xaxogow1t7pnRcx1g9aC4cTSiKWa7Xz-kUGozpuzpsnZwm77oSb64WQ/exec';
+	var isPredictionProd = false;
 	var htmlLang = $('html').attr('lang');
 
     var urlParamLang = state.user.locale;
@@ -343,8 +343,14 @@ jQuery(function($) {
 	});
 	/**Break HTML END */
 
+	//set the input autocomplete to off
+	setTimeout(function(){
+		$('input').attr('autocomplete', 'off'); 
+	}, 300);
+
 	$(document).on('click', '.dd-wrap', function(){
 		$('.dd-wrap').not(this).removeClass('active');
+		
 		$(this).toggleClass('active');
 		if($(this).hasClass('active')) {
 			$(this).closest('.bracket').addClass('active');
@@ -573,6 +579,25 @@ jQuery(function($) {
 				"match_64": match_64
 			}
 		};
+
+		/**Set Session START */
+		window.sessionStorage.setItem('match_49',match_49);
+		window.sessionStorage.setItem('match_50',match_50);
+		window.sessionStorage.setItem('match_51',match_51);
+		window.sessionStorage.setItem('match_52',match_52);
+		window.sessionStorage.setItem('match_53',match_53);
+		window.sessionStorage.setItem('match_54',match_54);
+		window.sessionStorage.setItem('match_55',match_55);
+		window.sessionStorage.setItem('match_56',match_56);
+		window.sessionStorage.setItem('match_57',match_57);
+		window.sessionStorage.setItem('match_58',match_58);
+		window.sessionStorage.setItem('match_59',match_59);
+		window.sessionStorage.setItem('match_60',match_60);
+		window.sessionStorage.setItem('match_61',match_61);
+		window.sessionStorage.setItem('match_62',match_62);
+		window.sessionStorage.setItem('match_64',match_64);
+		/**Set Session END */
+
 		SavePrediction();
 
 		$('.btn-submit-prediction').addClass('inactive');
@@ -607,17 +632,19 @@ jQuery(function($) {
 			type: "post",
 			data: data,
 			contentType: 'multipart/form-data',
+			beforeSend: ajaxBeforeSend('1'),
+			// complete: ajaxCompleteSend(),
 			// contentType: "application/javascript",
         	// dataType: "jsonp",
 			success: function (res) {
 				var stats = (res.result === "success") ? 'true' : 'false';
+				ajaxCompleteSend('1');
 				openCongratsPopup(stats);
 			},
 			error: function () {
 				console.log(errMessage);
 			}
 		});
-		// openCongratsPopup('true');
 	}
 
 	function ApiPrediction(){
@@ -627,9 +654,6 @@ jQuery(function($) {
 			return apiPredictionUAT;
 		}
 	}
-
-	openCongratsPopup('true');
-
 	function openCongratsPopup(args){
 		$('.wc22-modals').addClass('act');
 		var modalPred = $('.wc22-modals__lbox--pred');
@@ -668,11 +692,10 @@ jQuery(function($) {
 		modalPred.find('.wc22-modals__lbox__content').html(modalPredBody);
 		modalPred.find('.wc22-modals__lbox__footer').html(modalPredFooter);
 
-		$('.wc22-modals__lbox--pred.act .btn-send-email').on('click',  function(e){
+		$('.btn-send-email').on('click',  function(e){
 			e.preventDefault();
+			e.stopPropagation();
 			let emailInput = $('#pred_email').val();
-
-			console.log(IsEmail(emailInput))
 	
 			//validation for email
 			if(IsEmail(emailInput) === true){
@@ -687,7 +710,6 @@ jQuery(function($) {
 	
 	}
 
-
 	$(document).on('keyup', '.wc22-modals__lbox--pred.act input#pred_email',function(){
 		let emailInput = $(this).val();
 		if(emailInput.length > 0){
@@ -696,6 +718,8 @@ jQuery(function($) {
 			$('.btn-send-email').removeClass('btn--confirm').addClass('btn--disabled');
 		}
 	});
+	
+
 
 	function GetEmailTemplate() {
 		var templateId = "";
@@ -750,78 +774,123 @@ jQuery(function($) {
 			//UAT
 			emailDomain = "noreply@mail.m88.com";
 		}
-		return emailDomain
+		return emailDomain;
 	}
 
+	function GetAirshipURI(){
+		var airshipURL = '';
+		return airshipURL = (isPredictionProd === true) ? "https://airship.36aid.com/API/Email" : "https://airshipstg.36aid.com/API/Email";
+	}
 
 	function SendEmail(emailInput) {
 
 		var emailDomain = GetEmailDomain();
 		var templateId = GetEmailTemplate();
+		var asURL = GetAirshipURI();
 		var email = emailInput;
+	
+		var settings = {
+			"url": asURL,
+			"method": "POST",
+			"Content-Type": "application/json",
+			"data": {
+				"audience": {
+					"create_and_send": [{
+						"ua_address": email,
+						"user_name": email,
+						"match_49": sessionStorage.getItem("match_49"),
+						"match_50": sessionStorage.getItem("match_50"),
+						"match_51": sessionStorage.getItem("match_51"),
+						"match_52": sessionStorage.getItem("match_52"),
+						"match_53": sessionStorage.getItem("match_53"),
+						"match_54": sessionStorage.getItem("match_54"),
+						"match_55": sessionStorage.getItem("match_55"),
+						"match_56": sessionStorage.getItem("match_56"),
+						"match_57": sessionStorage.getItem("match_57"),
+						"match_58": sessionStorage.getItem("match_58"),
+						"match_59": sessionStorage.getItem("match_59"),
+						"match_60": sessionStorage.getItem("match_60"),
+						"match_61": sessionStorage.getItem("match_61"),
+						"match_62": sessionStorage.getItem("match_62"),
+						"match_64": sessionStorage.getItem("match_64"),
+					}]
+				},
+				"device_types": ["email"],
+				"notification": {
+					"email": {
+						"message_type": "transactional",
+						"sender_name": "M88 Promotions",
+						"sender_address": emailDomain,
+						"reply_to": emailDomain,
+						"template": {
+							"template_id": templateId
+						}
+					}
+				}
+			},
+			"beforeSend": ajaxBeforeSend('2'),
+		};
+	
+		$.ajax(settings).done(function (response) {
+			var res = JSON.stringify(response);
+			var args = JSON.parse(res);
 
-		console.log('Prediction:' + predictionJson.r16_1.match_49 + "| username:" + username + "| email:" + emailInput);
-	
-		// var settings = {
-		// 	"url": "https://airshipstg.36aid.com/API/Emailq",
-		// 	"method": "POST",
-		// 	"Content-Type": "application/json",
-		// 	"data": {
-		// 		"audience": {
-		// 			"create_and_send": [{
-		// 				"ua_address": email,
-		// 				"user_name": email,
-		// 				"match_49": predictionJson.r16_1.match_49,
-		// 				"match_50": predictionJson.r16_1.match_50,
-		// 				"match_51": predictionJson.r16_2.match_51,
-		// 				"match_52": predictionJson.r16_2.match_52,
-		// 				"match_53": predictionJson.r16_3.match_53,
-		// 				"match_54": predictionJson.r16_3.match_54,
-		// 				"match_55": predictionJson.r16_4.match_55,
-		// 				"match_56": predictionJson.r16_4.match_56,
-		// 				"match_57": predictionJson.qf1.match_57,
-		// 				"match_58": predictionJson.qf1.match_58,
-		// 				"match_59": predictionJson.qf2.match_59,
-		// 				"match_60": predictionJson.qf2.match_60,
-		// 				"match_61": predictionJson.sf.match_61,
-		// 				"match_62": predictionJson.sf.match_62,
-		// 				"match_64": predictionJson.f.match_49,
-		// 			}]
-		// 		},
-		// 		"device_types": ["email"],
-		// 		"notification": {
-		// 			"email": {
-		// 				"message_type": "transactional",
-		// 				"sender_name": "M88 Promotions",
-		// 				"sender_address": emailDomain,
-		// 				"reply_to": emailDomain,
-		// 				"template": {
-		// 					"template_id": templateId
-		// 				}
-		// 			}
-		// 		}
-		// 	}
-		// };
-	
-		// $.ajax(settings).done(function (response) {
-		// 	var res = JSON.stringify(response);
-		// 	var args = JSON.parse(res);
-		// 	if(args.ok === true){
-		// 		openEmailSuccess();
-		// 	}else{
-		// 		openCongratsPopup('false');
-		// 	}
-		// });
+			ajaxCompleteSend('2');
+
+			if(args.ok === true){
+				openEmailSuccess();
+			}else{
+				openCongratsPopup('false');
+			}
+			
+			/**Close Modal Start*/
+			$('.btn--close').on('click', function(e){
+				e.preventDefault();
+				e.stopPropagation();
+				$(".wc22-modals").removeClass("act");
+				$('.wc22-modals__lbox--pred').removeClass("act");
+				$("body").css("overflow", "auto");
+			});
+			/**Close Modal End*/
+		});
 	}
-	
 
     function openEmailSuccess(){
       $('.modals__lbx--bottom--msg:eq(0)').html('A summary of your prediction will be sent to your email.');
       $('.modals__lbx--bottom--msg:eq(1)').addClass('d-none').html('');
       $('.email-lbl').addClass('d-none').val('');
       $('.txt-err').text('');
-      $('.wc22-modals__lbox__footer > .btn').removeClass('btn-send-email').text('OK');
+	  $('.wc22-modals__lbox__footer > .btn').removeClass('btn-send-email').addClass('btn--close').text('OK');
     }
+
+	/**Ajax Call beforeSend */
+	function ajaxBeforeSend(stats){
+		/**
+		 * @descrition append the loading element.
+		 * @status 1. to send Gsheet, 2. send to Airship
+		 */
+		if(stats === "2"){
+			$('.wc22-modals__lbox--pred .wc22-modals__lbox__head').addClass('d-none');
+			$('.wc22-modals__lbox--pred .wc22-modals__lbox__content').addClass('d-none');
+			$('.wc22-modals__lbox--pred .wc22-modals__lbox__footer').addClass('d-none');
+		}
+		$('.wc22-modals').addClass('act').append('<div class="loading-icon"></div>');
+	}
+
+	/**Ajax Call complete/success sending the data. */
+	function ajaxCompleteSend(stats){ 
+		/**
+		 * @descrition remove the loading class 
+		 * @status 1. to send Gsheet, 2. send to Airship
+		 */
+		if(stats === "2"){
+			$('.wc22-modals__lbox--pred .wc22-modals__lbox__head').removeClass('d-none');
+			$('.wc22-modals__lbox--pred .wc22-modals__lbox__content').removeClass('d-none');
+			$('.wc22-modals__lbox--pred .wc22-modals__lbox__footer').removeClass('d-none');
+		}
+
+		$('.loading-icon').remove(); 
+	}
 
 	function IsEmail(email){
 		var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;

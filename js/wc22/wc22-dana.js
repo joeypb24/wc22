@@ -395,6 +395,7 @@
 	for (var i = 0; i < slideStadium.length; i++) {
 		$(slideStadium[i]).on("click", function() {
 			stadiumPopup.style.display = "block";
+			document.body.classList.add('overflowHidden');
 			var slideNum = this.children[1].alt;
 			var stadName = "stad"+slideNum;
 			var popupTitle = document.querySelector(".popup-stadium-title-text");
@@ -444,6 +445,7 @@
 
 	$(closePopup).click(function(){
         stadiumPopup.style.display = "none";
+		document.body.classList.remove('overflowHidden');
 		var first = imgCont.firstElementChild;
         while (first) {
             first.remove();

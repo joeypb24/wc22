@@ -119,12 +119,48 @@
     max-width: 144px;
 }
 
+/**
+ *  END OF FIFA COUNTDOWN
+*/
 
-/* IFRAME */
+
+/**
+ *  YT VIDEO FRAME AND DESIGN
+*/
+
 #ytiframe {
-    max-width: 1009px;
+    max-width: 1022px;
     min-height: 500px;
+    margin-right: 10px;
 }
+
+.video-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 0 0 16px;
+    padding-left: 0;
+}
+
+.video-list li {
+    list-style-type: none;
+    transition: all .3s ease-in-out; 
+}
+
+.video-list li .card-video:hover {
+    cursor: pointer;
+    transform: scale(1.01);
+}
+
+.video-list li > .video-title {
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+/**
+ * END OF YT VIDEO FRAME AND DESIGN
+*/
+
 
 @media (max-width: 1366px) {
     .fifa--cd ul li {
@@ -156,6 +192,22 @@
     .fifa--cd ul li #minutes {
         font-size: 40px;
     }
+
+    /**
+    *  YT VIDEO FRAME AND DESIGN
+    */
+
+    .vids__main {
+        min-height: 400px;
+    }
+    
+    #ytiframe {
+        max-width: 1023px;
+    }
+    .video-list {
+        flex-direction:row;
+    }
+
 }
 
 @media(max-width: 767px) {
@@ -199,6 +251,15 @@
     }
     .fifa--mask-ban img {
         width: 68.69px;
+    }
+
+    /**
+    *  YT VIDEO FRAME AND DESIGN
+    */
+
+    #ytiframe {
+        max-width: 767px;
+        margin-bottom: 310px;
     }
 }
 

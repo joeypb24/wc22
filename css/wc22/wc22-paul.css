@@ -120,6 +120,12 @@
 }
 
 
+/* IFRAME */
+#ytiframe {
+    max-width: 1009px;
+    min-height: 500px;
+}
+
 @media (max-width: 1366px) {
     .fifa--cd ul li {
         font-size: 1.025vw;

@@ -526,4 +526,64 @@ var x = setInterval(function() {
        }
      })
  }
- teamData();
+ teamData(); // Script for Group Data
+
+ /**
+  * For YT Thumbnail
+  */
+
+  var lang = document.documentElement.lang; // for multilingual
+  var key = 'AIzaSyAFUsyU2VIrok03yraRa6zHJFc8ISDjjkA';
+  var playlistId;
+  var requestURL = 'https://www.googleapis.com/youtube/v3/playlistItems';
+  
+  switch (lang) {
+      case 'id-ID':
+          playlistId = 'PL__3xoGVn1aYAuyGOnwuOIQHHR98QMLAB';
+          break;
+      case 'zh-CN':
+          playlistId = 'PL__3xoGVn1aZJgPem0mHvV6lL2ynuXwnb';
+          break;
+      case 'th-TH':
+          playlistId = 'PL__3xoGVn1aY_MWeMThc6hsl697k-X0kb';
+          break;
+      case 'vi-VN':
+          playlistId = 'PL__3xoGVn1aZ3rckNJZqyuFgj5mnJlXGt';
+          break;
+      case 'kr-KR':
+          playlistId = 'PL__3xoGVn1abnYSKxXTdQ7A9k4vbgNAlG';
+          break;
+      default:
+          playlistId = 'PL__3xoGVn1absaHBVAPsaaT-oM0jKyNfT';
+          break;
+  }
+  
+  var options = {
+      part: 'snippet',
+      key: key,
+      maxResults: 20,
+      playlistId: playlistId
+  }
+
+  const fetchYT = () => {
+      $.getJSON(requestURL, options, function(data){
+          for(let i=0;i<data.items.length;i++) {
+              var thumbSrc = data.items[i].snippet.thumbnails.medium.url;
+              var title = data.items[i].snippet.title;
+              var vidID = data.items[i].snippet.resourceId.videoId;
+      
+              if(i === 0) {
+                  $('#ytiframe').attr('src', 'https://www.youtube.com/embed/'+vidID);
+              }
+      
+              $('.video-list').append('<li'+((i === 0) ? ' class="active"' : '')+'>\
+              <div class="card card-video" data-vidid="'+vidID+'"><img src="'+thumbSrc+'" /></div>\
+              <div class="video-title">'+title+'</div>\
+              </li>');
+          }
+      });
+  }
+
+  
+  /**Fetch the YT data */
+  fetchYT();

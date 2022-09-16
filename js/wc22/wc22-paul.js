@@ -587,3 +587,30 @@ var x = setInterval(function() {
   
   /**Fetch the YT data */
   fetchYT();
+
+  $(document).on('click', '.card-video', function(){
+    var vidID = $(this).data('vidid');
+    $('#ytiframe').attr('src', 'https://www.youtube.com/embed/'+vidID+'?autoplay=1');
+    $('.video-list li').removeClass('active');
+    $(this).closest('li').addClass('active');
+});
+
+$('.swipe-holder').each(function(){
+    let that = this;
+    $(this).hover(function(){
+        let cardHeight = $(that).find('.card').height();
+        $(that).find('.arrow').css("height", cardHeight+"px");
+    });
+    
+    $(that).find('.arrow').click(function() {
+        let isNext = $(this).hasClass('next');
+        let scrollLength = $(that).find('.list-swipe > li').width();
+        let currentScroll = $(that).find('.overflow-swipe').scrollLeft();
+        
+        if(isNext) {
+            $(that).find('.overflow-swipe').animate({scrollLeft: currentScroll + scrollLength}, 300);
+        } else {
+            $(that).find('.overflow-swipe').animate({scrollLeft: currentScroll - scrollLength}, 300);
+        }
+    });
+});

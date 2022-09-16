@@ -668,7 +668,7 @@ iframe {
 } 
 .vids__main__vid {
 	width: 100%;
-	height: 571px;
+	/* height: 571px; */
 	margin-bottom: 5px;
 }
 .vids__thumbs > div {
@@ -1232,7 +1232,7 @@ iframe {
 	}
 	.vids__main__vid {
 		width: 100%;
-		height: 590px;
+		/* height: 590px; */
 	}
 	.vids__thumbs {
 		display: flex;

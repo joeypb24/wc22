@@ -13,7 +13,7 @@
 			  </div>
 		  </div>
 		  <div class="vids__thumbs">
-			  <ul class="video-list"></ul>
+			  <div class="video-list"></div>
 		  </div>
 	  </div>
 

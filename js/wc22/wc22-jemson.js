@@ -1,5 +1,112 @@
 jQuery(function($) {
 	'use strict';
+
+    const langcontent2 = {
+		"en-US": {
+		  btn1: "SUBMIT PREDICTIONS",
+		  placeholder1: "How do we address you?",
+		  placeholder2: "select team",
+		  placeholder3: "Select team",
+		  txt20: "ROUND OF 16",
+		  txt21: "Quarter Finals",
+		  txt22: "Semi Finals",
+		  txt23: "Finals",
+		  txt24: "CHAMPION",
+		  txt25: "Thank you for joining",
+		  cta: "",
+		},
+		"en-IN": {
+		  btn1: "SUBMIT PREDICTIONS",
+		  placeholder1: "How do we address you?",
+		  placeholder2: "select team",
+		  placeholder3: "Select team",
+		  txt20: "ROUND OF 16",
+		  txt21: "Quarter Finals",
+		  txt22: "Semi Finals",
+		  txt23: "Finals",
+		  txt24: "CHAMPION",
+		  txt25: "Thank you for joining",
+		  cta: "",
+		},
+		"id-ID": {
+		  btn1: "KIRIM PREDIKSI",
+		  placeholder1: "How do we address you?",
+		  placeholder2: "pilih tim",
+		  placeholder3: "pilih tim",
+		  txt20: "BABAK 16",
+		  txt21: "PEREMPAT FINAL",
+		  txt22: "SEMI-FINAL",
+		  txt23: "FINAL",
+		  txt24: "CHAMPION",
+		  txt25: "Thank you for joining",
+		  cta: "",
+		},
+		"ja-JP": {
+		  btn1: "SUBMIT PREDICTIONS",
+		  placeholder1: "How do we address you?",
+		  placeholder2: "select team",
+		  placeholder3: "Select team",
+		  txt20: "ROUND OF 16",
+		  txt21: "Quarter Finals",
+		  txt22: "Semi Finals",
+		  txt23: "Finals",
+		  txt24: "CHAMPION",
+		  txt25: "Thank you for joining",
+		  cta: "",
+		},
+		"zh-CN": {
+		  btn1: "提交预测",
+		  placeholder1: "How do we address you?",
+		  placeholder2: "选择团队",
+		  placeholder3: "选择团队",
+		  txt20: "十六强",
+		  txt21: "四分之一决赛",
+		  txt22: "半决赛",
+		  txt23: "决赛",
+		  txt24: "CHAMPION",
+		  txt25: "Thank you for joining",
+		  cta: "",
+		},
+		"vi-VN": {
+		  btn1: "GỬI DỰ ĐOÁN",
+		  placeholder1: "How do we address you?",
+		  placeholder2: "chọn đội",
+		  placeholder3: "chọn đội",
+		  txt20: "VÒNG 16",
+		  txt21: "THỨ KẾT",
+		  txt22: "BÁN KẾT",
+		  txt23: "CHUNG KẾT",
+		  txt24: "CHAMPION",
+		  txt25: "Thank you for joining",
+		  cta: "",
+		},
+		"th-TH": {
+		  btn1: "ยืนยันการทายผลบอล",
+		  placeholder1: "How do we address you?",
+		  placeholder2: "เลือกทีม",
+		  placeholder3: "เลือกทีม",
+		  txt20: "รอบ 16 ทีม",
+		  txt21: "รอบก่อนรองชนะเลิศ",
+		  txt22: "รอบรองชนะเลิศ",
+		  txt23: "รอบชิงชนะเลิศ",
+		  txt24: "CHAMPION",
+		  txt25: "Thank you for joining",
+		  cta: "",
+		},
+		"ko-KR": {
+		  btn1: "예측하기",
+		  placeholder1: "How do we address you?",
+		  placeholder2: "팀 선택",
+		  placeholder3: "팀 선택",
+		  txt20: "16강",
+		  txt21: "8강",
+		  txt22: "4강",
+		  txt23: "결승전",
+		  txt24: "CHAMPION",
+		  txt25: "Thank you for joining",
+		  cta: "",
+		},
+    };
     const teams2 = {
 		"en-US": [
 		  { id: "ar", name: "argentina", short: "arg", group: "c" },
@@ -35,39 +142,73 @@ jQuery(function($) {
 		  { id: "uy", name: "uruguay", short: "uru", group: "h" },
 		  { id: "ws", name: "wales", short: "wal", group: "b" },
 		],
-		"ko-KR": [
-		  { id: "ar", name: "아르헨티나", short: "아르헨티나", group: "c" },
-		  { id: "at", name: "호주", short: "호주", group: "d" },
-		  { id: "be", name: "벨기에", short: "벨기에", group: "f" },
-		  { id: "br", name: "브라질", short: "브라질", group: "g" },
-		  { id: "ca", name: "캐나다", short: "캐나다", group: "f" },
-		  { id: "cm", name: "카메룬", short: "카메룬", group: "g" },
-		  { id: "cr", name: "코스타리카", short: "코스타리카", group: "e" },
-		  { id: "hr", name: "크로아티아", short: "크로아티아", group: "f" },
-		  { id: "dk", name: "덴마크", short: "덴마크", group: "d" },
-		  { id: "en", name: "잉글랜드", short: "eng", group: "b" },
-		  { id: "ec", name: "에콰도르", short: "에콰도르", group: "a" },
-		  { id: "fr", name: "프랑스", short: "fra", group: "d" },
-		  { id: "de", name: "독일", short: "ger", group: "e" },
-		  { id: "gh", name: "가나", short: "gha", group: "h" },
-		  { id: "ir", name: "이란", short: "irn", group: "b" },
-		  { id: "jp", name: "일본", short: "jpn", group: "e" },
-		  { id: "mx", name: "멕시코", short: "mex", group: "c" },
-		  { id: "ma", name: "모로코", short: "mar", group: "f" },
-		  { id: "nl", name: "네덜란드", short: "ned", group: "a" },
-		  { id: "pl", name: "poland", short: "pol", group: "c" },
-		  { id: "pt", name: "portugal", short: "por", group: "h" },
-		  { id: "qa", name: "qatar", short: "qat", group: "a" },
-		  { id: "sa", name: "saudi arabia", short: "ksa", group: "c" },
-		  { id: "sn", name: "senegal", short: "sen", group: "a" },
-		  { id: "rs", name: "serbia", short: "srb", group: "g" },
-		  { id: "kor", name: "Korea Republic", short: "kor", group: "h" },
-		  { id: "es", name: "spain", short: "esp", group: "e" },
-		  { id: "ch", name: "switzerland", short: "sui", group: "g" },
-		  { id: "tn", name: "tunisia", short: "tun", group: "d" },
-		  { id: "us", name: "USA", short: "usa", group: "b" },
-		  { id: "uy", name: "uruguay", short: "uru", group: "h" },
-		  { id: "ws", name: "wales", short: "wal", group: "b" },
+		"ja-JP": [
+		  { id: "ar", name: "アルゼンチン", short: "アルゼンチン", group: "c" },
+		  { id: "at", name: "オーストラリア", short: "オーストラリア", group: "d" },
+		  { id: "be", name: "ベルギー", short: "ベルギー", group: "f" },
+		  { id: "br", name: "ブラジル", short: "ブラジル", group: "g" },
+		  { id: "ca", name: "カナダ", short: "カナダ", group: "f" },
+		  { id: "cm", name: "カメルーン", short: "カメルーン", group: "g" },
+		  { id: "cr", name: "コスタリカ", short: "コスタリカ", group: "e" },
+		  { id: "hr", name: "クロアチア", short: "クロアチア", group: "f" },
+		  { id: "dk", name: "デンマーク", short: "デンマーク", group: "d" },
+		  { id: "en", name: "イングランド", short: "イングランド", group: "b" },
+		  { id: "ec", name: "エクアドル", short: "エクアドル", group: "a" },
+		  { id: "fr", name: "フランス", short: "フランス", group: "d" },
+		  { id: "de", name: "ドイツ", short: "ドイツ", group: "e" },
+		  { id: "gh", name: "ガーナ", short: "ガーナ", group: "h" },
+		  { id: "ir", name: "イラン", short: "イラン", group: "b" },
+		  { id: "jp", name: "日本", short: "日本", group: "e" },
+		  { id: "mx", name: "メキシコ", short: "メキシコ", group: "c" },
+		  { id: "ma", name: "モロッコ", short: "モロッコ", group: "f" },
+		  { id: "nl", name: "オランダ", short: "オランダ", group: "a" },
+		  { id: "pl", name: "ポーランド", short: "ポーランド", group: "c" },
+		  { id: "pt", name: "ポルトガル", short: "ポルトガル", group: "h" },
+		  { id: "qa", name: "カタール", short: "カタール", group: "a" },
+		  { id: "sa", name: "サウジアラビア", short: "サウジアラビア", group: "c" },
+		  { id: "sn", name: "セネガル", short: "セネガル", group: "a" },
+		  { id: "rs", name: "セルビア", short: "srb", group: "g" },
+		  { id: "kor", name: "韓国", short: "韓国", group: "h" },
+		  { id: "es", name: "スペイン", short: "スペイン", group: "e" },
+		  { id: "ch", name: "スイス", short: "スイス", group: "g" },
+		  { id: "tn", name: "チュニジア", short: "チュニジア", group: "d" },
+		  { id: "us", name: "アメリカ合衆国", short: "アメリカ合衆国", group: "b" },
+		  { id: "uy", name: "ウルグアイ", short: "ウルグアイ", group: "h" },
+		  { id: "ws", name: "ウェールズ", short: "ウェールズ", group: "b" },
+		],
+		"zh-CN": [
+		  { id: "ar", name: "阿根廷", short: "阿根廷", group: "c" },
+		  { id: "at", name: "澳大利亚", short: "澳大利亚", group: "d" },
+		  { id: "be", name: "比利时", short: "比利时", group: "f" },
+		  { id: "br", name: "巴西", short: "巴西", group: "g" },
+		  { id: "ca", name: "加拿大", short: "加拿大", group: "f" },
+		  { id: "cm", name: "喀麦隆", short: "喀麦隆", group: "g" },
+		  { id: "cr", name: "哥斯达黎加", short: "哥斯达黎加", group: "e" },
+		  { id: "hr", name: "克罗地亚", short: "克罗地亚", group: "f" },
+		  { id: "dk", name: "丹麦", short: "丹麦", group: "d" },
+		  { id: "en", name: "英格兰", short: "英格兰", group: "b" },
+		  { id: "ec", name: "厄瓜多尔", short: "厄瓜多尔", group: "a" },
+		  { id: "fr", name: "法国", short: "法国", group: "d" },
+		  { id: "de", name: "德国", short: "德国", group: "e" },
+		  { id: "gh", name: "加纳", short: "加纳", group: "h" },
+		  { id: "ir", name: "伊朗", short: "伊朗", group: "b" },
+		  { id: "jp", name: "日本", short: "日本", group: "e" },
+		  { id: "mx", name: "墨西哥", short: "墨西哥", group: "c" },
+		  { id: "ma", name: "摩洛哥", short: "摩洛哥", group: "f" },
+		  { id: "nl", name: "荷兰", short: "荷兰", group: "a" },
+		  { id: "pl", name: "波兰", short: "波兰", group: "c" },
+		  { id: "pt", name: "葡萄牙", short: "葡萄牙", group: "h" },
+		  { id: "qa", name: "卡塔尔", short: "卡塔尔", group: "a" },
+		  { id: "sa", name: "沙特阿拉伯", short: "沙特阿拉伯", group: "c" },
+		  { id: "sn", name: "塞内加尔", short: "塞内加尔", group: "a" },
+		  { id: "rs", name: "塞尔维亚", short: "塞尔维亚", group: "g" },
+		  { id: "kor", name: "韩国", short: "韩国", group: "h" },
+		  { id: "es", name: "西班牙", short: "西班牙", group: "e" },
+		  { id: "ch", name: "瑞士", short: "瑞士", group: "g" },
+		  { id: "tn", name: "突尼斯", short: "突尼斯", group: "d" },
+		  { id: "us", name: "美国", short: "美国", group: "b" },
+		  { id: "uy", name: "乌拉圭", short: "乌拉圭", group: "h" },
+		  { id: "ws", name: "威尔士", short: "威尔士", group: "b" },
 		],
 		"vi-VN": [
 		  { id: "ar", name: "Argentina", short: "arg", group: "c" },
@@ -137,6 +278,40 @@ jQuery(function($) {
 			{ id: "uy", name: "อุรุกวัย", short: "อุรุกวัย", group: "h" },
 			{ id: "ws", name: "เวลส์", short: "เวลส์", group: "b" },
 		],
+		"ko-KR": [
+		  { id: "ar", name: "아르헨티나", short: "아르헨티나", group: "c" },
+		  { id: "at", name: "호주", short: "호주", group: "d" },
+		  { id: "be", name: "벨기에", short: "벨기에", group: "f" },
+		  { id: "br", name: "브라질", short: "브라질", group: "g" },
+		  { id: "ca", name: "캐나다", short: "캐나다", group: "f" },
+		  { id: "cm", name: "카메룬", short: "카메룬", group: "g" },
+		  { id: "cr", name: "코스타리카", short: "코스타리카", group: "e" },
+		  { id: "hr", name: "크로아티아", short: "크로아티아", group: "f" },
+		  { id: "dk", name: "덴마크", short: "덴마크", group: "d" },
+		  { id: "en", name: "잉글랜드", short: "eng", group: "b" },
+		  { id: "ec", name: "에콰도르", short: "에콰도르", group: "a" },
+		  { id: "fr", name: "프랑스", short: "fra", group: "d" },
+		  { id: "de", name: "독일", short: "ger", group: "e" },
+		  { id: "gh", name: "가나", short: "gha", group: "h" },
+		  { id: "ir", name: "이란", short: "irn", group: "b" },
+		  { id: "jp", name: "일본", short: "jpn", group: "e" },
+		  { id: "mx", name: "멕시코", short: "mex", group: "c" },
+		  { id: "ma", name: "모로코", short: "mar", group: "f" },
+		  { id: "nl", name: "네덜란드", short: "ned", group: "a" },
+		  { id: "pl", name: "폴란드", short: "pol", group: "c" },
+		  { id: "pt", name: "포르투갈", short: "por", group: "h" },
+		  { id: "qa", name: "카타르", short: "qat", group: "a" },
+		  { id: "sa", name: "사우디 아라비아", short: "ksa", group: "c" },
+		  { id: "sn", name: "세네갈", short: "sen", group: "a" },
+		  { id: "rs", name: "세르비아", short: "srb", group: "g" },
+		  { id: "kor", name: "대한민국", short: "kor", group: "h" },
+		  { id: "es", name: "스페인", short: "esp", group: "e" },
+		  { id: "ch", name: "스위스", short: "sui", group: "g" },
+		  { id: "tn", name: "튀니지", short: "tun", group: "d" },
+		  { id: "us", name: "미국", short: "usa", group: "b" },
+		  { id: "uy", name: "우루과이", short: "uru", group: "h" },
+		  { id: "ws", name: "웨일즈", short: "wal", group: "b" },
+		],
 	};
 	const popupContent = {
 		"en-US":{
@@ -172,12 +347,92 @@ jQuery(function($) {
 	var apiPredictionProd = 'https://script.google.com/macros/s/AKfycbwiyY4hzdXB9c9Xaxogow1t7pnRcx1g9aC4cTSiKWa7Xz-kUGozpuzpsnZwm77oSb64WQ/exec';
 	var apiPredictionUAT = 'https://script.google.com/macros/s/AKfycbwiyY4hzdXB9c9Xaxogow1t7pnRcx1g9aC4cTSiKWa7Xz-kUGozpuzpsnZwm77oSb64WQ/exec';
 	var isPredictionProd = false;
-	var htmlLang = $('html').attr('lang');
 
     var urlParamLang = state.user.locale;
     var preAuth = state.user.authenticated;
     var date = new Date();
 	var grequiredEmail, ginvalidEmail;
+
+	//date
+	let oddsDate = function formatDate(d) {
+		d = new Date('11/21/2022 13:00');
+		let newDate;
+		if (urlParamLang === "en-US") {
+		  newDate = d.toLocaleString("en-US", {
+			hour12: false,
+			day: "2-digit",
+			month: "2-digit",
+			year: "numeric",
+			hour: "2-digit",
+			minute: "2-digit",
+		  });
+		} else if (urlParamLang === "zh-CN") {
+		  newDate = d.toLocaleString("zh-CN", {
+			hour12: false,
+			day: "2-digit",
+			month: "2-digit",
+			year: "numeric",
+			hour: "2-digit",
+			minute: "2-digit",
+		  });
+		} else if (urlParamLang === "ja-JP") {
+		  newDate = d.toLocaleString("ja-JP", {
+			hour12: false,
+			day: "2-digit",
+			month: "2-digit",
+			year: "numeric",
+			hour: "2-digit",
+			minute: "2-digit",
+		  });
+		} else if (urlParamLang === "ko-KR") {
+		  newDate = d.toLocaleString("ko-KR", {
+			hour12: false,
+			day: "2-digit",
+			month: "2-digit",
+			year: "numeric",
+			hour: "2-digit",
+			minute: "2-digit",
+		  });
+		} else if (urlParamLang === "id-ID") {
+		  newDate = d.toLocaleString("id-ID", {
+			hour12: false,
+			day: "2-digit",
+			month: "2-digit",
+			year: "numeric",
+			hour: "2-digit",
+			minute: "2-digit",
+		  });
+		} else if (urlParamLang === "th-TH") {
+		  newDate = d.toLocaleString("th-TH", {
+			hour12: false,
+			day: "2-digit",
+			month: "2-digit",
+			year: "numeric",
+			hour: "2-digit",
+			minute: "2-digit",
+		  });
+		} else if (urlParamLang === "vi-VN") {
+		  newDate = d.toLocaleString("vi-VN", {
+			hour12: false,
+			day: "2-digit",
+			month: "2-digit",
+			year: "numeric",
+			hour: "2-digit",
+			minute: "2-digit",
+		  });
+		} else {
+		  newDate = d.toLocaleString("en-US", {
+			hour12: false,
+			day: "2-digit",
+			month: "2-digit",
+			year: "numeric",
+			hour: "2-digit",
+			minute: "2-digit",
+		  });
+		}
+		return newDate;
+	};
+	console.log(oddsDate());
 
     /**Add data-url start */
     var ddWrapAuth = (preAuth === "False") ? "/register":"";
@@ -289,7 +544,8 @@ jQuery(function($) {
 						teamGroupArr.push(value1.group);
 						teamGroupArr[value1.group] = [];
 					}
-					(teamGroupArr[value1.group]).push('<div class="dd-option icon icon-'+value1.id+'" data-val="'+value1.id+'"><span class="txt">'+value1.short+'</span></div>');
+					var shortVal = (urlParamLang !== 'en-US') ? value1.name : value1.short;
+					(teamGroupArr[value1.group]).push('<div class="dd-option icon icon-'+value1.id+'" data-val="'+value1.id+'" data-acr="'+value1.short+'"><span class="txt">'+shortVal+'</span></div>');
 				});
 			}
 		});
@@ -367,7 +623,8 @@ jQuery(function($) {
 
 	$(document).on('click mouseup', '.dd-wrap .dd-option', function(){
 		let ddVal = $(this).data('val');
-		let ddTxt = $(this).find('.txt').text(); 
+		let ddArc = $(this).data('acr');
+		let ddTxt = $(this).find('.txt').text();
 		
 		$(this).closest('.dd-wrap').find(".dd-selected[class*='icon']").removeClass (function (index, css) {
 		   return (css.match (/(^|\s)icon\S+/g) || []).join(' ');
@@ -375,6 +632,7 @@ jQuery(function($) {
 		$(this).closest('.dd-wrap').find('.dd-selected').removeClass('placeholder').addClass('icon icon-'+ddVal);
 		$(this).closest('.dd-wrap').find('.dd-selected').attr('data-val', ddVal);
 		$(this).closest('.dd-wrap').find('.dd-selected .txt').text(ddTxt);
+		$(this).closest('.dd-wrap').find('.dd-selected .txt').attr('data-acro', ddArc);
 		$(this).closest('.dd-wrap').find('.dd-selected input').val(ddVal);
 		
 		let counter = 0;
@@ -530,21 +788,23 @@ jQuery(function($) {
 	}
 
 	$(document).on("click", ".btn-submit-prediction", function () {
-		let match_49 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').text());
-		let match_50 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').text());
-		let match_53 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(1) .dd-wrap:eq(0) .dd-selected .txt').text());
-		let match_54 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(1) .dd-wrap:eq(1) .dd-selected .txt').text());
-		let match_51 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').text());
-		let match_52 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').text());
-		let match_55 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(1) .dd-wrap:eq(0) .dd-selected .txt').text());
-		let match_56 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(1) .dd-wrap:eq(1) .dd-selected .txt').text());
-		let match_57 = capitalizedUpperCase($('.bracket.semi-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').text());
-		let match_58 = capitalizedUpperCase($('.bracket.semi-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').text());
-		let match_59 = capitalizedUpperCase($('.bracket.semi-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').text());
-		let match_60 = capitalizedUpperCase($('.bracket.semi-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').text());
-		let match_61 = capitalizedUpperCase($('.bracket.finals .match-bracket .dd-wrap:eq(0) .dd-selected .txt').text());
-		let match_62 = capitalizedUpperCase($('.bracket.finals .match-bracket .dd-wrap:eq(1) .dd-selected .txt').text());
-		let match_64 = capitalizedUpperCase($('.bracket.champion .dd-wrap .dd-selected .txt').text());
+
+		/**Sending data to Gsheets Start */
+		let match_49 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').attr('data-acro'));
+		let match_50 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').attr('data-acro'));
+		let match_53 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(1) .dd-wrap:eq(0) .dd-selected .txt').attr('data-acro'));
+		let match_54 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(1) .dd-wrap:eq(1) .dd-selected .txt').attr('data-acro'));
+		let match_51 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').attr('data-acro'));
+		let match_52 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').attr('data-acro'));
+		let match_55 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(1) .dd-wrap:eq(0) .dd-selected .txt').attr('data-acro'));
+		let match_56 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(1) .dd-wrap:eq(1) .dd-selected .txt').attr('data-acro'));
+		let match_57 = capitalizedUpperCase($('.bracket.semi-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').attr('data-acro'));
+		let match_58 = capitalizedUpperCase($('.bracket.semi-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').attr('data-acro'));
+		let match_59 = capitalizedUpperCase($('.bracket.semi-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').attr('data-acro'));
+		let match_60 = capitalizedUpperCase($('.bracket.semi-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').attr('data-acro'));
+		let match_61 = capitalizedUpperCase($('.bracket.finals .match-bracket .dd-wrap:eq(0) .dd-selected .txt').attr('data-acro'));
+		let match_62 = capitalizedUpperCase($('.bracket.finals .match-bracket .dd-wrap:eq(1) .dd-selected .txt').attr('data-acro'));
+		let match_64 = capitalizedUpperCase($('.bracket.champion .dd-wrap .dd-selected .txt').attr('data-acro'));
 
 		predictionJson = {
 			"r16_1": {
@@ -579,67 +839,193 @@ jQuery(function($) {
 				"match_64": match_64
 			}
 		};
+		/**Sending data to Gsheets End */
 
-		/**Set Session START */
-		window.sessionStorage.setItem('match_49',match_49);
-		window.sessionStorage.setItem('match_50',match_50);
-		window.sessionStorage.setItem('match_51',match_51);
-		window.sessionStorage.setItem('match_52',match_52);
-		window.sessionStorage.setItem('match_53',match_53);
-		window.sessionStorage.setItem('match_54',match_54);
-		window.sessionStorage.setItem('match_55',match_55);
-		window.sessionStorage.setItem('match_56',match_56);
-		window.sessionStorage.setItem('match_57',match_57);
-		window.sessionStorage.setItem('match_58',match_58);
-		window.sessionStorage.setItem('match_59',match_59);
-		window.sessionStorage.setItem('match_60',match_60);
-		window.sessionStorage.setItem('match_61',match_61);
-		window.sessionStorage.setItem('match_62',match_62);
-		window.sessionStorage.setItem('match_64',match_64);
-		/**Set Session END */
+		SaveMatchSession();
 
-		SavePrediction();
+		SavePrediction('1');
 
 		$('.btn-submit-prediction').addClass('inactive');
 	});
 
-	function SavePrediction(){
+	function SaveMatchSession(){
+		/**Set Session START */
+		//Save text
+		let match_session_49 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').text());
+		let match_session_50 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').text());
+		let match_session_53 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(1) .dd-wrap:eq(0) .dd-selected .txt').text());
+		let match_session_54 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(1) .dd-wrap:eq(1) .dd-selected .txt').text());
+		let match_session_51 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').text());
+		let match_session_52 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').text());
+		let match_session_55 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(1) .dd-wrap:eq(0) .dd-selected .txt').text());
+		let match_session_56 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(1) .dd-wrap:eq(1) .dd-selected .txt').text());
+		let match_session_57 = capitalizedUpperCase($('.bracket.semi-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').text());
+		let match_session_58 = capitalizedUpperCase($('.bracket.semi-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').text());
+		let match_session_59 = capitalizedUpperCase($('.bracket.semi-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').text());
+		let match_session_60 = capitalizedUpperCase($('.bracket.semi-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').text());
+		let match_session_61 = capitalizedUpperCase($('.bracket.finals .match-bracket .dd-wrap:eq(0) .dd-selected .txt').text());
+		let match_session_62 = capitalizedUpperCase($('.bracket.finals .match-bracket .dd-wrap:eq(1) .dd-selected .txt').text());
+		let match_session_64 = capitalizedUpperCase($('.bracket.champion .dd-wrap .dd-selected .txt').text());
+
+		let storeSessionArgs = [{
+			'match_49': match_session_49,
+			'match_50': match_session_50,
+			'match_51': match_session_51,
+			'match_52': match_session_52,
+			'match_53': match_session_53,
+			'match_54': match_session_54,
+			'match_55': match_session_55,
+			'match_56': match_session_56,
+			'match_57': match_session_57,
+			'match_58': match_session_58,
+			'match_59': match_session_59,
+			'match_60': match_session_60,
+			'match_61': match_session_61,
+			'match_62': match_session_62,
+			'match_64': match_session_64
+		}];
+
+		let match_acronym_49 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').attr('data-acro'));
+		let match_acronym_50 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').attr('data-acro'));
+		let match_acronym_53 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(1) .dd-wrap:eq(0) .dd-selected .txt').attr('data-acro'));
+		let match_acronym_54 = capitalizedUpperCase($('.bracket.quarter-finals:eq(0) .match-bracket:eq(1) .dd-wrap:eq(1) .dd-selected .txt').attr('data-acro'));
+		let match_acronym_51 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').attr('data-acro'));
+		let match_acronym_52 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').attr('data-acro'));
+		let match_acronym_55 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(1) .dd-wrap:eq(0) .dd-selected .txt').attr('data-acro'));
+		let match_acronym_56 = capitalizedUpperCase($('.bracket.quarter-finals:eq(1) .match-bracket:eq(1) .dd-wrap:eq(1) .dd-selected .txt').attr('data-acro'));
+		let match_acronym_57 = capitalizedUpperCase($('.bracket.semi-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').attr('data-acro'));
+		let match_acronym_58 = capitalizedUpperCase($('.bracket.semi-finals:eq(0) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').attr('data-acro'));
+		let match_acronym_59 = capitalizedUpperCase($('.bracket.semi-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(0) .dd-selected .txt').attr('data-acro'));
+		let match_acronym_60 = capitalizedUpperCase($('.bracket.semi-finals:eq(1) .match-bracket:eq(0) .dd-wrap:eq(1) .dd-selected .txt').attr('data-acro'));
+		let match_acronym_61 = capitalizedUpperCase($('.bracket.finals .match-bracket .dd-wrap:eq(0) .dd-selected .txt').attr('data-acro'));
+		let match_acronym_62 = capitalizedUpperCase($('.bracket.finals .match-bracket .dd-wrap:eq(1) .dd-selected .txt').attr('data-acro'));
+		let match_acronym_64 = capitalizedUpperCase($('.bracket.champion .dd-wrap .dd-selected .txt').attr('data-acro'));
+
+		let storeSessionAcroArgs = [{
+			'match_49': match_acronym_49,
+			'match_50': match_acronym_50,
+			'match_51': match_acronym_51,
+			'match_52': match_acronym_52,
+			'match_53': match_acronym_53,
+			'match_54': match_acronym_54,
+			'match_55': match_acronym_55,
+			'match_56': match_acronym_56,
+			'match_57': match_acronym_57,
+			'match_58': match_acronym_58,
+			'match_59': match_acronym_59,
+			'match_60': match_acronym_60,
+			'match_61': match_acronym_61,
+			'match_62': match_acronym_62,
+			'match_64': match_acronym_64
+		}];
+
+		window.sessionStorage.setItem('match_txt',JSON.stringify(storeSessionArgs)); // For Text
+		window.sessionStorage.setItem('match_acronym',JSON.stringify(storeSessionAcroArgs)); // For Acronymns
+		/**Set Session END */
+	}
+
+	function SavePrediction(stats){
+		/**
+		 * @Status
+		 * - 1. Sending for the Gsheets
+		 * - 2. After Sending the airship to be called.
+		 */
 		var errMessage = "There was an error during saving prediction details. Please try again.";
+		var storedMatchAcro = JSON.parse(sessionStorage.getItem("match_acronym"));
+		var match_49 = '';
+		var match_50 = '';
+		var match_51 = '';
+		var match_52 = '';
+		var match_53 = '';
+		var match_54 = '';
+		var match_55 = '';
+		var match_56 = '';
+		var match_57 = '';
+		var match_58 = '';
+		var match_59 = '';
+		var match_60 = '';
+		var match_61 = '';
+		var match_62 = '';
+		var match_64 = '';
 
 		var data = 'Timestamp=' + date;
 		  data += '&username=' + username;
-		  data += '&Match_49=' + predictionJson.r16_1.match_49;
-		  data += '&Match_50=' + predictionJson.r16_1.match_50;
-		  data += '&Match_53=' + predictionJson.r16_2.match_53;
-		  data += '&Match_54=' + predictionJson.r16_2.match_54;
-		  data += '&Match_51=' + predictionJson.r16_3.match_51;
-		  data += '&Match_52=' + predictionJson.r16_3.match_52;
-		  data += '&Match_55=' + predictionJson.r16_4.match_55;
-		  data += '&Match_56=' + predictionJson.r16_4.match_56;
-		  data += '&Match_57=' + predictionJson.qf1.match_57;
-		  data += '&Match_58=' + predictionJson.qf1.match_58;
-		  data += '&Match_59=' + predictionJson.qf2.match_59;
-		  data += '&Match_60=' + predictionJson.qf2.match_60;
-		  data += '&Match_61=' + predictionJson.sf.match_61;
-		  data += '&Match_62=' + predictionJson.sf.match_62;
-		  data += '&Final=' + predictionJson.f.match_64;
+		if(stats !== '1'){
+			var storedEmail = (sessionStorage.hasOwnProperty('match_email')) ? sessionStorage.getItem('match_email'): '';
+			Object.entries(storedMatchAcro).map(obj => {
+				const val = obj[1];
+				match_49 = val.match_49;
+				match_50 = val.match_50;
+				match_51 = val.match_51;
+				match_52 = val.match_52;
+				match_53 = val.match_53;
+				match_54 = val.match_54;
+				match_55 = val.match_55;
+				match_56 = val.match_56;
+				match_57 = val.match_57;
+				match_58 = val.match_58;
+				match_59 = val.match_59;
+				match_60 = val.match_60;
+				match_61 = val.match_61;
+				match_62 = val.match_62;
+				match_64 = val.match_64;
+			});
+			data += '&email=' + storedEmail;
+			data += '&Match_49=' + match_49;
+			data += '&Match_50=' + match_50;
+			data += '&Match_53=' + match_53;
+			data += '&Match_54=' + match_54;
+			data += '&Match_51=' + match_51;
+			data += '&Match_52=' + match_52;
+			data += '&Match_55=' + match_55;
+			data += '&Match_56=' + match_56;
+			data += '&Match_57=' + match_57;
+			data += '&Match_58=' + match_58;
+			data += '&Match_59=' + match_59;
+			data += '&Match_60=' + match_60;
+			data += '&Match_61=' + match_61;
+			data += '&Match_62=' + match_62;
+			data += '&Final=' + match_64;
+		}else{
+			data += '&Match_49=' + predictionJson.r16_1.match_49;
+			data += '&Match_50=' + predictionJson.r16_1.match_50;
+			data += '&Match_53=' + predictionJson.r16_2.match_53;
+			data += '&Match_54=' + predictionJson.r16_2.match_54;
+			data += '&Match_51=' + predictionJson.r16_3.match_51;
+			data += '&Match_52=' + predictionJson.r16_3.match_52;
+			data += '&Match_55=' + predictionJson.r16_4.match_55;
+			data += '&Match_56=' + predictionJson.r16_4.match_56;
+			data += '&Match_57=' + predictionJson.qf1.match_57;
+			data += '&Match_58=' + predictionJson.qf1.match_58;
+			data += '&Match_59=' + predictionJson.qf2.match_59;
+			data += '&Match_60=' + predictionJson.qf2.match_60;
+			data += '&Match_61=' + predictionJson.sf.match_61;
+			data += '&Match_62=' + predictionJson.sf.match_62;
+			data += '&Final=' + predictionJson.f.match_64;
+		}
 
 		var uri = ApiPrediction();
+		var beforeSend = (stats !== '1') ? '' : ajaxBeforeSend('1');
 
 		$.ajax({
 			url: uri,
+			// headers: {'Content-type': 'application/json'},
 			headers: {'Content-type': 'application/x-www-form-urlencoded'},
 			type: "post",
 			data: data,
+			// contentType: 'application/json; charset=utf-8',
 			contentType: 'multipart/form-data',
-			beforeSend: ajaxBeforeSend('1'),
+			beforeSend: beforeSend,
 			// complete: ajaxCompleteSend(),
 			// contentType: "application/javascript",
         	// dataType: "jsonp",
 			success: function (res) {
-				var stats = (res.result === "success") ? 'true' : 'false';
-				ajaxCompleteSend('1');
-				openCongratsPopup(stats);
+				if(stats === '1'){
+					var result = (res.result === "success") ? 'true' : 'false';
+					ajaxCompleteSend('1');
+					openCongratsPopup(result);
+				}
+				console.log(res);
 			},
 			error: function () {
 				console.log(errMessage);
@@ -669,7 +1055,7 @@ jQuery(function($) {
 			const key = objerr[0];
 			const val = objerr[1];
 
-			if(key === htmlLang)
+			if(key === urlParamLang)
 				ginvalidEmail = val.invalidEmail;
 		});
 
@@ -701,6 +1087,10 @@ jQuery(function($) {
 			if(IsEmail(emailInput) === true){
 				$('.email-lbl').removeClass('err');
 				$('.txt-err').addClass('d-none');
+
+				/**Store Email to Session */
+				window.sessionStorage.setItem('match_email', emailInput);
+
 				SendEmail(emailInput);
 			}else{
 				$('.email-lbl').addClass('err');
@@ -726,37 +1116,37 @@ jQuery(function($) {
     
 		if (isPredictionProd) {
 		  //PROD
-		  if (htmlLang === "en-US") {
+		  if (urlParamLang === "en-US") {
 			templateId = "763817e5-8cfb-48c6-8370-4ff2e68fdec4";
-		  } else if (htmlLang === "id-ID") {
+		  } else if (urlParamLang === "id-ID") {
 			templateId = "29ede0c8-9e3a-4555-8f8c-1bfe8f192118";
-		  } else if (htmlLang === "vi-VN") {
+		  } else if (urlParamLang === "vi-VN") {
 			templateId = "77879a12-4010-4e1e-b262-3c1e565f5fee";
-		  } else if (htmlLang === "th-TH") {
+		  } else if (urlParamLang === "th-TH") {
 			templateId = "123e0578-4fe7-4e88-a60f-d5c68fbef8ca";
-		  } else if (htmlLang === "zh-CN") {
+		  } else if (urlParamLang === "zh-CN") {
 			templateId = "433ee0ad-5721-4db4-8603-70fd43e46725";
-		  } else if (htmlLang === "ko-KR") {
+		  } else if (urlParamLang === "ko-KR") {
 			templateId = "049929ec-6485-472b-8f85-da82fc12a3e9";
-		  } else if (htmlLang === "ja-JP") {
+		  } else if (urlParamLang === "ja-JP") {
 			templateId = "5c6f6a00-5b17-4719-b8a3-df4208d32c0f";
 		  }
 		}
 		else {
 		  //UAT
-		  if (htmlLang === "en-US") {
+		  if (urlParamLang === "en-US") {
 			templateId = "763817e5-8cfb-48c6-8370-4ff2e68fdec4";
-		  } else if (htmlLang === "id-ID") {
+		  } else if (urlParamLang === "id-ID") {
 			templateId = "29ede0c8-9e3a-4555-8f8c-1bfe8f192118";
-		  } else if (htmlLang === "vi-VN") {
+		  } else if (urlParamLang === "vi-VN") {
 			templateId = "77879a12-4010-4e1e-b262-3c1e565f5fee";
-		  } else if (htmlLang === "th-TH") {
+		  } else if (urlParamLang === "th-TH") {
 			templateId = "123e0578-4fe7-4e88-a60f-d5c68fbef8ca";
-		  } else if (htmlLang === "zh-CN") {
+		  } else if (urlParamLang === "zh-CN") {
 			templateId = "433ee0ad-5721-4db4-8603-70fd43e46725";
-		  } else if (htmlLang === "ko-KR") {
+		  } else if (urlParamLang === "ko-KR") {
 			templateId = "049929ec-6485-472b-8f85-da82fc12a3e9";
-		  } else if (htmlLang === "ja-JP") {
+		  } else if (urlParamLang === "ja-JP") {
 			templateId = "5c6f6a00-5b17-4719-b8a3-df4208d32c0f";
 		  }
 		}
@@ -783,11 +1173,45 @@ jQuery(function($) {
 	}
 
 	function SendEmail(emailInput) {
-
 		var emailDomain = GetEmailDomain();
 		var templateId = GetEmailTemplate();
 		var asURL = GetAirshipURI();
 		var email = emailInput;
+		var storedMatch = JSON.parse(sessionStorage.getItem("match_txt"));
+		var match_49 = '';
+		var match_50 = '';
+		var match_51 = '';
+		var match_52 = '';
+		var match_53 = '';
+		var match_54 = '';
+		var match_55 = '';
+		var match_56 = '';
+		var match_57 = '';
+		var match_58 = '';
+		var match_59 = '';
+		var match_60 = '';
+		var match_61 = '';
+		var match_62 = '';
+		var match_64 = '';
+
+		Object.entries(storedMatch).map(obj => {
+			const val = obj[1];
+			match_49 = val.match_49;
+			match_50 = val.match_50;
+			match_51 = val.match_51;
+			match_52 = val.match_52;
+			match_53 = val.match_53;
+			match_54 = val.match_54;
+			match_55 = val.match_55;
+			match_56 = val.match_56;
+			match_57 = val.match_57;
+			match_58 = val.match_58;
+			match_59 = val.match_59;
+			match_60 = val.match_60;
+			match_61 = val.match_61;
+			match_62 = val.match_62;
+			match_64 = val.match_64;
+		});
 	
 		var settings = {
 			"url": asURL,
@@ -798,21 +1222,21 @@ jQuery(function($) {
 					"create_and_send": [{
 						"ua_address": email,
 						"user_name": email,
-						"match_49": sessionStorage.getItem("match_49"),
-						"match_50": sessionStorage.getItem("match_50"),
-						"match_51": sessionStorage.getItem("match_51"),
-						"match_52": sessionStorage.getItem("match_52"),
-						"match_53": sessionStorage.getItem("match_53"),
-						"match_54": sessionStorage.getItem("match_54"),
-						"match_55": sessionStorage.getItem("match_55"),
-						"match_56": sessionStorage.getItem("match_56"),
-						"match_57": sessionStorage.getItem("match_57"),
-						"match_58": sessionStorage.getItem("match_58"),
-						"match_59": sessionStorage.getItem("match_59"),
-						"match_60": sessionStorage.getItem("match_60"),
-						"match_61": sessionStorage.getItem("match_61"),
-						"match_62": sessionStorage.getItem("match_62"),
-						"match_64": sessionStorage.getItem("match_64"),
+						"match_49": match_49,
+						"match_50": match_50,
+						"match_51": match_51,
+						"match_52": match_52,
+						"match_53": match_53,
+						"match_54": match_54,
+						"match_55": match_55,
+						"match_56": match_56,
+						"match_57": match_57,
+						"match_58": match_58,
+						"match_59": match_59,
+						"match_60": match_60,
+						"match_61": match_61,
+						"match_62": match_62,
+						"match_64": match_64,
 					}]
 				},
 				"device_types": ["email"],
@@ -830,11 +1254,14 @@ jQuery(function($) {
 			},
 			"beforeSend": ajaxBeforeSend('2'),
 		};
+
+		console.log(settings);
 	
 		$.ajax(settings).done(function (response) {
 			var res = JSON.stringify(response);
 			var args = JSON.parse(res);
 
+			SavePrediction('2');
 			ajaxCompleteSend('2');
 
 			if(args.ok === true){
@@ -842,17 +1269,17 @@ jQuery(function($) {
 			}else{
 				openCongratsPopup('false');
 			}
-			
-			/**Close Modal Start*/
-			$('.btn--close').on('click', function(e){
-				e.preventDefault();
-				e.stopPropagation();
-				$(".wc22-modals").removeClass("act");
-				$('.wc22-modals__lbox--pred').removeClass("act");
-				$("body").css("overflow", "auto");
-			});
-			/**Close Modal End*/
 		});
+			
+		/**Close Modal Start*/
+		$('.btn--close').on('click', function(e){
+			e.preventDefault();
+			e.stopPropagation();
+			$(".wc22-modals").removeClass("act");
+			$('.wc22-modals__lbox--pred').removeClass("act");
+			$("body").css("overflow", "auto");
+		});
+		/**Close Modal End*/
 	}
 
     function openEmailSuccess(){

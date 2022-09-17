@@ -31,7 +31,7 @@ const langcontent = {
         "placeholder1": "How do we address you?",
         "placeholder2": "select team",
         "placeholder3": "Select team",
-        "txt20": "Prizes",
+        "txt20": "Round of 16",
         "txt21": "Quarter Finals",
         "txt22": "Semi Finals",
         "txt23": "Finals",

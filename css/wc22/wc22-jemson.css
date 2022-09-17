@@ -255,7 +255,8 @@
 .bracket.active {
 	z-index: 1;
 }
-.bracket .bracket-title {
+.bracket .bracket-title,
+.match-wlbl .bracket-title {
 	font-size: 12px;
 	font-weight: 400;
 	line-height: 18px;
@@ -267,6 +268,63 @@
 	width: 100%;
 	text-align: center;
 	text-transform: uppercase;
+}
+
+.match-wlbl{
+    display: none;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+	position: relative;
+	margin: 0 auto;
+	width: 1109px;
+}
+.match-wlbl .bracket-title{
+	width: 125px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-pack: distribute;
+	    justify-content: space-around;
+}
+.match-wlbl .bracket-title:nth-child(1){
+	left: -2%;
+}
+.match-wlbl .bracket-title:nth-child(2){
+	left: 15%;
+	-webkit-transform: translateX(-20%);
+	    -ms-transform: translateX(-20%);
+	        transform: translateX(-20%);
+}
+.match-wlbl .bracket-title:nth-child(3){
+	left: 30%;
+    -webkit-transform: translateX(-30%);
+        -ms-transform: translateX(-30%);
+            transform: translateX(-30%);
+}
+.match-wlbl .bracket-title:nth-child(4){
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	    -ms-transform: translateX(-50%);
+	        transform: translateX(-50%);
+}
+.match-wlbl .bracket-title:nth-child(5){
+	right: 25%;
+    -webkit-transform: translateX(-30%);
+        -ms-transform: translateX(-30%);
+            transform: translateX(-30%);
+}
+.match-wlbl .bracket-title:nth-child(6){
+	right: 10%;
+    -webkit-transform: translateX(-30%);
+        -ms-transform: translateX(-30%);
+            transform: translateX(-30%);
+}
+.match-wlbl .bracket-title:last-child{
+	right: 0;
+    -webkit-transform: translateX(10%);
+        -ms-transform: translateX(10%);
+            transform: translateX(10%);
 }
 .bracket.champion .bracket-title {
 	top: 10px;
@@ -428,6 +486,9 @@
 }
 .bracket .dd-wrap .icon-ws:before {
 	background-image: url(../../images/prediction/flags/team-flags/wls.svg);
+}
+.bracket.finals .dd-wrap{
+	margin-bottom:8px !important;
 }
 .bracket.quarter-finals .dd-wrap:not(:last-child) {
 	margin-bottom: 88px;
@@ -634,8 +695,19 @@
     font-weight: 700;
 }
 /*POPUP END*/
-
 @media (min-width: 768px) {
+	.match-wlbl{
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		margin: 0 auto;
+		width: 1109px;
+	}
+	.bracket-wrap{
+		max-width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+	}
 	.bracket.finals {
 		position: relative;
 		padding: 0 0 53px;
@@ -644,6 +716,17 @@
 	.bracket.finals .bracket-title {
 		top: auto;
 		bottom: 0;
+	}
+	.scroller-inner{
+		overflow-x: scroll;
+	}
+}
+@media (min-width: 1024px){
+	.bracket-wrap{
+		max-width: 1168px;
+	}	
+	.scroller-inner{
+		overflow-x: hidden;
 	}
 }
 @media (max-width: 767px) {

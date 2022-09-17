@@ -1024,6 +1024,7 @@ jQuery(function($) {
 					var result = (res.result === "success") ? 'true' : 'false';
 					ajaxCompleteSend('1');
 					openCongratsPopup(result);
+					return false
 				}
 				console.log(res);
 			},
@@ -1097,7 +1098,6 @@ jQuery(function($) {
 				$('.txt-err').removeClass('d-none');
 			}
 		});
-	
 	}
 
 	$(document).on('keyup', '.wc22-modals__lbox--pred.act input#pred_email',function(){
@@ -1270,24 +1270,24 @@ jQuery(function($) {
 				openCongratsPopup('false');
 			}
 		});
-			
-		/**Close Modal Start*/
-		$('.btn--close').on('click', function(e){
-			e.preventDefault();
-			e.stopPropagation();
-			$(".wc22-modals").removeClass("act");
-			$('.wc22-modals__lbox--pred').removeClass("act");
-			$("body").css("overflow", "auto");
-		});
-		/**Close Modal End*/
 	}
+
+	/**Close Modal Start*/
+	$('.btn--close').on('click', function(e){
+		e.preventDefault();
+		e.stopPropagation();
+		$(".wc22-modals").removeClass("act");
+		$('.wc22-modals__lbox--pred').removeClass("act");
+		$("body").css("overflow", "auto");
+	});
+	/**Close Modal End*/
 
     function openEmailSuccess(){
       $('.modals__lbx--bottom--msg:eq(0)').html('A summary of your prediction will be sent to your email.');
       $('.modals__lbx--bottom--msg:eq(1)').addClass('d-none').html('');
       $('.email-lbl').addClass('d-none').val('');
       $('.txt-err').text('');
-	  $('.wc22-modals__lbox__footer > .btn').removeClass('btn-send-email').addClass('btn--close').text('OK');
+	  $('.wc22-modals__lbox__footer').addClass('d-none');
     }
 
 	/**Ajax Call beforeSend */
@@ -1301,6 +1301,7 @@ jQuery(function($) {
 			$('.wc22-modals__lbox--pred .wc22-modals__lbox__content').addClass('d-none');
 			$('.wc22-modals__lbox--pred .wc22-modals__lbox__footer').addClass('d-none');
 		}
+		$("body").css("overflow", "hidden");
 		$('.wc22-modals').addClass('act').append('<div class="loading-icon"></div>');
 	}
 

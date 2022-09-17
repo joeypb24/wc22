@@ -24,6 +24,15 @@
 		<div class="scroll-holder scroll-x bracket-scroller-x">
 			<div class="scroll-mover">
 				<div class="scroller-inner">
+					<div class="match-wlbl">
+						<h3 class="bracket-title" data-txt="txt20">Round of 16</h3>
+						<h3 class="bracket-title" data-txt="txt21">Quarter Finals</h3>
+						<h3 class="bracket-title" data-txt="txt22">Semi Finals</h3>
+						<h3 class="bracket-title" data-txt="txt23">Finals</h3>
+						<h3 class="bracket-title" data-txt="txt22">Semi Finals</h3>
+						<h3 class="bracket-title" data-txt="txt21">Quarter Finals</h3>
+						<h3 class="bracket-title" data-txt="txt20">Round of 16</h3>
+					</div>
 						<div class="bracket-wrap"></div>
 					</div>
 				</div>

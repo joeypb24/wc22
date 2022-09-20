@@ -355,84 +355,56 @@ jQuery(function($) {
 
 	//date
 	let oddsDate = function formatDate(d) {
-		d = new Date('11/21/2022 13:00');
+		let nd = new Date(d);
 		let newDate;
+		let newFormat;
+		var time, mdy, am_pm;
+		var mth, dy, yr;
+		const dOpt = {
+			hour12: false,
+			day: "2-digit",
+			month: "2-digit",
+			year: "numeric",
+			hour: "2-digit",
+			minute: "2-digit",
+		};
+
 		if (urlParamLang === "en-US") {
-		  newDate = d.toLocaleString("en-US", {
-			hour12: false,
-			day: "2-digit",
-			month: "2-digit",
-			year: "numeric",
-			hour: "2-digit",
-			minute: "2-digit",
-		  });
+		  newDate = nd.toLocaleString("en-US", dOpt).split(" ");
 		} else if (urlParamLang === "zh-CN") {
-		  newDate = d.toLocaleString("zh-CN", {
-			hour12: false,
-			day: "2-digit",
-			month: "2-digit",
-			year: "numeric",
-			hour: "2-digit",
-			minute: "2-digit",
-		  });
+		  newDate = nd.toLocaleString("zh-CN", dOpt).split(" ");
 		} else if (urlParamLang === "ja-JP") {
-		  newDate = d.toLocaleString("ja-JP", {
-			hour12: false,
-			day: "2-digit",
-			month: "2-digit",
-			year: "numeric",
-			hour: "2-digit",
-			minute: "2-digit",
-		  });
+		  newDate = nd.toLocaleString("ja-JP", dOpt).split(" ");
 		} else if (urlParamLang === "ko-KR") {
-		  newDate = d.toLocaleString("ko-KR", {
-			hour12: false,
-			day: "2-digit",
-			month: "2-digit",
-			year: "numeric",
-			hour: "2-digit",
-			minute: "2-digit",
-		  });
+		  newDate = nd.toLocaleString("ko-KR", dOpt).split(" ");
 		} else if (urlParamLang === "id-ID") {
-		  newDate = d.toLocaleString("id-ID", {
-			hour12: false,
-			day: "2-digit",
-			month: "2-digit",
-			year: "numeric",
-			hour: "2-digit",
-			minute: "2-digit",
-		  });
+		  newDate = nd.toLocaleString("id-ID", dOpt).split(" ");
 		} else if (urlParamLang === "th-TH") {
-		  newDate = d.toLocaleString("th-TH", {
-			hour12: false,
-			day: "2-digit",
-			month: "2-digit",
-			year: "numeric",
-			hour: "2-digit",
-			minute: "2-digit",
-		  });
+		  newDate = nd.toLocaleString("th-TH", dOpt).split(" ");
 		} else if (urlParamLang === "vi-VN") {
-		  newDate = d.toLocaleString("vi-VN", {
-			hour12: false,
-			day: "2-digit",
-			month: "2-digit",
-			year: "numeric",
-			hour: "2-digit",
-			minute: "2-digit",
-		  });
+		  newDate = nd.toLocaleString("vi-VN", dOpt).split(" ");
 		} else {
-		  newDate = d.toLocaleString("en-US", {
-			hour12: false,
-			day: "2-digit",
-			month: "2-digit",
-			year: "numeric",
-			hour: "2-digit",
-			minute: "2-digit",
-		  });
+		  newDate = nd.toLocaleString("en-US", dOpt).split(" ");
 		}
-		return newDate;
+		/**We can access now the time and date seperately.*/
+		time = newDate[1];
+		mdy = newDate[0];
+		// am_pm = newDate[2];
+
+		/**Then parse the mdy into parts*/
+		mdy = mdy.split('/');
+		mth = parseInt(mdy[0]);
+		dy = parseInt(mdy[1]);
+		yr = parseInt(mdy[2]);
+
+		newFormat = dy + '/' + mth + '/' + yr + ' ' + time;
+
+		return newFormat;
 	};
-	console.log(oddsDate());
+	$('.match-date-lbl').each(function(){
+		var date = $(this).find('dd-match-date').text();
+	});
+	console.log(oddsDate('2022-12-03 11:00 PM'));
 
     /**Add data-url start */
     var ddWrapAuth = (preAuth === "False") ? "/register":"";
@@ -546,6 +518,8 @@ jQuery(function($) {
 					}
 					var shortVal = (urlParamLang !== 'en-US') ? value1.name : value1.short;
 					(teamGroupArr[value1.group]).push('<div class="dd-option icon icon-'+value1.id+'" data-val="'+value1.id+'" data-acr="'+value1.short+'"><span class="txt">'+shortVal+'</span></div>');
+					// (teamGroupArr[value1.group]).slice(8);
+					// console.log(teamGroupArr[value1.group].slice(4))
 				});
 			}
 		});
@@ -658,6 +632,7 @@ jQuery(function($) {
 		var inputField = this;
 		var result = $(inputField).val().toLowerCase();
 		var wordsToBold = result.split(' ');
+		console.log('hthtthht')
 		
 		if($(inputField).val() != '') {
 			Object.entries(teamListResult.teams).map(obj => {
@@ -1335,5 +1310,18 @@ jQuery(function($) {
 	function capitalizedUpperCase(str){
 		const capUppercase = str.toUpperCase();
 		return capUppercase;
+	}
+
+	document.querySelectorAll('.dd-wrap input').forEach((el)=> {
+		hideMobileKey(el)
+	});
+
+	function hideMobileKey (elem){
+		elem.addEventListener('keyup', (keyEvent) => {
+			const key = keyEvent.code || keyEvent.keyCode;
+			if(key === 'Enter' || key === 13){
+				elem.blur();
+			}
+		});
 	}
 });

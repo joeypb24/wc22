@@ -401,10 +401,7 @@ jQuery(function($) {
 
 		return newFormat;
 	};
-	$('.match-date-lbl').each(function(){
-		var date = $(this).find('dd-match-date').text();
-	});
-	console.log(oddsDate('2022-12-03 11:00 PM'));
+	
 
     /**Add data-url start */
     var ddWrapAuth = (preAuth === "False") ? "/register":"";
@@ -533,7 +530,8 @@ jQuery(function($) {
 	var prevDesk;
 
 	function bracketResponsive(){
-		let scroll = ($(window).width() >= 560) ? $('.bracket-wrap.x-inner').removeClass('x-inner') : $('.bracket-wrap').addClass('x-inner');
+		$('.bracket-wrap').addClass('x-inner');
+		let scroll = ($(window).width() >= 1240 ) ? $('.bracket-wrap.x-inner').removeClass('x-inner') : $('.bracket-wrap').addClass('x-inner');
 		scroll;
 		
 		var bracketFormat = ($(window).width() >= 768) ? bracketFormat = 'desktop' : bracketFormat = 'mobile';
@@ -632,7 +630,6 @@ jQuery(function($) {
 		var inputField = this;
 		var result = $(inputField).val().toLowerCase();
 		var wordsToBold = result.split(' ');
-		console.log('hthtthht')
 		
 		if($(inputField).val() != '') {
 			Object.entries(teamListResult.teams).map(obj => {
@@ -1310,18 +1307,5 @@ jQuery(function($) {
 	function capitalizedUpperCase(str){
 		const capUppercase = str.toUpperCase();
 		return capUppercase;
-	}
-
-	document.querySelectorAll('.dd-wrap input').forEach((el)=> {
-		hideMobileKey(el)
-	});
-
-	function hideMobileKey (elem){
-		elem.addEventListener('keyup', (keyEvent) => {
-			const key = keyEvent.code || keyEvent.keyCode;
-			if(key === 'Enter' || key === 13){
-				elem.blur();
-			}
-		});
 	}
 });

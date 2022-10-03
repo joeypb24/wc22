@@ -584,6 +584,17 @@ jQuery(function($) {
 		var inputField = this;
 		var result = $(inputField).val().toLowerCase();
 		var wordsToBold = result.split(' ');
+
+
+		let ddWrapTarget = $(this).closest('.dd-wrap').attr('data-target');
+		var test = $('.dd-wrap[data-self="'+ddWrapTarget+'"]').attr('data-item');
+		
+		// console.log(ddWrapTarget)
+		var attr = $('.dd-wrap[data-target="'+ddWrapTarget+'"]').find('.dd-selected').is('data-val');
+		console.log(test)
+		// if(typeof attr !== 'undefined' && attr !== false){
+		// 	console.log('if wala ' + test);
+		// }
 		
 		if($(inputField).val() != '') {
 			Object.entries(teamListResult).map(obj => {
@@ -607,6 +618,16 @@ jQuery(function($) {
 		}
 	});
 
+	// let selTeamshift;
+
+	let selTeamshift49 = [];
+	let selTeamshift50 = [];
+	let selTeamshift51 = [];
+	let selTeamshift52 = [];
+	let selTeamshift53 = [];
+	let selTeamshift54 = [];
+	let selTeamshift55 = [];
+	let selTeamshift56 = [];
 	$(document).on('mouseup', '.dd-wrap .dd-option', function(){
 		let ddWrapSelVal = $(this).closest('.dd-wrap').find('.dd-selected').attr('data-val');
 		let ddWrapSelf = $(this).closest('.dd-wrap').attr('data-self');
@@ -616,13 +637,54 @@ jQuery(function($) {
 		let ddItem = $(this).closest('.dd-wrap').attr('data-item');
 		let selTeamsArr = [];
 		let selTeamsPrvArr = [];
-
 		// addSelected($(this));
-		tests($(this));
+		// tests($(this));
 
 
 		$('.dd-wrap[data-item="'+ddItem+'"] .dd-option.icon.selected').removeClass('selected');
 		$(this).addClass('selected');
+
+		$('.quarter-finals .dd-wrap[data-item="'+ddItem+'"]').each(function(){
+			let ddVal2 = $(this).find('.dd-selected').attr('data-val');
+			switch (ddItem) {
+				case '49':
+					selTeamshift49.unshift(ddVal2);
+					break;
+				case '50':
+					selTeamshift50.unshift(ddVal2);
+					break;
+				case '51':
+					selTeamshift51.unshift(ddVal2);
+					break;
+				case '52':
+					selTeamshift52.unshift(ddVal2);
+					break;
+				case '53':
+					selTeamshift53.unshift(ddVal2);
+					break;
+				case '54':
+					selTeamshift54.unshift(ddVal2);
+					break;
+				case '55':
+					selTeamshift55.unshift(ddVal2);
+					break;
+				case '56':
+					selTeamshift56.unshift(ddVal2);
+					break;
+				default:
+					break;
+			}
+		});
+		var selTeamshift = {
+			'49':{...selTeamshift49},
+			'50':{...selTeamshift50},
+			'51':{...selTeamshift51},
+			'52':{...selTeamshift52},
+			'53':{...selTeamshift53},
+			'54':{...selTeamshift54},
+			'55':{...selTeamshift55},
+			'56':{...selTeamshift56},
+		}
 		
 		$('.dd-wrap[data-self="'+ddWrapTarget+'"] .dd-option').addClass('hidden');
 
@@ -637,6 +699,28 @@ jQuery(function($) {
 				$(this).removeClass('hidden');
 			}
 		});
+
+		$('.quarter-finals .dd-wrap[data-item="'+ddItem+'"]').each(function(){
+			
+			Object.entries(selTeamshift).map(obj1 => {
+				const objK = obj1[0];
+				const objv = obj1[1];
+	
+				if(ddItem === objK){
+					if(objv[1] !== undefined){
+						$('.quarter-finals .dd-wrap .dd-option-wrap > .list ').find('.dd-option.hidden[data-val="' + objv[1] + '"]').removeClass('hidden');
+					}
+				}
+			});
+		});
+
+		$('.quarter-finals .dd-wrap .dd-option-wrap > .list ').find('.dd-option').each(function(){
+			let ddVals2 = $(this).attr('data-val');
+			if(ddWrapSelVal == ddVals2){
+				$(this).addClass('hidden');
+			}
+		});
+		
 		autoHeightDDOption(ddWrapTarget);
 		
 		//prev
@@ -711,7 +795,9 @@ jQuery(function($) {
 		$('.'+bracketClass[1]+' .dd-wrap').each(function(){
 			if(ddWrapSelVal == $(this).find('.dd-selected').attr('data-val')) {
 				$(this).find('.dd-selected').removeAttr('data-val').addClass('placeholder').find('.txt').text('');
+				$(this).find('.dd-selected > input').val(' ');
 				$(this).find('.dd-selected > .txt').removeAttr('data-acro');
+				$(this).find('.dd-option.icon.selected').removeClass('selected');
 				$(this).find('.dd-selected').removeClass(function (index, className) {
 					$(this).removeClass('icon');
 					return (className.match (/(^|\s)icon\S+/g) || []).join(' ');
